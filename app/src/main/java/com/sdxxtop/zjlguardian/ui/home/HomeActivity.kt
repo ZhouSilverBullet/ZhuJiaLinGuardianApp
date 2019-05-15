@@ -1,12 +1,22 @@
 package com.sdxxtop.zjlguardian.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 
-class HomeActivity : AppCompatActivity() {
+import com.sdxxtop.zjlguardian.R
+import com.sdxxtop.zjlguardian.base.KBaseActivity
+import com.sdxxtop.zjlguardian.databinding.ActivityHomeBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+class HomeActivity : KBaseActivity<ActivityHomeBinding>() {
+
+    override fun getLayoutId() = R.layout.activity_home
+
+    override fun loadData(isRefresh: Boolean) {
+
     }
+
+    override fun initView() {
+        mBinding.toolbar.title = ""
+        setSupportActionBar(mBinding.toolbar)
+    }
+
+
 }
