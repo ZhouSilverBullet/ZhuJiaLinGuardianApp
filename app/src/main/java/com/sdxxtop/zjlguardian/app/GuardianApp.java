@@ -1,4 +1,4 @@
-package com.sdxxtop.zjlguardian;
+package com.sdxxtop.zjlguardian.app;
 
 import com.sdxxtop.app.App;
 
@@ -8,5 +8,6 @@ import com.sdxxtop.app.App;
  * @Version 1.0
  * @UserWhat what
  */
-public class MyApp extends App {
+public class GuardianApp extends App {
+
 }
