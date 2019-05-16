@@ -154,25 +154,25 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
         int userid = loginBean.getUserid();
         String img = loginBean.getImg();
 
-//        SpUtil.putString(Constants.AUTO_TOKEN, autoToken);
-//        SpUtil.putInt(Constants.EXPIRE_TIME, expireTime);
-//        SpUtil.putInt(Constants.PART_ID, partId);
-//        SpUtil.putInt(Constants.USER_ID, userid);
-//        SpUtil.putString(Constants.MOBILE, mobile);
+        SpUtil.putString(Constants.AUTO_TOKEN, autoToken);
+        SpUtil.putInt(Constants.EXPIRE_TIME, expireTime);
+        SpUtil.putInt(Constants.PART_ID, partId);
+        SpUtil.putInt(Constants.USER_ID, userid);
+        SpUtil.putString(Constants.MOBILE, mobile);
 
-//        Intent intent = new Intent(this, LoginConfirmActivity.class);
-//        intent.putExtra("isAdmin", true);
-//        intent.putExtra("autoToken", autoToken);
-//        intent.putExtra("expireTime", expireTime);
-//        intent.putExtra("partId", partId);
-//        intent.putExtra("userid", userid);
-//        intent.putExtra("phone", mobile);
-//        intent.putExtra("name", name);
-//        intent.putExtra("partName", partName);
-//        intent.putExtra("position", position);
-//        intent.putExtra("img", img);
-//        startActivity(intent);
-//        finish();
+        Intent intent = new Intent(this, LoginConfirmActivity.class);
+        intent.putExtra("isAdmin", true);
+        intent.putExtra("autoToken", autoToken);
+        intent.putExtra("expireTime", expireTime);
+        intent.putExtra("partId", partId);
+        intent.putExtra("userid", userid);
+        intent.putExtra("phone", mobile);
+        intent.putExtra("name", name);
+        intent.putExtra("partName", partName);
+        intent.putExtra("position", position);
+        intent.putExtra("img", img);
+        startActivity(intent);
+        finish();
     }
 
     @Override

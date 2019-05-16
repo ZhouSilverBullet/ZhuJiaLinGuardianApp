@@ -9,6 +9,7 @@ import android.view.WindowManager
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.ui.home.HomeActivity
 import com.sdxxtop.zjlguardian.ui.login.LoginActivity
+import com.sdxxtop.zjlguardian.ui.login.LoginConfirmActivity
 import org.jetbrains.anko.startActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -38,7 +39,7 @@ class SplashActivity : AppCompatActivity() {
 
 
         Handler().postDelayed({
-            startActivity<LoginActivity>()
+            startActivity<LoginConfirmActivity>()
             finish()
         },3000L)
     }
