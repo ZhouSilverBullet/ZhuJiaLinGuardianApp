@@ -11,7 +11,7 @@ import com.sdxxtop.zjlguardian.http.net.RetrofitHelper;
  * Version: 1.0
  * Description:
  */
-public abstract class GuardianRxPresenter<T extends BaseView> extends RxPresenter<T> {
+public abstract class GRxPresenter<T extends BaseView> extends RxPresenter<T> {
 
     public GuardianService getService() {
         return RetrofitHelper.getGuardianService();

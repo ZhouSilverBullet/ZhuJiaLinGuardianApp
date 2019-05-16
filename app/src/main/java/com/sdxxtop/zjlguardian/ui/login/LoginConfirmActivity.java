@@ -16,6 +16,7 @@ import com.sdxxtop.model.db.UserData;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseActivity;
 import com.sdxxtop.zjlguardian.ui.home.HomeActivity;
+import com.sdxxtop.zjlguardian.ui.home.HomeTabActivity;
 
 import butterknife.BindView;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -161,7 +162,7 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
 
     private void startActivity() {
         notifyLoginFinish();
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, HomeTabActivity.class);
         intent.putExtra("isAdmin", isAdmin);
         startActivity(intent);
         finish();

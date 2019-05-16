@@ -1,5 +1,6 @@
 package com.sdxxtop.zjlguardian.http;
 
+import com.sdxxtop.model.bean.InitBean;
 import com.sdxxtop.model.bean.RequestBean;
 import com.sdxxtop.zjlguardian.data.LoginBean;
 
@@ -17,6 +18,9 @@ import retrofit2.http.POST;
 public interface GuardianService {
     String BASE_URL = "http://envir.sdxxtop.com/api/";
 
+    @FormUrlEncoded
+    @POST("app/init")
+    Observable<RequestBean<InitBean>> postAppInit(@Field("data") String data);
 
     @FormUrlEncoded
     @POST("login/sendCode")
