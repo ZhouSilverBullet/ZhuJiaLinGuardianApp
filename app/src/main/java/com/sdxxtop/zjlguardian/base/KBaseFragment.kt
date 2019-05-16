@@ -13,6 +13,7 @@ import com.sdxxtop.zjlguardian.BR
 import com.sdxxtop.zjlguardian.extens.dispatchFailure
 import com.sdxxtop.zjlguardian.extens.toast
 import com.sdxxtop.zjlguardian.helper.annotations.ToastType
+import me.yokeyword.fragmentation.SupportFragment
 
 
 /**
@@ -21,7 +22,7 @@ import com.sdxxtop.zjlguardian.helper.annotations.ToastType
  * Created by ditclear on 2017/9/27.
  */
 
-abstract class KBaseFragment<VB : ViewDataBinding> : Fragment(), Presenter {
+abstract class KBaseFragment<VB : ViewDataBinding> : SupportFragment(), Presenter {
 
     protected val mBinding by lazy { DataBindingUtil.inflate<VB>(layoutInflater, getLayoutId(), null, false) }
 

@@ -58,6 +58,7 @@ dependencies {
     //ViewModel
     implementation "android.arch.lifecycle:extensions:" + rootProject.archLifecycleVersion
     implementation "android.arch.lifecycle:viewmodel:" + rootProject.archLifecycleVersion
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "android.arch.lifecycle:compiler:" + rootProject.archLifecycleVersion
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2'
 

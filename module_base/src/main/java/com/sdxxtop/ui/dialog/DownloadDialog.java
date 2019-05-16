@@ -131,7 +131,7 @@ public class DownloadDialog {
                             if (aBoolean) {
                                 showProgressDownload();
                             } else {
-                                UIUtils.showToast("请给予知点云教师版读写权限");
+                                UIUtils.showToast("请给予" + context.getResources().getString(R.string.app_name) + "读写权限");
                             }
                         }
                     });

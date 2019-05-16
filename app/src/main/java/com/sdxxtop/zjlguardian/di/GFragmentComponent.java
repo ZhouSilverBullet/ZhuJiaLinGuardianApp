@@ -7,6 +7,7 @@ import com.sdxxtop.di.module.FragmentModule;
 import com.sdxxtop.di.qualifier.FragmentScope;
 import com.sdxxtop.zjlguardian.ui.learn.course.CourseListFragment;
 import com.sdxxtop.zjlguardian.ui.learn.news.NewsListFragment;
+import com.sdxxtop.zjlguardian.ui.mine.MineFragment;
 
 import dagger.Component;
 
@@ -25,5 +26,5 @@ public interface GFragmentComponent {
 
     void inject(CourseListFragment fragment);
 
-//    void inject(MineFragment fragment);
+    void inject(MineFragment fragment);
 }

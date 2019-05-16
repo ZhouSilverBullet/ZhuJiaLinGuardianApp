@@ -8,6 +8,7 @@ import com.sdxxtop.zjlguardian.data.LearnNewsBean;
 import com.sdxxtop.zjlguardian.data.LoginBean;
 import com.sdxxtop.zjlguardian.data.StudyCourseBean;
 import com.sdxxtop.zjlguardian.data.StudyQuestionBean;
+import com.sdxxtop.zjlguardian.data.UcenterIndexBean;
 
 import java.util.HashMap;
 import java.util.List;
@@ -97,9 +98,9 @@ public interface GuardianService {
 //    Observable<RequestBean<ContactIndexBean>> postContactSearch(@Field("data") String data);
 //
 //
-//    @FormUrlEncoded
-//    @POST("ucenter/index")
-//    Observable<RequestBean<UcenterIndexBean>> postUcenterIndex(@Field("data") String data);
+    @FormUrlEncoded
+    @POST("ucenter/index")
+    Observable<RequestBean<UcenterIndexBean>> postUcenterIndex(@Field("data") String data);
 
     @Multipart
     @POST("ucenter/modImg")

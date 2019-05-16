@@ -46,7 +46,7 @@ public class DownloadAppDialog implements DialogInterface.OnKeyListener {
     public DownloadAppDialog(Context context, String apkUrl, String appPath, Dialog dialog) {
         this.context = context;
         this.apkUrl = apkUrl;
-        this.apkPath = appPath + File.separator + "guardianApp.apk";
+        this.apkPath = appPath + File.separator + context.getPackageName() + ".apk";
         this.parentDialog = dialog;
     }
 

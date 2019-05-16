@@ -22,6 +22,8 @@ import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseActivity;
 import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
 import com.sdxxtop.zjlguardian.ui.learn.LearningFragment;
+import com.sdxxtop.zjlguardian.ui.mine.MineFragment;
+import com.sdxxtop.zjlguardian.ui.server_people.ServerPeopleFragment;
 
 import java.util.List;
 
@@ -129,21 +131,20 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
     }
 
     private void switchFragment(int position) {
-//        loadMultipleRootFragment(R.id.fl_home_container, 0, new LearningFragment());
-//        HomeFragment fragment = findFragment(HomeFragment.class);
-//        if (fragment == null) {
-//            mFragments[0] = HomeFragment.newInstance(isAdmin);
-//            mFragments[1] = new LearningFragment();
-//            mFragments[2] = MineFragment.newInstance(isAdmin);
-//
-//            loadMultipleRootFragment(R.id.fl_home_container, position,
-//                    mFragments[0],
-//                    mFragments[1],
-//                    mFragments[2]);
-//        } else {
-//            showHideFragment(mFragments[position], mFragments[prePosition]);
-//        }
-//        prePosition = position;
+        ServerPeopleFragment fragment = findFragment(ServerPeopleFragment.class);
+        if (fragment == null) {
+            mFragments[0] = new ServerPeopleFragment();
+            mFragments[1] = new LearningFragment();
+            mFragments[2] = MineFragment.newInstance(isAdmin);
+
+            loadMultipleRootFragment(R.id.fl_home_container, position,
+                    mFragments[0],
+                    mFragments[1],
+                    mFragments[2]);
+        } else {
+            showHideFragment(mFragments[position], mFragments[prePosition]);
+        }
+        prePosition = position;
     }
 
     private void itemSelectAnimator(int position, boolean wasSelected) {

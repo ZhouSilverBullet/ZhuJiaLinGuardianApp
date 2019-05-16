@@ -10,6 +10,7 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 
+import com.cy.translucentparent.StatusNavUtils;
 import com.sdxxtop.utils.DialogUtil;
 import com.sdxxtop.utils.StatusBarUtil;
 import com.sdxxtop.utils.UIUtils;
@@ -33,7 +34,8 @@ public abstract class BaseActivity extends SwipeBackActivity {
         mContext = this;
         setSwipeBackEnable(false);
         if (isInitStatusBar()) {
-            initStatusBar();
+//            initStatusBar();
+            StatusNavUtils.setStatusBarColor(this,0x00000000);
         }
 
         if (getButterBind()) {
@@ -49,38 +51,38 @@ public abstract class BaseActivity extends SwipeBackActivity {
         return isButterBind;
     }
 
-    /**
-     * statusBar 控制
-     */
-    private void initStatusBar() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window window = getWindow();
-            // Translucent status bar
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) { //这个全透明
-                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-                window.setStatusBarColor(Color.TRANSPARENT);
-            } else { //这个是半透明
-                window.setFlags(
-                        WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                        WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            }
-
-            if (StatusBarUtil.MIUISetStatusBarLightMode(getWindow(), true)) {//小米MIUI系统
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//Android6.0以上系统
-                    StatusBarUtil.android6_SetStatusBarLightMode(getWindow());
-                    StatusBarUtil.compat(this);
-                } else {
-                    StatusBarUtil.compat(this);
-                }
-            } else if (StatusBarUtil.FlymeSetStatusBarLightMode(getWindow(), true)) {//魅族flyme系统
-                StatusBarUtil.compat(this);
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//Android6.0以上系统
-                StatusBarUtil.android6_SetStatusBarLightMode(getWindow());
-                StatusBarUtil.compat(this);
-            }
-        }
-    }
+//    /**
+//     * statusBar 控制
+//     */
+//    private void initStatusBar() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            Window window = getWindow();
+//            // Translucent status bar
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isHomeTabActivity()) { //这个全透明
+//                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+//                window.setStatusBarColor(Color.TRANSPARENT);
+//            } else { //这个是半透明
+//                window.setFlags(
+//                        WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+//                        WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            }
+//
+//            if (StatusBarUtil.MIUISetStatusBarLightMode(getWindow(), true)) {//小米MIUI系统
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//Android6.0以上系统
+//                    StatusBarUtil.android6_SetStatusBarLightMode(getWindow());
+//                    StatusBarUtil.compat(this);
+//                } else {
+//                    StatusBarUtil.compat(this);
+//                }
+//            } else if (StatusBarUtil.FlymeSetStatusBarLightMode(getWindow(), true)) {//魅族flyme系统
+//                StatusBarUtil.compat(this);
+//            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//Android6.0以上系统
+//                StatusBarUtil.android6_SetStatusBarLightMode(getWindow());
+//                StatusBarUtil.compat(this);
+//            }
+//        }
+//    }
 
     @Override
     protected void onDestroy() {
@@ -146,6 +148,16 @@ public abstract class BaseActivity extends SwipeBackActivity {
 
     protected boolean isInitStatusBar() {
         return true;
+    }
+
+    /**
+     * 如果是tabActivity，要求把布局顶上去
+     * 需要这么做
+     *
+     * @return
+     */
+    protected boolean isHomeTabActivity() {
+        return false;
     }
 
     protected abstract int getLayout();
