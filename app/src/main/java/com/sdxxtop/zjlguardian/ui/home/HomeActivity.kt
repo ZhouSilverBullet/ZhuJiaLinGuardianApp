@@ -23,7 +23,7 @@ class HomeActivity : KBaseActivity<ActivityHomeBinding>() {
 
         setSupportActionBar(toolbar)
 
-        toolbar.setOnClickListener { toast("asfasfd") }
+//        toolbar.setOnClickListener { toast("asfasfd") }
 
         toolbar.setNavigationOnClickListener { view ->
             toast("fanhui")
