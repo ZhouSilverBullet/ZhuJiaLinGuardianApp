@@ -18,9 +18,11 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
 public abstract class BaseActivity extends SwipeBackActivity {
 
-    private Unbinder mUnbinder;
+    protected Unbinder mUnbinder;
     protected BaseActivity mContext;
     private DialogUtil mDialogUtil;
+
+    protected boolean isButterBind = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,11 +34,17 @@ public abstract class BaseActivity extends SwipeBackActivity {
             initStatusBar();
         }
 
-        mUnbinder = ButterKnife.bind(this);
+        if (getButterBind()) {
+            mUnbinder = ButterKnife.bind(this);
+        }
         initVariables();
         initView();
         initEvent();
         initData();
+    }
+
+    public boolean getButterBind() {
+        return isButterBind;
     }
 
     /**
@@ -78,6 +86,7 @@ public abstract class BaseActivity extends SwipeBackActivity {
             mDialogUtil = null;
         }
     }
+
     public void statusBar(boolean isDark) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//Android6.0以上系统
             StatusBarUtil.setDarkStatusIcon(this.getWindow(), isDark);
@@ -106,8 +115,8 @@ public abstract class BaseActivity extends SwipeBackActivity {
 
     /**
      * 当全屏的时候，状态栏继续显示
-     *  调用该方法
-     *  https://blog.csdn.net/a872822645/article/details/74482323
+     * 调用该方法
+     * https://blog.csdn.net/a872822645/article/details/74482323
      */
     protected void showStatusBar() {
         WindowManager.LayoutParams attrs = getWindow().getAttributes();

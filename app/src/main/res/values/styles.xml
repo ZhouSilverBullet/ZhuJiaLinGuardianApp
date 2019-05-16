@@ -9,4 +9,12 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="NormalSplash" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_layer_icon</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 </resources>
