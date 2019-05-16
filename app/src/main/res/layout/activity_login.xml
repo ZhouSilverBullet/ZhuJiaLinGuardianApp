@@ -76,6 +76,7 @@
                 app:bl_ripple_enable="true"
                 app:bl_stroke_color="@color/red_E60012"
                 app:bl_stroke_width="1dp"
+                app:bl_unEnabled_drawable="@color/red_unable_E60012"
                 app:bl_unPressed_drawable="@color/red_E60012">
 
                 <TextView
@@ -181,5 +182,6 @@
         app:bl_ripple_enable="true"
         app:bl_stroke_color="@color/red_E60012"
         app:bl_stroke_width="1dp"
+        app:bl_unEnabled_drawable="@color/red_unable_E60012"
         app:bl_unPressed_drawable="@color/red_E60012" />
 </LinearLayout>

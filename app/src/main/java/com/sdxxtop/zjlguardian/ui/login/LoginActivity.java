@@ -15,10 +15,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.jakewharton.rxbinding3.view.RxView;
+import com.jakewharton.rxbinding3.widget.RxTextView;
 import com.sdxxtop.app.Constants;
 import com.sdxxtop.utils.SpUtil;
 import com.sdxxtop.utils.UIUtils;
+import com.sdxxtop.zjlguardian.MainActivity;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
 import com.sdxxtop.zjlguardian.data.LoginBean;
@@ -27,6 +31,11 @@ import com.sdxxtop.zjlguardian.helper.control.DelTextWatcher;
 import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.BiFunction;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 
 public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements LoginContract.IView, Handler.Callback {
     public static final String ACTION_LOGIN_CONFIRM_SUCCESS = "action_login_confirm_success";
@@ -86,6 +95,9 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
     @Override
     protected void initEvent() {
         super.initEvent();
+
+        rxEditText();
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,6 +114,35 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
 
         etPhone.addTextChangedListener(new DelTextWatcher(etPhone, ivPhoneDel));
         etCode.addTextChangedListener(new DelTextWatcher(etCode, ivCodeDel));
+    }
+
+    private void rxEditText() {
+        Disposable subscribe  = Observable.combineLatest(RxTextView.textChanges(etPhone).map(new Function<CharSequence, String>() {
+            @Override
+            public String apply(CharSequence charSequence) throws Exception {
+                return String.valueOf(charSequence);
+            }
+        }), RxTextView.textChanges(etCode).map(new Function<CharSequence, String>() {
+            @Override
+            public String apply(CharSequence charSequence) throws Exception {
+                return String.valueOf(charSequence);
+            }
+        }), new BiFunction<String, String, Boolean>() {
+            @Override
+            public Boolean apply(String name, String password) throws Exception {
+                if (name.length() == 11) { //电话长度为11
+                    flCode.setEnabled(true);
+                } else {
+                    flCode.setEnabled(false);
+                }
+                return name.length() == 11 && password.length() >= 4;
+            }
+        }).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean aBoolean) throws Exception {
+                btnLogin.setEnabled(aBoolean);
+            }
+        });
     }
 
     private void toLogin() {

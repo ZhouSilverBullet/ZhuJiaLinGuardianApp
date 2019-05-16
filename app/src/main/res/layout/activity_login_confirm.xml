@@ -162,7 +162,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="53dp"
-                        android:text="工作单位："
+                        android:text="工作部门："
                         android:textColor="@color/color_838282"
                         android:textSize="18sp" />
 
@@ -195,7 +195,7 @@
 
                         <TextView
                             style="@style/confirm_text"
-                            android:text="岗" />
+                            android:text="角" />
 
                         <View
                             android:layout_width="0dp"
@@ -204,7 +204,7 @@
 
                         <TextView
                             style="@style/confirm_text"
-                            android:text="位：" />
+                            android:text="色：" />
                     </LinearLayout>
 
                     <TextView

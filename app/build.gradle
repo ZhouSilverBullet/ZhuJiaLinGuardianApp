@@ -60,6 +60,7 @@ dependencies {
     implementation "android.arch.lifecycle:viewmodel:" + rootProject.archLifecycleVersion
     kapt "android.arch.lifecycle:compiler:" + rootProject.archLifecycleVersion
     implementation 'com.github.GrenderG:Toasty:1.4.2'
+    implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2'
 //    implementation rootProject.ext.dependencies["dagger"]
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     kapt rootProject.ext.dependencies["dagger-compiler"]

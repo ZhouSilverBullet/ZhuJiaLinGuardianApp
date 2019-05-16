@@ -39,7 +39,7 @@ class SplashActivity : AppCompatActivity() {
 
 
         Handler().postDelayed({
-            startActivity<LoginConfirmActivity>()
+            startActivity<LoginActivity>()
             finish()
         },3000L)
     }
