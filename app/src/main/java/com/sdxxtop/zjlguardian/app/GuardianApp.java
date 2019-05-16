@@ -15,6 +15,8 @@ public class GuardianApp extends App {
     public void onCreate() {
         super.onCreate();
 
-        Toasty.Config.getInstance().apply(); // required
+        Toasty.Config.getInstance()
+                .allowQueue(false)
+                .apply(); // required
     }
 }

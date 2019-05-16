@@ -60,6 +60,23 @@ dependencies {
     implementation "android.arch.lifecycle:viewmodel:" + rootProject.archLifecycleVersion
     kapt "android.arch.lifecycle:compiler:" + rootProject.archLifecycleVersion
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2'
+
+
+    //    # 必选，可兼容市面上绝大部分设备
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-java:2.5.5'
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-armv7a:2.5.5'
+//    # 可选，用于兼容一些其他的CPU架构
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-armv5:2.5.5'
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-arm64:2.5.5'
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-x86:2.5.5'
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-x86_64:2.5.5'
+//    # 可选，里面包含StandardVideoController的实现
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-ui:2.5.5'
+    implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.25'
+    implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'
+    implementation 'com.github.ctiao:ndkbitmap-armv5:0.9.21'
+    implementation 'com.github.ctiao:ndkbitmap-x86:0.9.21'
+
 //    implementation rootProject.ext.dependencies["dagger"]
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     kapt rootProject.ext.dependencies["dagger-compiler"]

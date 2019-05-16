@@ -1,5 +1,9 @@
 package com.sdxxtop.zjlguardian.ui.login;
 
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
 import com.sdxxtop.model.bean.RequestBean;
 import com.sdxxtop.model.http.callback.IRequestCallback;
 import com.sdxxtop.model.http.net.Params;
@@ -25,7 +29,8 @@ public class LoginPresenter extends GRxPresenter<LoginContract.IView> implements
         params.put("mb", mobile);
         params.put("ac", authCode);
         params.put("pi", partId);
-        Observable<RequestBean<LoginBean>> requestBeanObservable = getService().postLoginMobileLogin(params.getData());
+        Observable<RequestBean<LoginBean>> requestBeanObservable = getService()
+                .postLoginMobileLogin(params.getData());
         Disposable disposable = RxUtils.handleDataHttp(requestBeanObservable, new IRequestCallback<LoginBean>() {
             @Override
             public void onSuccess(LoginBean loginBean) {
@@ -34,13 +39,18 @@ public class LoginPresenter extends GRxPresenter<LoginContract.IView> implements
 
             @Override
             public void onFailure(int code, String error) {
+                mView.showError(error);
                 UIUtils.showToast(error);
             }
         });
         addSubscribe(disposable);
     }
 
-    public void sendCode(String mobile) {
+    public void sendCode(View flCode,TextView tvCode, ProgressBar pbCode, String mobile) {
+
+        flCode.setEnabled(false);
+        tvCode.setVisibility(View.GONE);
+        pbCode.setVisibility(View.VISIBLE);
         Params params = new Params();
         params.put("mb", mobile);
 
@@ -48,12 +58,16 @@ public class LoginPresenter extends GRxPresenter<LoginContract.IView> implements
         Disposable disposable = RxUtils.handleHttp(observable, new IRequestCallback<RequestBean>() {
             @Override
             public void onSuccess(RequestBean requestBean) {
+                pbCode.setVisibility(View.GONE);
                 mView.sendCodeSuccess();
                 UIUtils.showToast("发送成功");
             }
 
             @Override
             public void onFailure(int code, String error) {
+                pbCode.setVisibility(View.GONE);
+                tvCode.setVisibility(View.VISIBLE);
+                flCode.setEnabled(true);
                 mView.sendCodeError();
                 UIUtils.showToast(error);
             }

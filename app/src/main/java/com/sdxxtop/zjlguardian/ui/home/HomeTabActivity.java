@@ -21,6 +21,7 @@ import com.sdxxtop.utils.ReflectUtils;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseActivity;
 import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
+import com.sdxxtop.zjlguardian.ui.learn.LearningFragment;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  * Version: 1.0
  * Description:
  */
-public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements HomeContract.IView{
+public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements HomeContract.IView {
 
 
     @BindView(R.id.ahn_home_navigation)
@@ -128,6 +129,7 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
     }
 
     private void switchFragment(int position) {
+//        loadMultipleRootFragment(R.id.fl_home_container, 0, new LearningFragment());
 //        HomeFragment fragment = findFragment(HomeFragment.class);
 //        if (fragment == null) {
 //            mFragments[0] = HomeFragment.newInstance(isAdmin);

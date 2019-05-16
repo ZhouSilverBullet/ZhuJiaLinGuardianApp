@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,8 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
     LinearLayout llCode;
     @BindView(R.id.tv_time)
     TextView tvTime;
+    @BindView(R.id.pb_code)
+    ProgressBar pbCode;
     @BindView(R.id.et_code)
     EditText etCode;
     @BindView(R.id.et_phone)
@@ -130,7 +133,7 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
         }), new BiFunction<String, String, Boolean>() {
             @Override
             public Boolean apply(String name, String password) throws Exception {
-                if (name.length() == 11) { //电话长度为11
+                if (name.length() == 11 && !isSending) { //电话长度为11 && 不是正在发送
                     flCode.setEnabled(true);
                 } else {
                     flCode.setEnabled(false);
@@ -146,15 +149,19 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
     }
 
     private void toLogin() {
+        showLoadingDialog();
+
         String trim = etPhone.getText().toString().trim();
         if (TextUtils.isEmpty(trim)) {
             UIUtils.showToast("请输入正确的手机号码");
+            hideLoadingDialog();
             return;
         }
 
         String code = etCode.getText().toString().trim();
         if (TextUtils.isEmpty(code)) {
             UIUtils.showToast("验证码不能为空");
+            hideLoadingDialog();
             return;
         }
 
@@ -174,13 +181,13 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
 
         if (!isSending) {
             isSending = true;
-            mPresenter.sendCode(trim);
+            mPresenter.sendCode(flCode, tvCode, pbCode, trim);
         }
     }
 
     @Override
     public void showError(String error) {
-
+        hideLoadingDialog();
     }
 
     @Override
@@ -246,9 +253,11 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
             tvTime.setText(String.valueOf(value));
             tvCode.setVisibility(View.INVISIBLE);
             llCode.setVisibility(View.VISIBLE);
+            flCode.setEnabled(false);
         } else {
             tvCode.setVisibility(View.VISIBLE);
             llCode.setVisibility(View.INVISIBLE);
+            flCode.setEnabled(true);
         }
 
     }

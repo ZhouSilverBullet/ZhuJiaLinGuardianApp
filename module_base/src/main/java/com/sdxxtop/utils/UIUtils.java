@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.sdxxtop.app.App;
+import com.sdxxtop.base.R;
 
 import es.dmoral.toasty.Toasty;
 
@@ -19,11 +20,15 @@ public class UIUtils {
     }
 
     public static void showToast(String msg) {
-        showToast(msg, Toast.LENGTH_SHORT);
+        showToast(msg, Toasty.LENGTH_SHORT);
     }
 
     public static void showToast(String msg, int duration) {
-        Toasty.info(getContext(), msg, duration, false).show();
+//        Toasty.info(getContext(), msg, duration, false).show();
+        Toasty.custom(getContext(), msg,
+                R.drawable.icon_4_home,
+                R.color.color_red_E60012,
+                duration, false, true).show();
     }
 
     /**
@@ -34,7 +39,7 @@ public class UIUtils {
 
             @Override
             public void run() {
-                Toasty.info(getContext(), msg, Toasty.LENGTH_SHORT, false).show();
+                showToast(msg, Toasty.LENGTH_SHORT);
             }
         });
     }

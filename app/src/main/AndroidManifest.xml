@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.home.MainTabActivity"></activity>
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/NormalSplash">
@@ -23,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.home.HomeActivity"></activity>
+        <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.PolicyQueryActivity" />
 
         <meta-data
@@ -43,11 +42,16 @@
             android:value="2.2" />
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".ui.home.HomeTabActivity" />
+        <activity
+            android:name=".ui.home.HomeTabActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/homeTheme" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity
             android:name=".ui.login.LoginConfirmActivity"
             android:theme="@style/RedAppTheme" />
+        <activity android:name=".ui.learn.news.NewsDetailsActivity" />
+        <activity android:name=".ui.examine.ExamineActivity" />
     </application>
 
 </manifest>
