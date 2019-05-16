@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import com.sdxxtop.app.App;
 
-public class UIUtils {
+import es.dmoral.toasty.Toasty;
 
-    public static Toast mToast;
+public class UIUtils {
 
     public static void showToast(int msgId) {
         showToast(getString(msgId));
@@ -23,11 +23,7 @@ public class UIUtils {
     }
 
     public static void showToast(String msg, int duration) {
-        if (mToast == null) {
-            mToast = Toast.makeText(getContext(), "", duration);
-        }
-        mToast.setText(msg);
-        mToast.show();
+        Toasty.info(getContext(), msg, duration, false).show();
     }
 
     /**
@@ -38,11 +34,7 @@ public class UIUtils {
 
             @Override
             public void run() {
-                if (mToast == null) {
-                    mToast = Toast.makeText(getContext(), "", Toast.LENGTH_SHORT);
-                }
-                mToast.setText(msg);
-                mToast.show();
+                Toasty.info(getContext(), msg, Toasty.LENGTH_SHORT, false).show();
             }
         });
     }

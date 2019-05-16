@@ -106,7 +106,7 @@ dependencies {
     api 'com.amap.api:map2d:5.2.0'
     api 'com.amap.api:search:6.5.0.1'
     api 'com.amap.api:location:4.5.1'
-
+    api 'com.github.GrenderG:Toasty:1.4.2'
 
     api rootProject.ext.dependencies["junit"]
     api rootProject.ext.dependencies["test.runer"]
