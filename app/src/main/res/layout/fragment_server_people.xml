@@ -8,6 +8,10 @@
         <variable
             name="vm"
             type="com.sdxxtop.zjlguardian.ui.server_people.ServerPeopleViewModel" />
+
+        <variable
+            name="presenter"
+            type="com.sdxxtop.zjlguardian.base.Presenter" />
     </data>
 
     <LinearLayout
@@ -119,6 +123,7 @@
                 app:bl_pressed_drawable="@color/red_press_E60012"
                 app:bl_ripple_color="@color/red_E60012"
                 app:bl_ripple_enable="true"
+                android:onClick="@{(v) -> presenter.onClick(v)}"
                 app:bl_stroke_color="@color/red_E60012"
                 app:bl_stroke_width="1dp"
                 app:bl_unEnabled_drawable="@color/red_unable_E60012"

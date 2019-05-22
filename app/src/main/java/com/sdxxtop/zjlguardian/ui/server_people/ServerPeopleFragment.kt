@@ -1,6 +1,7 @@
 package com.sdxxtop.zjlguardian.ui.server_people
 
 import android.content.Context
+import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -10,9 +11,11 @@ import com.bumptech.glide.request.RequestOptions
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseFragment
 import com.sdxxtop.zjlguardian.databinding.FragmentServerPeopleBinding
+import com.sdxxtop.zjlguardian.ui.politics.PoliticsActivity
 import com.sdxxtop.zjlguardian.widget.AutoTextViewManager
 import com.youth.banner.loader.ImageLoader
 import kotlinx.android.synthetic.main.fragment_server_people.*
+import org.jetbrains.anko.support.v4.startActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -38,7 +41,6 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
             autoTextViewManager.start()
         })
 
-
     }
 
     override fun loadData(isRefresh: Boolean) {
@@ -58,5 +60,13 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
     override fun onDestroy() {
         super.onDestroy()
         autoTextViewManager.removeAutoTextRunnable()
+    }
+
+    override fun onClick(v: View?) {
+        when (v) {
+            mBinding.btnPolitics -> {
+                startActivity<PoliticsActivity>()
+            }
+        }
     }
 }
