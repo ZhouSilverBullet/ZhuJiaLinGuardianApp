@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.politics.PoliticsActivity"></activity>
+        <activity android:name=".ui.politics.PoliticsSearchActivity"></activity>
+        <activity android:name=".ui.politics.PoliticsActivity" />
         <activity android:name=".ui.login.RegisterActivity" />
         <activity
             android:name=".ui.splash.SplashActivity"

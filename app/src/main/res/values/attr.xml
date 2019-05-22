@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="auto3d">
-        <attr name="textSize" format="dimension|reference"/>
+        <attr name="textSize" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="NumberEditTextView">
+        <attr name="netv_et_height" format="integer" />
     </declare-styleable>
 </resources>
