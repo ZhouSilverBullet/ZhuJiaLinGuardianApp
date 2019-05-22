@@ -7,6 +7,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.noober.background.BackgroundLibrary
+import com.sdxxtop.utils.DialogUtil
 import com.sdxxtop.zjlguardian.BR
 import com.sdxxtop.zjlguardian.extens.statusBar
 
@@ -21,8 +23,12 @@ abstract class KBaseActivity<VB : ViewDataBinding> : AppCompatActivity(), Presen
     protected lateinit var mContext: Context
 
     protected var autoRefresh = true
+    protected val mDialogUtil: DialogUtil by lazy {
+        DialogUtil()
+    };
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        BackgroundLibrary.inject(this)
         super.onCreate(savedInstanceState)
         mBinding.setVariable(BR.presenter, this)
         mBinding.executePendingBindings()
@@ -40,6 +46,14 @@ abstract class KBaseActivity<VB : ViewDataBinding> : AppCompatActivity(), Presen
     abstract fun getLayoutId(): Int
 
     override fun onClick(v: View?) {
+    }
+
+    fun showLoadingDialog() {
+        mDialogUtil.showLoadingDialog(this)
+    }
+
+    fun hideLoadingDialog() {
+        mDialogUtil.closeLoadingDialog()
     }
 
 }

@@ -2,10 +2,12 @@ package com.sdxxtop.zjlguardian.http;
 
 import com.sdxxtop.model.bean.InitBean;
 import com.sdxxtop.model.bean.RequestBean;
+import com.sdxxtop.zjlguardian.BuildConfig;
 import com.sdxxtop.zjlguardian.data.AutoLoginBean;
 import com.sdxxtop.zjlguardian.data.ExamineFinishBean;
 import com.sdxxtop.zjlguardian.data.LearnNewsBean;
 import com.sdxxtop.zjlguardian.data.LoginBean;
+import com.sdxxtop.zjlguardian.data.RegisterBean;
 import com.sdxxtop.zjlguardian.data.StudyCourseBean;
 import com.sdxxtop.zjlguardian.data.StudyQuestionBean;
 import com.sdxxtop.zjlguardian.data.UcenterIndexBean;
@@ -30,7 +32,12 @@ import retrofit2.http.Path;
  * Description:
  */
 public interface GuardianService {
-    String BASE_URL = "http://envir.sdxxtop.com/api/";
+    /**
+     * debug的时候用http，正式打包的时候用https
+     */
+    String BASE_URL = BuildConfig.DEBUG ?
+            "http://villageapi.sdzhujialin.com/village/"
+            : "https://villageapi.sdzhujialin.com/village/";
 
     @FormUrlEncoded
     @POST("app/init")
@@ -58,6 +65,10 @@ public interface GuardianService {
     @POST("main/sign")
     Observable<RequestBean> postMainSign(@Field("data") String data);
 
+    @FormUrlEncoded
+    @POST("login/register")
+    Observable<RequestBean<RegisterBean>> postLoginRegister(@Field("data") String data);
+
 //    @FormUrlEncoded
 //    @POST("main/signlog")
 //    Observable<RequestBean<SignLogBean>> postMainSignLog(@Field("data") String data);
@@ -84,7 +95,8 @@ public interface GuardianService {
     @Multipart
     @POST("event/modify")
     Observable<RequestBean> postEventModify(@PartMap HashMap<String, RequestBody> data);
-//
+
+    //
 //    @FormUrlEncoded
 //    @POST("event/showPart")
 //    Observable<RequestBean<ShowPartBean>> postEventShowPart(@Field("data") String data);

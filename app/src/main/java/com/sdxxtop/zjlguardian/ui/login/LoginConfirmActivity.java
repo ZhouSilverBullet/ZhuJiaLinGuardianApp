@@ -93,7 +93,7 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
     @Override
     protected void initView() {
         super.initView();
-
+        statusBar(true);
         mToolbar.setTitle("");
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

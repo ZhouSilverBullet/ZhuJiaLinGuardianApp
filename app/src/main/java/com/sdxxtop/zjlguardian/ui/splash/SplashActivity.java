@@ -151,6 +151,7 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
 
     @Override
     public void showError(String error) {
+        showToast(error);
         skipLogin();
     }
 }

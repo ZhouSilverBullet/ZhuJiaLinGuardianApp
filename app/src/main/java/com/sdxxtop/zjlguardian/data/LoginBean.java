@@ -23,6 +23,8 @@ public class LoginBean {
     private int part_id;
     private String img;
 
+    private int is_new;
+
     public String getAuto_token() {
         return auto_token;
     }
@@ -93,5 +95,13 @@ public class LoginBean {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public int getIs_new() {
+        return is_new;
+    }
+
+    public void setIs_new(int is_new) {
+        this.is_new = is_new;
     }
 }

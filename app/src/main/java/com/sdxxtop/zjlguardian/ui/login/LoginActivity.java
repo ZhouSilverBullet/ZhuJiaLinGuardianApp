@@ -79,6 +79,8 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
     protected void initView() {
         super.initView();
 
+        statusBar(true);
+
         registerLoginReceiver();
 
         etPhone.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
@@ -192,6 +194,16 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
 
     @Override
     public void loginSuccess(LoginBean loginBean) {
+        // 是新用户，然后就到新界面
+        if (loginBean.getIs_new() == 1) {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            intent.putExtra("phone", loginBean.getMobile());
+            startActivity(intent);
+            hideLoadingDialog();
+            return;
+        }
+
+
         String autoToken = loginBean.getAuto_token();
         int expireTime = loginBean.getExpire_time();
         int partId = loginBean.getPart_id();
@@ -221,6 +233,8 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
         intent.putExtra("img", img);
         startActivity(intent);
         finish();
+
+        hideLoadingDialog();
     }
 
     @Override
