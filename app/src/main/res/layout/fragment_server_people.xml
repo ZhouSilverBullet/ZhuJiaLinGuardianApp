@@ -1,21 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.sdxxtop.zjlguardian.ui.server_people.ServerPeopleViewModel" />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".ui.server_people.ServerPeopleFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <com.sdxxtop.ui.widget.TitleView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="wrap_content"
+            app:bgColor="@color/red_E60012"
+            app:titleColor="@color/white"
+            app:titleValue="岸提镇政府" />
 
-    </FrameLayout>
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:id="@+id/tv_tips"
+                android:layout_width="5dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:background="@color/red_E60012" />
+
+            <TextView
+                android:id="@+id/tv_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_tips"
+                android:text="最新公告"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tv_title1"
+                android:layout_alignParentRight="true"
+                android:text="更多 >"
+                android:textSize="13sp" />
+
+        </RelativeLayout>
+
+        <com.sdxxtop.zjlguardian.widget.AutoTextView
+            android:id="@+id/atv_auto_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:id="@+id/tv_tips2"
+                android:layout_width="5dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:background="@color/red_E60012" />
+
+            <TextView
+                android:id="@+id/tv_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_tips2"
+                android:text="政务相关"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tv_title2"
+                android:layout_alignParentRight="true"
+                android:singleLine="true"
+                android:text="欢迎您来办理业务，您的信息将被严格保密"
+                android:textSize="13sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingTop="15dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="15dp">
+
+            <Button
+                android:id="@+id/btn_politics"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="网络问政"
+                android:textColor="@color/white"
+                app:bl_corners_radius="3dp"
+                app:bl_pressed_drawable="@color/red_press_E60012"
+                app:bl_ripple_color="@color/red_E60012"
+                app:bl_ripple_enable="true"
+                app:bl_stroke_color="@color/red_E60012"
+                app:bl_stroke_width="1dp"
+                app:bl_unEnabled_drawable="@color/red_unable_E60012"
+                app:bl_unPressed_drawable="@color/red_E60012" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="1dp" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="意见建议投诉"
+                android:textColor="@color/white"
+                app:bl_corners_radius="3dp"
+                app:bl_pressed_drawable="@color/red_press_E60012"
+                app:bl_ripple_color="@color/red_E60012"
+                app:bl_ripple_enable="true"
+                app:bl_stroke_color="@color/red_E60012"
+                app:bl_stroke_width="1dp"
+                app:bl_unEnabled_drawable="@color/red_unable_E60012"
+                app:bl_unPressed_drawable="@color/red_E60012" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="1dp" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="政策查询"
+                android:textColor="@color/white"
+                app:bl_corners_radius="3dp"
+                app:bl_pressed_drawable="@color/red_press_E60012"
+                app:bl_ripple_color="@color/red_E60012"
+                app:bl_ripple_enable="true"
+                app:bl_stroke_color="@color/red_E60012"
+                app:bl_stroke_width="1dp"
+                app:bl_unEnabled_drawable="@color/red_unable_E60012"
+                app:bl_unPressed_drawable="@color/red_E60012" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>

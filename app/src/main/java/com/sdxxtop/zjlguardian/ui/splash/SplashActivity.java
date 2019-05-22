@@ -68,8 +68,10 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
     protected void initData() {
         super.initData();
 
-        mPresenter.autoLogin();
-
+//        mPresenter.autoLogin();
+        Intent intent = new Intent(mContext, HomeTabActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

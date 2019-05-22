@@ -8,6 +8,7 @@ import com.sdxxtop.zjlguardian.data.ExamineFinishBean;
 import com.sdxxtop.zjlguardian.data.LearnNewsBean;
 import com.sdxxtop.zjlguardian.data.LoginBean;
 import com.sdxxtop.zjlguardian.data.RegisterBean;
+import com.sdxxtop.zjlguardian.data.ServerPeopleBean;
 import com.sdxxtop.zjlguardian.data.StudyCourseBean;
 import com.sdxxtop.zjlguardian.data.StudyQuestionBean;
 import com.sdxxtop.zjlguardian.data.UcenterIndexBean;
@@ -165,5 +166,13 @@ public interface GuardianService {
     @FormUrlEncoded
     @POST("article/allarticle")
     Observable<RequestBean<List<LearnNewsBean>>> getAllArticle(@Field("data") String data);
+
+
+
+
+    @FormUrlEncoded
+    @POST("index/test")
+    Observable<RequestBean<ServerPeopleBean>> postIndexTest(@Field("data") String data);
+
 
 }

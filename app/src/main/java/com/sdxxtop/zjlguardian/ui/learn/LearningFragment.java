@@ -32,7 +32,7 @@ public class LearningFragment extends BaseFragment {
     protected void initView() {
         super.initView();
         statusBar(true);
-//        topViewPadding(mTitleView);
+        topViewPadding(mTitleView);
 
 
         ArrayList<String> titleList = new ArrayList<>();
