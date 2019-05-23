@@ -5,12 +5,24 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.sdxxtop.zjlguardian.ui.politics.PoliticsSearchViewModel" />
+
+        <variable
+            name="presenter"
+            type="com.sdxxtop.zjlguardian.base.Presenter" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.politics.PoliticsSearchActivity">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.sdxxtop.ui.widget.TitleView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
 </layout>

@@ -1,10 +1,7 @@
 package com.sdxxtop.zjlguardian.ui.politics
 
 import android.content.Intent
-import android.text.Editable
-import android.text.method.KeyListener
 import android.view.KeyEvent
-import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProviders
@@ -22,9 +19,10 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>() {
                     skip();
                     return true
                 }
-                return false;
+                return false
             }
         })
+
     }
 
     private fun skip() {
@@ -37,7 +35,7 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>() {
     override fun getLayoutId() = R.layout.activity_politics
 
     override fun loadData(isRefresh: Boolean) {
-
+        mBinding.vm?.load()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

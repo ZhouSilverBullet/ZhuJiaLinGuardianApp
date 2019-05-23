@@ -168,11 +168,17 @@ public interface GuardianService {
     Observable<RequestBean<List<LearnNewsBean>>> getAllArticle(@Field("data") String data);
 
 
-
-
     @FormUrlEncoded
     @POST("index/test")
     Observable<RequestBean<ServerPeopleBean>> postIndexTest(@Field("data") String data);
+
+    @FormUrlEncoded
+    @POST("event/showPart")
+    Observable<RequestBean> postEventShowPart(@Field("data") String data);
+
+    @FormUrlEncoded
+    @POST("my_politics/search")
+    Observable<RequestBean> postPoliticsSearch(@Field("data") String data);
 
 
 }

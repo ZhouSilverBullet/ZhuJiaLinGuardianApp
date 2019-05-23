@@ -7,6 +7,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProviders
 import com.noober.background.BackgroundLibrary
 import com.sdxxtop.utils.DialogUtil
 import com.sdxxtop.zjlguardian.BR
@@ -39,6 +41,7 @@ abstract class KBaseActivity<VB : ViewDataBinding> : AppCompatActivity(), Presen
         this.statusBar(true)
 
         initView()
+        loadData(autoRefresh)
     }
 
     abstract fun initView()
@@ -54,6 +57,10 @@ abstract class KBaseActivity<VB : ViewDataBinding> : AppCompatActivity(), Presen
 
     fun hideLoadingDialog() {
         mDialogUtil.closeLoadingDialog()
+    }
+
+    fun <T : ViewModel> bindViewModel(clazz: Class<T>): T {
+        return ViewModelProviders.of(this)[clazz]
     }
 
 }
