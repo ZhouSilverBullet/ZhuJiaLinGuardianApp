@@ -64,7 +64,7 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
 
     override fun onClick(v: View?) {
         when (v) {
-            mBinding.tvPolitics -> {
+            mBinding.llPolitics -> {
                 startActivity<PoliticsActivity>()
             }
         }

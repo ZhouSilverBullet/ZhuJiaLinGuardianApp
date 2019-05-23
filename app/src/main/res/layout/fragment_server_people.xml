@@ -104,84 +104,100 @@
 
         </RelativeLayout>
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="30dp"
-            android:paddingTop="15dp"
-            android:paddingRight="30dp"
-            android:paddingBottom="15dp">
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
-            <TextView
-                android:id="@+id/tv_politics"
-                android:layout_width="0dp"
-                android:layout_height="103dp"
-                android:layout_weight="1"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:drawablePadding="5dp"
-                app:bl_pressed_drawable="@color/green_press_6EDAD3"
-                app:bl_ripple_color="@color/green_14C8B3"
-                app:bl_ripple_enable="true"
-                android:gravity="center_horizontal"
-                android:onClick="@{(v) -> presenter.onClick(v)}"
-                android:text="网络问政" />
-            <!--<Button-->
-            <!---->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="网络问政"-->
-            <!--android:textColor="@color/white"-->
-            <!--app:bl_corners_radius="3dp"-->
-            <!--app:bl_pressed_drawable="@color/green_press_6EDAD3"-->
-            <!--app:bl_ripple_color="@color/green_14C8B3"-->
-            <!--app:bl_ripple_enable="true"-->
-            <!---->
-            <!--app:bl_stroke_color="@color/green_14C8B3"-->
-            <!--app:bl_stroke_width="1dp"-->
-            <!--app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"-->
-            <!--app:bl_unPressed_drawable="@color/green_14C8B3" />-->
+                <LinearLayout
+                    android:id="@+id/ll_politics"
+                    android:layout_width="0dp"
+                    android:layout_height="103dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="@{(v) -> presenter.onClick(v)}"
+                    android:orientation="vertical"
+                    app:bl_pressed_drawable="@color/green_press_6EDAD3"
+                    app:bl_ripple_color="@color/green_14C8B3"
+                    app:bl_ripple_enable="true">
 
-            <View
-                android:layout_width="10dp"
-                android:layout_height="1dp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/server_people_1" />
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="意见建议投诉"
-                android:textColor="@color/white"
-                app:bl_corners_radius="3dp"
-                app:bl_pressed_drawable="@color/green_press_6EDAD3"
-                app:bl_ripple_color="@color/green_14C8B3"
-                app:bl_ripple_enable="true"
-                app:bl_stroke_color="@color/green_14C8B3"
-                app:bl_stroke_width="1dp"
-                app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
-                app:bl_unPressed_drawable="@color/green_14C8B3" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="7dp"
+                        android:text="网络问政"
+                        android:textColor="@color/color_313131"
+                        android:textSize="13sp" />
+                </LinearLayout>
 
-            <View
-                android:layout_width="10dp"
-                android:layout_height="1dp" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="103dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="@{(v) -> presenter.onClick(v)}"
+                    android:orientation="vertical"
+                    app:bl_pressed_drawable="@color/green_press_6EDAD3"
+                    app:bl_ripple_color="@color/green_14C8B3"
+                    app:bl_ripple_enable="true">
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="政策查询"
-                android:textColor="@color/white"
-                app:bl_corners_radius="3dp"
-                app:bl_pressed_drawable="@color/green_press_6EDAD3"
-                app:bl_ripple_color="@color/green_14C8B3"
-                app:bl_ripple_enable="true"
-                app:bl_stroke_color="@color/green_14C8B3"
-                app:bl_stroke_width="1dp"
-                app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
-                app:bl_unPressed_drawable="@color/green_14C8B3" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/server_people_2" />
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="7dp"
+                        android:text="意见建议投诉"
+                        android:textColor="@color/color_313131"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="103dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="@{(v) -> presenter.onClick(v)}"
+                    android:orientation="vertical"
+                    app:bl_pressed_drawable="@color/green_press_6EDAD3"
+                    app:bl_ripple_color="@color/green_14C8B3"
+                    app:bl_ripple_enable="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/server_people_3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="7dp"
+                        android:text="政策查询"
+                        android:textColor="@color/color_313131"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
 
     </LinearLayout>
 </layout>
