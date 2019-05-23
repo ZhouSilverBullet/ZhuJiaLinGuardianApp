@@ -11,8 +11,8 @@
 
     <style name="RedAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/red_E60012</item>
-        <item name="colorPrimaryDark">@color/red_E60012</item>
+        <item name="colorPrimary">@color/green_14C8B3</item>
+        <item name="colorPrimaryDark">@color/green_14C8B3</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>

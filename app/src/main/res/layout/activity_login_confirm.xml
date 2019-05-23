@@ -18,7 +18,7 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red_E60012"
+        android:background="@color/green_14C8B3"
         android:theme="@style/ThemeOverlay.AppCompat.Light">
 
         <androidx.appcompat.widget.Toolbar
@@ -43,7 +43,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/red_E60012">
+        android:background="@color/green_14C8B3">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -233,12 +233,12 @@
                     android:text="确认本人"
                     android:textColor="@color/white"
                     app:bl_corners_radius="30dp"
-                    app:bl_pressed_drawable="@color/red_press_E60012"
-                    app:bl_ripple_color="@color/red_E60012"
+                    app:bl_pressed_drawable="@color/green_press_6EDAD3"
+                    app:bl_ripple_color="@color/green_14C8B3"
                     app:bl_ripple_enable="true"
-                    app:bl_stroke_color="@color/red_E60012"
+                    app:bl_stroke_color="@color/green_14C8B3"
                     app:bl_stroke_width="1dp"
-                    app:bl_unPressed_drawable="@color/red_E60012" />
+                    app:bl_unPressed_drawable="@color/green_14C8B3" />
 
                 <Button
                     android:id="@+id/btn_no_people"
@@ -250,7 +250,7 @@
                     android:text="不是本人"
                     android:textColor="@color/color_303030"
                     app:bl_corners_radius="30dp"
-                    app:bl_pressed_drawable="@color/red_press_E60012"
+                    app:bl_pressed_drawable="@color/green_press_6EDAD3"
                     app:bl_ripple_color="@color/color_E4E4E4"
                     app:bl_ripple_enable="true"
                     app:bl_stroke_color="@color/color_E4E4E4"

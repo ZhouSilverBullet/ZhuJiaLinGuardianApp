@@ -33,7 +33,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:text="治理创新平台"
-            android:textColor="@color/red_E60012"
+            android:textColor="@color/green_14C8B3"
             android:textSize="25sp"
             android:visibility="invisible" />
 
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/phone"
-                    android:tint="@color/red_E60012"
+                    android:tint="@color/green_14C8B3"
                     android:visibility="gone" />
 
                 <TextView
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/login_delete"
-                    android:tint="@color/red_E60012" />
+                    android:tint="@color/green_14C8B3" />
 
 
             </LinearLayout>
@@ -105,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/code"
-                    android:tint="@color/red_E60012"
+                    android:tint="@color/green_14C8B3"
                     android:visibility="gone" />
 
                 <TextView
@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/login_delete"
-                    android:tint="@color/red_E60012"
+                    android:tint="@color/green_14C8B3"
                     android:visibility="invisible" />
 
             </LinearLayout>
@@ -160,13 +160,13 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             app:bl_corners_radius="20dp"
-            app:bl_pressed_drawable="@color/red_press_E60012"
-            app:bl_ripple_color="@color/red_E60012"
+            app:bl_pressed_drawable="@color/green_press_6EDAD3"
+            app:bl_ripple_color="@color/green_14C8B3"
             app:bl_ripple_enable="true"
-            app:bl_stroke_color="@color/red_E60012"
+            app:bl_stroke_color="@color/green_14C8B3"
             app:bl_stroke_width="1dp"
-            app:bl_unEnabled_drawable="@color/red_unable_E60012"
-            app:bl_unPressed_drawable="@color/red_E60012" />
+            app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
+            app:bl_unPressed_drawable="@color/green_14C8B3" />
 
     </LinearLayout>
 </layout>

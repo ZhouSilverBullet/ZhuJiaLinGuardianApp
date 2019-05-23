@@ -8,13 +8,18 @@
     <color name="red_press_E60012">#88E60012</color>
     <color name="red_unable_E60012">#F7B2B8</color>
 
+    <color name="green_14C8B3">#FF14C8B3</color>
+    <color name="green_press_6EDAD3">#FF6EDAD3</color>
+    <color name="green_unable_6EDAD3">#FF6EDAD3</color>
+
+
     <color name="color_E0E0E0">#E0E0E0</color>
 
     <array name="tab_colors">
-        <item>#34B26D</item>
-        <item>#34B26D</item>
-        <item>#34B26D</item>
-        <item>#34B26D</item>
-        <item>#34B26D</item>
+        <item>#FF14C8B3</item>
+        <item>#FF14C8B3</item>
+        <item>#FF14C8B3</item>
+        <item>#FF14C8B3</item>
+        <item>#FF14C8B3</item>
     </array>
 </resources>

@@ -23,7 +23,7 @@
         <com.sdxxtop.ui.widget.TitleView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:bgColor="@color/red_E60012"
+            app:bgColor="@color/green_14C8B3"
             app:titleColor="@color/white"
             app:titleValue="岸提镇政府" />
 
@@ -45,7 +45,7 @@
                 android:layout_height="15dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
-                android:background="@color/red_E60012" />
+                android:background="@color/green_14C8B3" />
 
             <TextView
                 android:id="@+id/tv_title1"
@@ -83,7 +83,7 @@
                 android:layout_height="15dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
-                android:background="@color/red_E60012" />
+                android:background="@color/green_14C8B3" />
 
             <TextView
                 android:id="@+id/tv_title2"
@@ -112,22 +112,36 @@
             android:paddingRight="30dp"
             android:paddingBottom="15dp">
 
-            <Button
-                android:id="@+id/btn_politics"
+
+            <TextView
+                android:id="@+id/tv_politics"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="103dp"
                 android:layout_weight="1"
-                android:text="网络问政"
-                android:textColor="@color/white"
-                app:bl_corners_radius="3dp"
-                app:bl_pressed_drawable="@color/red_press_E60012"
-                app:bl_ripple_color="@color/red_E60012"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:drawablePadding="5dp"
+                app:bl_pressed_drawable="@color/green_press_6EDAD3"
+                app:bl_ripple_color="@color/green_14C8B3"
                 app:bl_ripple_enable="true"
+                android:gravity="center_horizontal"
                 android:onClick="@{(v) -> presenter.onClick(v)}"
-                app:bl_stroke_color="@color/red_E60012"
-                app:bl_stroke_width="1dp"
-                app:bl_unEnabled_drawable="@color/red_unable_E60012"
-                app:bl_unPressed_drawable="@color/red_E60012" />
+                android:text="网络问政" />
+            <!--<Button-->
+            <!---->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="网络问政"-->
+            <!--android:textColor="@color/white"-->
+            <!--app:bl_corners_radius="3dp"-->
+            <!--app:bl_pressed_drawable="@color/green_press_6EDAD3"-->
+            <!--app:bl_ripple_color="@color/green_14C8B3"-->
+            <!--app:bl_ripple_enable="true"-->
+            <!---->
+            <!--app:bl_stroke_color="@color/green_14C8B3"-->
+            <!--app:bl_stroke_width="1dp"-->
+            <!--app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"-->
+            <!--app:bl_unPressed_drawable="@color/green_14C8B3" />-->
 
             <View
                 android:layout_width="10dp"
@@ -140,13 +154,13 @@
                 android:text="意见建议投诉"
                 android:textColor="@color/white"
                 app:bl_corners_radius="3dp"
-                app:bl_pressed_drawable="@color/red_press_E60012"
-                app:bl_ripple_color="@color/red_E60012"
+                app:bl_pressed_drawable="@color/green_press_6EDAD3"
+                app:bl_ripple_color="@color/green_14C8B3"
                 app:bl_ripple_enable="true"
-                app:bl_stroke_color="@color/red_E60012"
+                app:bl_stroke_color="@color/green_14C8B3"
                 app:bl_stroke_width="1dp"
-                app:bl_unEnabled_drawable="@color/red_unable_E60012"
-                app:bl_unPressed_drawable="@color/red_E60012" />
+                app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
+                app:bl_unPressed_drawable="@color/green_14C8B3" />
 
             <View
                 android:layout_width="10dp"
@@ -159,13 +173,13 @@
                 android:text="政策查询"
                 android:textColor="@color/white"
                 app:bl_corners_radius="3dp"
-                app:bl_pressed_drawable="@color/red_press_E60012"
-                app:bl_ripple_color="@color/red_E60012"
+                app:bl_pressed_drawable="@color/green_press_6EDAD3"
+                app:bl_ripple_color="@color/green_14C8B3"
                 app:bl_ripple_enable="true"
-                app:bl_stroke_color="@color/red_E60012"
+                app:bl_stroke_color="@color/green_14C8B3"
                 app:bl_stroke_width="1dp"
-                app:bl_unEnabled_drawable="@color/red_unable_E60012"
-                app:bl_unPressed_drawable="@color/red_E60012" />
+                app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
+                app:bl_unPressed_drawable="@color/green_14C8B3" />
 
         </LinearLayout>
 
