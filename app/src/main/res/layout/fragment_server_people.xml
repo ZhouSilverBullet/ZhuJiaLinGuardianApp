@@ -40,66 +40,31 @@
             android:paddingRight="15dp">
 
             <TextView
-                android:id="@+id/tv_tips"
-                android:layout_width="5dp"
-                android:layout_height="15dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:background="@color/green_14C8B3" />
-
-            <TextView
                 android:id="@+id/tv_title1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_tips"
+                android:layout_centerVertical="true"
                 android:text="最新公告"
-                android:textSize="18sp" />
+                android:textColor="@color/color_313131"
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
+            <com.sdxxtop.zjlguardian.widget.AutoTextView
+                android:id="@+id/atv_auto_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_notice_more"
+                android:layout_toRightOf="@id/tv_title1"
+                android:padding="15dp" />
 
             <TextView
+                android:id="@+id/tv_notice_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_title1"
                 android:layout_alignParentRight="true"
-                android:text="更多 >"
-                android:textSize="13sp" />
-
-        </RelativeLayout>
-
-        <com.sdxxtop.zjlguardian.widget.AutoTextView
-            android:id="@+id/atv_auto_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp">
-
-            <TextView
-                android:id="@+id/tv_tips2"
-                android:layout_width="5dp"
-                android:layout_height="15dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:background="@color/green_14C8B3" />
-
-            <TextView
-                android:id="@+id/tv_title2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_tips2"
-                android:text="政务相关"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/tv_title2"
-                android:layout_alignParentRight="true"
-                android:singleLine="true"
-                android:text="欢迎您来办理业务，您的信息将被严格保密"
+                android:text="更多 >"
                 android:textSize="13sp" />
 
         </RelativeLayout>
@@ -198,6 +163,20 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_tab"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/green_E7F9F7"
+            app:tabIndicatorColor="@color/green_14C8B3"
+            app:tabSelectedTextColor="@color/green_14C8B3"
+            app:tabTextAppearance="@style/AppliedTabLayoutTextStyle14"
+            app:tabTextColor="@color/color_313131" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 </layout>

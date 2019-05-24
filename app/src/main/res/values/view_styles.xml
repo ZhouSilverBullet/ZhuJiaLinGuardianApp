@@ -29,7 +29,11 @@
     </style>
 
     <style name="AppliedTabLayoutTextStyle">
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AppliedTabLayoutTextStyle14">
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="progress_layout_weight">

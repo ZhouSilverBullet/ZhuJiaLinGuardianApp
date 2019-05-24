@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#E60012</color>
+    <color name="colorAccent">@color/green_14C8B3</color>
 
     <color name="red_E60012">#E60012</color>
     <color name="red_press_E60012">#88E60012</color>
@@ -11,6 +11,7 @@
     <color name="green_14C8B3">#FF14C8B3</color>
     <color name="green_press_6EDAD3">#FF6EDAD3</color>
     <color name="green_unable_6EDAD3">#FF6EDAD3</color>
+    <color name="green_E7F9F7">#FFE7F9F7</color>
 
 
     <color name="color_E0E0E0">#E0E0E0</color>
