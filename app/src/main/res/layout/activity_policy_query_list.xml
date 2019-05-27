@@ -26,6 +26,17 @@
             android:layout_height="wrap_content"
             app:titleValue="查询结果" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green_E7F9F7"
+            android:paddingLeft="16dp"
+            android:paddingTop="13dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="13dp"
+            android:text="@{vm.titleValue}"
+            android:textColor="@color/green_14C8B3" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             android:layout_width="match_parent"

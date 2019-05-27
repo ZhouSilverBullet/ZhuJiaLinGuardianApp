@@ -1,6 +1,7 @@
 package com.sdxxtop.zjlguardian.ui.policy
 
 import android.text.TextUtils
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sdxxtop.model.http.callback.IRequestCallback
 import com.sdxxtop.model.http.net.Params
@@ -9,6 +10,7 @@ import com.sdxxtop.utils.UIUtils
 import com.sdxxtop.zjlguardian.base.BaseViewModel
 import com.sdxxtop.zjlguardian.extens.set
 import com.sdxxtop.zjlguardian.http.net.RetrofitHelper
+import com.sdxxtop.zjlguardian.ui.policy.data.Policy
 import com.sdxxtop.zjlguardian.ui.policy.data.PolicyBean
 import com.sdxxtop.zjlguardian.ui.policy.data.PolicyQueryBean
 
@@ -20,6 +22,10 @@ import com.sdxxtop.zjlguardian.ui.policy.data.PolicyQueryBean
  */
 
 class PolicyQueryListViewModel : BaseViewModel() {
+
+    var mPolicy = MutableLiveData<List<Policy>>()
+    var titleValue = ""
+    var policy_num = 0;
 
     fun load() {
         val params = Params()
@@ -64,7 +70,9 @@ class PolicyQueryListViewModel : BaseViewModel() {
         val eventShowPart = RetrofitHelper.getGuardianService().postPolicySearch(params.data)
         val disposable = RxUtils.handleDataHttp(eventShowPart, object : IRequestCallback<PolicyBean> {
             override fun onSuccess(t: PolicyBean?) {
-
+                titleValue = t?.title ?: ""
+                policy_num = t?.policy_num ?: 0
+                mPolicy.set(t?.policy)
             }
 
             override fun onFailure(code: Int, error: String?) {
