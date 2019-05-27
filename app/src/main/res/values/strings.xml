@@ -6,4 +6,5 @@
 
     <string name="name">姓名</string>
     <string name="phone_number">手机号</string>
+    <string name="mine_introduce">欢迎您来办理业务，您的信息将被严格保密。</string>
 </resources>

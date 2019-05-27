@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <bitmap android:src="@drawable/login_bg">
+        <bitmap android:src="@drawable/mine_bg">
 
         </bitmap>
     </item>
-    <item android:top="250dp">
+    <item android:top="200dp">
         <shape>
             <solid android:color="@color/white" />
         </shape>
