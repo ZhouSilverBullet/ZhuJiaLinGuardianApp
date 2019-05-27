@@ -11,3 +11,13 @@ data class RegisterBean (
     val expire_time: Int,
     val userid: String
 )
+
+data class PartBean(
+    val part_id: Int,
+    val part_name: String,
+    var isCheck:Boolean
+)
+
+data class PushDataBean(
+    val politics_id: Int
+)

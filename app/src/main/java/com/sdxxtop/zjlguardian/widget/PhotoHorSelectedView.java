@@ -35,6 +35,8 @@ public class PhotoHorSelectedView extends RelativeLayout implements PhotoHorRecy
     private RecyclerView mRecycleView;
     private PhotoHorRecyclerAdapter mAdapter;
 
+    private static final int DEFAULT_MAX_COUNT = 10;
+
     private List<LocalMedia> localMediaList = new ArrayList<>();
 
     public PhotoHorSelectedView(Context context) {
@@ -100,7 +102,7 @@ public class PhotoHorSelectedView extends RelativeLayout implements PhotoHorRecy
                 .openGallery(PictureMimeType.ofImage())
                 .compress(true)
                 .selectionMedia(localMediaList)
-                .maxSelectNum(9).forResult(PictureConfig.CHOOSE_REQUEST);
+                .maxSelectNum(DEFAULT_MAX_COUNT).forResult(PictureConfig.CHOOSE_REQUEST);
     }
 
     @Override
@@ -137,7 +139,7 @@ public class PhotoHorSelectedView extends RelativeLayout implements PhotoHorRecy
                     if (selectList != null && selectList.size() > 0) {
                         localMediaList.clear();
                         int size = selectList.size();
-                        if (size < 9) {
+                        if (size < DEFAULT_MAX_COUNT) {
                             localMediaList.addAll(selectList);
                             localMediaList.add(getTemp());
                         } else {

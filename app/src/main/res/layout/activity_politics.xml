@@ -36,6 +36,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -104,8 +106,10 @@
                         app:bl_stroke_width="1dp">
 
                         <LinearLayout
+                            android:id="@+id/ll_select_part"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:onClick="@{(v) -> presenter.onClick(v)}"
                             android:orientation="horizontal">
 
                             <TextView
@@ -124,6 +128,7 @@
                                 android:src="@drawable/required" />
 
                             <TextView
+                                android:id="@+id/tv_part"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -158,6 +163,7 @@
                                 android:textSize="15sp" />
 
                             <com.sdxxtop.zjlguardian.widget.NumberEditTextView
+                                android:id="@+id/netv_title"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:netv_et_height="60" />
@@ -176,6 +182,7 @@
                                 android:textSize="15sp" />
 
                             <com.sdxxtop.zjlguardian.widget.NumberEditTextView
+                                android:id="@+id/netv_content"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:netv_et_height="100" />
@@ -207,7 +214,7 @@
                             <com.sdxxtop.zjlguardian.widget.PhotoHorSelectedView
                                 android:id="@+id/phsv_view"
                                 android:layout_width="match_parent"
-                                android:layout_height="110dp" />
+                                android:layout_height="135dp" />
                         </LinearLayout>
 
                         <View
@@ -266,6 +273,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="@{(v) -> presenter.onClick(v)}"
             android:text="提交问政"
             android:textColor="@color/white"
             android:textSize="15sp"

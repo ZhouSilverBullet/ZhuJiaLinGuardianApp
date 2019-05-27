@@ -7,6 +7,7 @@ import com.sdxxtop.model.http.callback.IRequestCallback
 import com.sdxxtop.model.http.net.Params
 import com.sdxxtop.model.http.util.RxUtils
 import com.sdxxtop.utils.UIUtils
+import com.sdxxtop.zjlguardian.base.BaseViewModel
 import com.sdxxtop.zjlguardian.data.RegisterBean
 import com.sdxxtop.zjlguardian.data.ServerPeopleBean
 import com.sdxxtop.zjlguardian.http.net.RetrofitHelper
@@ -17,14 +18,14 @@ import com.sdxxtop.zjlguardian.http.net.RetrofitHelper
  * Version: 1.0
  * Description:
  */
-class ServerPeopleViewModel : ViewModel() {
+class ServerPeopleViewModel : BaseViewModel() {
     val serverPeopleData = MutableLiveData<ServerPeopleBean>()
 
     fun load() {
         val params = Params()
 
         val observable = RetrofitHelper.getGuardianService().postIndexTest(params.data)
-        RxUtils.handleDataHttp(observable, object: IRequestCallback<ServerPeopleBean> {
+        val disposable = RxUtils.handleDataHttp(observable, object : IRequestCallback<ServerPeopleBean> {
             override fun onSuccess(t: ServerPeopleBean?) {
                 serverPeopleData.value = t
             }
@@ -32,6 +33,10 @@ class ServerPeopleViewModel : ViewModel() {
             override fun onFailure(code: Int, error: String) {
                 UIUtils.showToast(error)
             }
-        });
+        })
+
+        addDisposable(disposable)
     }
+
+
 }

@@ -42,4 +42,9 @@ class RegisterActivity : KBaseActivity<ActivityRegisterBinding>() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mBinding.vm?.remove()
+    }
+
 }

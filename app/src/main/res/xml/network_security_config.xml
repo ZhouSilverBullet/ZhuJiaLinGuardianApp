@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <base-config cleartextTrafficPermitted="true">
-        <trust-anchors>
-            <certificates src="system" overridePins="true" />
-            <certificates src="user" overridePins="true" />
-        </trust-anchors>
+        <!--<trust-anchors>-->
+            <!--<certificates src="system" overridePins="true" />-->
+            <!--<certificates src="user" overridePins="true" />-->
+        <!--</trust-anchors>-->
     </base-config>
-    <domain-config>
-        <domain includeSubdomains="true">api.sdzhujialin.com</domain>
-        <trust-anchors>
-            <certificates src="@raw/charles"/>
-        </trust-anchors>
-    </domain-config>
+    <!--<domain-config>-->
+        <!--<domain includeSubdomains="true">api.sdzhujialin.com</domain>-->
+        <!--<trust-anchors>-->
+            <!--<certificates src="@raw/charles"/>-->
+        <!--</trust-anchors>-->
+    <!--</domain-config>-->
 </network-security-config>

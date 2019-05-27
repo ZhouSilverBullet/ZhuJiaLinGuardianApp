@@ -7,12 +7,16 @@ import com.sdxxtop.zjlguardian.data.AutoLoginBean;
 import com.sdxxtop.zjlguardian.data.ExamineFinishBean;
 import com.sdxxtop.zjlguardian.data.LearnNewsBean;
 import com.sdxxtop.zjlguardian.data.LoginBean;
+import com.sdxxtop.zjlguardian.data.PartBean;
+import com.sdxxtop.zjlguardian.data.PoliticsListBean;
+import com.sdxxtop.zjlguardian.data.PushDataBean;
 import com.sdxxtop.zjlguardian.data.RegisterBean;
 import com.sdxxtop.zjlguardian.data.ServerPeopleBean;
 import com.sdxxtop.zjlguardian.data.StudyCourseBean;
 import com.sdxxtop.zjlguardian.data.StudyQuestionBean;
 import com.sdxxtop.zjlguardian.data.UcenterIndexBean;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -174,11 +178,15 @@ public interface GuardianService {
 
     @FormUrlEncoded
     @POST("event/showPart")
-    Observable<RequestBean> postEventShowPart(@Field("data") String data);
+    Observable<RequestBean<ArrayList<PartBean>>> postEventShowPart(@Field("data") String data);
+
+    @Multipart
+    @POST("my_politics/politics_confirm")
+    Observable<RequestBean<PushDataBean>> postPoliticsConfirm(@PartMap Map<String, RequestBody> data);
 
     @FormUrlEncoded
     @POST("my_politics/search")
-    Observable<RequestBean> postPoliticsSearch(@Field("data") String data);
+    Observable<RequestBean<PoliticsListBean>> postPoliticsSearch(@Field("data") String data);
 
 
 }

@@ -9,6 +9,7 @@ import com.sdxxtop.model.http.callback.IRequestCallback
 import com.sdxxtop.model.http.net.Params
 import com.sdxxtop.model.http.util.RxUtils
 import com.sdxxtop.utils.SpUtil
+import com.sdxxtop.zjlguardian.base.BaseViewModel
 import com.sdxxtop.zjlguardian.data.RegisterBean
 import com.sdxxtop.zjlguardian.http.net.RetrofitHelper
 
@@ -18,7 +19,7 @@ import com.sdxxtop.zjlguardian.http.net.RetrofitHelper
  * Version: 1.0
  * Description:
  */
-class RegisterViewModel : ViewModel() {
+class RegisterViewModel : BaseViewModel() {
     var phone: String = "";
     var username: String = "";
 
@@ -33,7 +34,7 @@ class RegisterViewModel : ViewModel() {
         params.put("n", username)
         val loginRegister = RetrofitHelper.getGuardianService()
                 .postLoginRegister(params.data)
-        RxUtils.handleDataHttp(loginRegister, object : IRequestCallback<RegisterBean> {
+        val disposable = RxUtils.handleDataHttp(loginRegister, object : IRequestCallback<RegisterBean> {
             override fun onFailure(code: Int, error: String?) {
                 registerErrorLiveData.value = error
             }
@@ -44,7 +45,7 @@ class RegisterViewModel : ViewModel() {
                 SpUtil.putInt(Constants.EXPIRE_TIME, t.expire_time)
                 SpUtil.putString(Constants.AUTO_TOKEN, t.auto_token)
             }
-
         })
+        addDisposable(disposable)
     }
 }

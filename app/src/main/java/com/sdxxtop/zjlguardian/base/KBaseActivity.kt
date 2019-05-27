@@ -44,9 +44,9 @@ abstract class KBaseActivity<VB : ViewDataBinding> : AppCompatActivity(), Presen
         loadData(autoRefresh)
     }
 
-    abstract fun initView()
-
     abstract fun getLayoutId(): Int
+
+    abstract fun initView()
 
     override fun onClick(v: View?) {
     }

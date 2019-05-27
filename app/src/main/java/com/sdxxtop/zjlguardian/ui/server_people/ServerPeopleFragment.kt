@@ -24,6 +24,7 @@ import org.jetbrains.anko.support.v4.startActivity
 import android.widget.LinearLayout
 import android.util.TypedValue
 import android.view.LayoutInflater
+import androidx.core.content.ContextCompat.startActivity
 import com.sdxxtop.zjlguardian.R
 
 /**
@@ -51,7 +52,7 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
         })
 
         val content = "最新公告";
-        var stringBuilder = SpannableStringBuilder(content);
+        val stringBuilder = SpannableStringBuilder(content);
         val foregroundColorSpan = ForegroundColorSpan(Color.parseColor("#FF4040"));
         stringBuilder.setSpan(foregroundColorSpan, 1, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         mBinding.tvTitle1.text = stringBuilder;
@@ -110,6 +111,7 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
     override fun onDestroy() {
         super.onDestroy()
         autoTextViewManager.removeAutoTextRunnable()
+        mBinding.vm?.remove()
     }
 
     override fun onClick(v: View?) {
