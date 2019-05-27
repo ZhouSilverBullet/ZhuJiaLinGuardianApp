@@ -26,6 +26,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat.startActivity
 import com.sdxxtop.zjlguardian.R
+import com.sdxxtop.zjlguardian.ui.policy.PolicyQueryActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -67,7 +68,7 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
                 ServerTabFragment(), ServerTabFragment(), ServerTabFragment(), ServerTabFragment())
 
 
-        val homePagerAdapter = HomePagerAdapter(fragmentManager, arrayList, fragmentList)
+        val homePagerAdapter = HomePagerAdapter(childFragmentManager, arrayList, fragmentList)
         mBinding.vp.adapter = homePagerAdapter
         mBinding.tlTab.setupWithViewPager(mBinding.vp)
 
@@ -118,6 +119,9 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
         when (v) {
             mBinding.llPolitics -> {
                 startActivity<PoliticsActivity>()
+            }
+            ll_policy_query -> {
+                startActivity<PolicyQueryActivity>()
             }
         }
     }

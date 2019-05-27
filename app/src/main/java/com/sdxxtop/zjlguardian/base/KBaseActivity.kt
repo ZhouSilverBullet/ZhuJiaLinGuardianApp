@@ -13,6 +13,7 @@ import com.noober.background.BackgroundLibrary
 import com.sdxxtop.utils.DialogUtil
 import com.sdxxtop.zjlguardian.BR
 import com.sdxxtop.zjlguardian.extens.statusBar
+import me.yokeyword.fragmentation.SupportActivity
 
 /**
  * Email: zhousaito@163.com
@@ -20,7 +21,7 @@ import com.sdxxtop.zjlguardian.extens.statusBar
  * Version: 1.0
  * Description:
  */
-abstract class KBaseActivity<VB : ViewDataBinding> : AppCompatActivity(), Presenter {
+abstract class KBaseActivity<VB : ViewDataBinding> : SupportActivity(), Presenter {
     protected val mBinding: VB by lazy { DataBindingUtil.setContentView<VB>(this, getLayoutId()) }
     protected lateinit var mContext: Context
 
@@ -42,6 +43,11 @@ abstract class KBaseActivity<VB : ViewDataBinding> : AppCompatActivity(), Presen
 
         initView()
         loadData(autoRefresh)
+        initObserver()
+    }
+
+    open fun initObserver() {
+
     }
 
     abstract fun getLayoutId(): Int

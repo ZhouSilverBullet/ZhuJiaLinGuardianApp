@@ -15,6 +15,8 @@ import com.sdxxtop.zjlguardian.data.ServerPeopleBean;
 import com.sdxxtop.zjlguardian.data.StudyCourseBean;
 import com.sdxxtop.zjlguardian.data.StudyQuestionBean;
 import com.sdxxtop.zjlguardian.data.UcenterIndexBean;
+import com.sdxxtop.zjlguardian.ui.policy.data.PolicyBean;
+import com.sdxxtop.zjlguardian.ui.policy.data.PolicyQueryBean;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -187,6 +189,15 @@ public interface GuardianService {
     @FormUrlEncoded
     @POST("my_politics/search")
     Observable<RequestBean<PoliticsListBean>> postPoliticsSearch(@Field("data") String data);
+
+
+    @FormUrlEncoded
+    @POST("policy/index")
+    Observable<RequestBean<List<PolicyQueryBean>>> postPolicyIndex(@Field("data") String data);
+
+    @FormUrlEncoded
+    @POST("policy/search")
+    Observable<RequestBean<PolicyBean>> postPolicySearch(@Field("data") String data);
 
 
 }

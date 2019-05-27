@@ -4,16 +4,100 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="presenter"
             type="com.sdxxtop.zjlguardian.base.Presenter" />
+
+        <variable
+            name="vm"
+            type="com.sdxxtop.zjlguardian.ui.policy.PolicyQueryViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.PolicyQueryActivity">
+        tools:context=".ui.policy.PolicyQueryActivity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查询历史问政"
+                android:textColor="@color/color_333333"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/search"
+                android:drawablePadding="5dp"
+                android:hint="查询问政标题"
+                android:imeOptions="actionDone"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:text="@={vm.searchContent}"
+                android:textColorHint="@color/color_999999"
+                android:textSize="13sp"
+                app:bl_corners_radius="4dp"
+                app:bl_solid_color="#F2F2F2" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/color_F4F4F4" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/green_14C8B3"
+            app:tabSelectedTextColor="@color/green_14C8B3"
+            app:tabTextAppearance="@style/AppliedTabLayoutTextStyle17"
+            app:tabTextColor="@color/color_313131" />
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_push"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="@{(v) -> presenter.onClick(v)}"
+            android:text="找政策"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:bl_corners_radius="20dp"
+            app:bl_pressed_drawable="@color/green_press_6EDAD3"
+            app:bl_ripple_color="@color/green_14C8B3"
+            app:bl_ripple_enable="true"
+            app:bl_stroke_color="@color/green_14C8B3"
+            app:bl_stroke_width="1dp"
+            app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
+            app:bl_unPressed_drawable="@color/green_14C8B3" />
 
     </LinearLayout>
 </layout>
