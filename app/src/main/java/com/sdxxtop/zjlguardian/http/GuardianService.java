@@ -15,6 +15,7 @@ import com.sdxxtop.zjlguardian.data.ServerPeopleBean;
 import com.sdxxtop.zjlguardian.data.StudyCourseBean;
 import com.sdxxtop.zjlguardian.data.StudyQuestionBean;
 import com.sdxxtop.zjlguardian.data.UcenterIndexBean;
+import com.sdxxtop.zjlguardian.ui.feedback.data.ProposalBean;
 import com.sdxxtop.zjlguardian.ui.policy.data.PolicyBean;
 import com.sdxxtop.zjlguardian.ui.policy.data.PolicyQueryBean;
 
@@ -199,5 +200,8 @@ public interface GuardianService {
     @POST("policy/search")
     Observable<RequestBean<PolicyBean>> postPolicySearch(@Field("data") String data);
 
+    @Multipart
+    @POST("my_proposal/politics_confirm")
+    Observable<RequestBean<ProposalBean>> postProposalPolics(@PartMap Map<String, RequestBody> data);
 
 }

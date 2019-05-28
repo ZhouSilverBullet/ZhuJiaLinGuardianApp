@@ -26,6 +26,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat.startActivity
 import com.sdxxtop.zjlguardian.R
+import com.sdxxtop.zjlguardian.ui.feedback.FeedbackActivity
 import com.sdxxtop.zjlguardian.ui.policy.PolicyQueryActivity
 
 /**
@@ -120,6 +121,11 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
             mBinding.llPolitics -> {
                 startActivity<PoliticsActivity>()
             }
+
+            ll_feed -> {
+                startActivity<FeedbackActivity>()
+            }
+
             ll_policy_query -> {
                 startActivity<PolicyQueryActivity>()
             }

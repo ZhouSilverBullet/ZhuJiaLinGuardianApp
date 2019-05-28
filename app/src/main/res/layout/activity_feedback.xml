@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.sdxxtop.zjlguardian.base.Presenter" />
+
+        <variable
+            name="vm"
+            type="com.sdxxtop.zjlguardian.ui.feedback.FeedbackViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.feedback.FeedbackActivity">
+
+        <com.sdxxtop.ui.widget.TitleView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleValue="意见建议反馈" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/color_F4F4F4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="查询历史问政"
+                        android:textColor="@color/color_333333"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/et_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="15dp"
+                        android:drawableLeft="@drawable/search"
+                        android:drawablePadding="5dp"
+                        android:hint="查询意见建议及投诉"
+                        android:imeOptions="actionDone"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="@={vm.searchContent}"
+                        android:textColorHint="@color/color_999999"
+                        android:textSize="13sp"
+                        app:bl_corners_radius="4dp"
+                        app:bl_solid_color="#F2F2F2" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="提交我的反馈"
+                        android:textColor="@color/color_333333"
+                        android:textSize="17sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        app:bl_corners_radius="4dp"
+                        app:bl_stroke_color="@color/color_E0E0E0"
+                        app:bl_stroke_width="1dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="反应类型"
+                                android:textColor="#ff313131"
+                                android:textSize="15sp" />
+
+                            <RadioGroup
+                                android:id="@+id/rg_feed_group"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/rb_feed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="意见" />
+
+                                <RadioButton
+                                    android:id="@+id/rb_jianyi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="建议" />
+
+                                <RadioButton
+                                    android:id="@+id/rb_toushu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="投诉" />
+                            </RadioGroup>
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@color/color_E0E0E0" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_select_part"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{(v) -> presenter.onClick(v)}"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="反应部门"
+                                android:textColor="#ff313131"
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="4dp"
+                                android:layout_height="4dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/required" />
+
+                            <TextView
+                                android:id="@+id/tv_part"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:hint="选择部门"
+                                android:textColor="@color/color_999999"
+                                android:textSize="14sp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/arrows" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@color/color_E0E0E0" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="问政标题"
+                                android:textColor="#ff313131"
+                                android:textSize="15sp" />
+
+                            <com.sdxxtop.zjlguardian.widget.NumberEditTextView
+                                android:id="@+id/netv_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:netv_et_height="60" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="问政内容"
+                                android:textColor="#ff313131"
+                                android:textSize="15sp" />
+
+                            <com.sdxxtop.zjlguardian.widget.NumberEditTextView
+                                android:id="@+id/netv_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:netv_et_height="100" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingBottom="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="添加照片"
+                                    android:textColor="#ff313131"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="(仅限上传10张)" />
+                            </LinearLayout>
+
+                            <com.sdxxtop.zjlguardian.widget.PhotoHorSelectedView
+                                android:id="@+id/phsv_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="135dp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/color_E0E0E0" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="是否公开"
+                                android:textColor="#ff313131"
+                                android:textSize="15sp" />
+
+                            <RadioGroup
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/rb_open"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@={!vm.open}"
+                                    android:text="公开" />
+
+                                <RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@={vm.open}"
+                                    android:text="匿名" />
+                            </RadioGroup>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_E4E4E4" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="@{(v) -> presenter.onClick(v)}"
+            android:text="提交问政"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:bl_corners_radius="20dp"
+            app:bl_pressed_drawable="@color/green_press_6EDAD3"
+            app:bl_ripple_color="@color/green_14C8B3"
+            app:bl_ripple_enable="true"
+            app:bl_stroke_color="@color/green_14C8B3"
+            app:bl_stroke_width="1dp"
+            app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
+            app:bl_unPressed_drawable="@color/green_14C8B3" />
+    </LinearLayout>
+</layout>
