@@ -1,4 +1,4 @@
-package com.sdxxtop.zjlguardian.ui.politics
+package com.sdxxtop.zjlguardian.ui.feedback
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,18 +14,21 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityPoliticsSearchBinding
+import com.sdxxtop.zjlguardian.helper.adapter.FeedbackListAdapter
 import com.sdxxtop.zjlguardian.helper.adapter.PoliticsListAdapter
+import com.sdxxtop.zjlguardian.ui.politics.PoliticsSearchViewModel
 import kotlinx.android.synthetic.main.activity_politics_list.*
 
-class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), TextWatcher {
+class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), TextWatcher {
     var isSearch = false
     override fun initView() {
         val content = intent.getStringExtra("content")
 
         var title = intent.getStringExtra("title")
-        tv_title.setTitleValue(title)
 
         isSearch = intent.getBooleanExtra("isSearch", false)
+
+        tv_title.setTitleValue(title)
 
         mBinding.vm = bindViewModel(PoliticsSearchViewModel::class.java)
 
@@ -42,14 +45,14 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
 
     private fun initRecycler() {
         mBinding.rv.layoutManager = LinearLayoutManager(this)
-        val politicsListAdapter = PoliticsListAdapter(isSearch = isSearch)
-        mBinding.rv.adapter = politicsListAdapter
+        val feedbackListAdapter = FeedbackListAdapter(isSearch = isSearch)
+        mBinding.rv.adapter = feedbackListAdapter
 
-        mBinding.vm?.mPoliticData?.observe(this, Observer {
+        mBinding.vm?.mFeedbackData?.observe(this, Observer {
             if (mBinding.vm?.isPullLoad ?: false) {
-                politicsListAdapter.addData(it)
+                feedbackListAdapter.addData(it)
             } else {
-                politicsListAdapter.replaceData(it)
+                feedbackListAdapter.replaceData(it)
             }
 
             mBinding.srlLayout.finishLoadMore()
@@ -60,14 +63,14 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
             override fun onLoadMore(refreshLayout: RefreshLayout?) {
                 if (refreshLayout != null) {
                     mBinding.vm?.isPullLoad = true
-                    mBinding.vm?.load(isSearch, politicsListAdapter.itemCount, mBinding.vm?.etValue)
+                    mBinding.vm?.loadFeedback(isSearch, feedbackListAdapter.itemCount, mBinding.vm?.etValue)
                 }
             }
 
             override fun onRefresh(refreshLayout: RefreshLayout?) {
                 if (refreshLayout != null) {
                     mBinding.vm?.isPullLoad = false
-                    mBinding.vm?.load(isSearch, politicsListAdapter.itemCount, mBinding.vm?.etValue)
+                    mBinding.vm?.loadFeedback(isSearch, feedbackListAdapter.itemCount, mBinding.vm?.etValue)
                 }
             }
 
@@ -90,11 +93,11 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
         if (!TextUtils.isEmpty(s)) {
 //            mPresenter.searchData(s.toString())
             mBinding.tvCancel.setVisibility(View.VISIBLE)
-            mBinding.vm?.load(isSearch, mBinding.rv.adapter?.itemCount ?: 0, s.toString())
+            mBinding.vm?.loadFeedback(isSearch, mBinding.rv.adapter?.itemCount ?: 0, s.toString())
         } else {
 //            mPresenter.loadData()
             //            mAdapter.replaceData(new ArrayList<>());
-            (mBinding.rv.adapter as PoliticsListAdapter).addData(ArrayList())
+            (mBinding.rv.adapter as FeedbackListAdapter).addData(ArrayList())
             mBinding.tvCancel.setVisibility(View.GONE)
         }
     }

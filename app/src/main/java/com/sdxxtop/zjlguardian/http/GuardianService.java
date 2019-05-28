@@ -23,6 +23,7 @@ import com.sdxxtop.zjlguardian.data.UcenterIndexBean;
 import com.sdxxtop.zjlguardian.presenter.bean.EventIndexBean;
 import com.sdxxtop.zjlguardian.presenter.bean.EventReadBean;
 import com.sdxxtop.zjlguardian.presenter.bean.MainIndexBean;
+import com.sdxxtop.zjlguardian.ui.feedback.data.FeedbackData;
 import com.sdxxtop.zjlguardian.ui.feedback.data.ProposalBean;
 import com.sdxxtop.zjlguardian.ui.policy.data.PolicyBean;
 import com.sdxxtop.zjlguardian.ui.policy.data.PolicyQueryBean;
@@ -197,13 +198,12 @@ public interface GuardianService {
     Observable<RequestBean<ArrayList<PartBean>>> postEventShowPart(@Field("data") String data);
 
     @Multipart
-    @POST("my_politics/politics_confirm")
+    @POST("my_politics/politicsConfirm")
     Observable<RequestBean<PushDataBean>> postPoliticsConfirm(@PartMap Map<String, RequestBody> data);
 
     @FormUrlEncoded
     @POST("my_politics/search")
     Observable<RequestBean<PoliticsListBean>> postPoliticsSearch(@Field("data") String data);
-
 
     @FormUrlEncoded
     @POST("policy/index")
@@ -216,5 +216,9 @@ public interface GuardianService {
     @Multipart
     @POST("my_proposal/proposalConfirm")
     Observable<RequestBean<ProposalBean>> postProposalPolics(@PartMap Map<String, RequestBody> data);
+
+    @FormUrlEncoded
+    @POST("my_proposal/search")
+    Observable<RequestBean<FeedbackData>> postProposalSearch(@Field("data") String data);
 
 }

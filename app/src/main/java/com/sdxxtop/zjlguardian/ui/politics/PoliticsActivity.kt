@@ -39,7 +39,9 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
     private fun skip() {
         val empty = mBinding.vm?.searchContent?.isEmpty()
         if (!empty!!) {
-            startActivity<PoliticsSearchActivity>("content" to mBinding.vm?.searchContent)
+            startActivity<PoliticsSearchActivity>("content" to mBinding.vm?.searchContent
+                    , "title" to "网络问政查询结果"
+                    , "isSearch" to true)
         }
     }
 

@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="politic"
-            type="com.sdxxtop.zjlguardian.data.Politic" />
+            name="proposal"
+            type="com.sdxxtop.zjlguardian.ui.feedback.data.Proposal" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -32,7 +32,7 @@
                 android:paddingRight="10dp"
                 android:textColor="@color/color_313131"
                 android:textSize="15sp"
-                android:text="@{politic.title}"
+                android:text="@{proposal.title}"
                 tools:text="北京市工会第十四次代表大会5月6日隆重开幕,这是在中国特色社会主义进入新时代。" />
 
             <RelativeLayout
@@ -47,8 +47,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/color_999999"
                     android:textSize="13sp"
-                    android:text="@{`问政编号：` + politic.id}"
-                    tools:text="问政编号：88888888" />
+                    android:text="@{`来信编号：` + proposal.id}"
+                    tools:text="来信编号：88888888" />
 
                 <TextView
                     android:id="@+id/tv_type"
@@ -57,9 +57,19 @@
                     android:layout_alignParentRight="true"
                     android:textColor="@color/color_999999"
                     android:textSize="13sp"
-                    android:text="@{`问政单位：` + politic.part_name}"
-                    tools:text="问政单位：计生局" />
+                    tools:text="@{`反应类别：` + proposal.type}" />
             </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/color_999999"
+                android:textSize="13sp"
+                android:text="@{`反应单位：` + proposal.part_name}"
+                tools:text="反应单位：计生局" />
 
             <View
                 android:layout_width="match_parent"

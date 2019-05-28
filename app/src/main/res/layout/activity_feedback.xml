@@ -23,7 +23,8 @@
         <com.sdxxtop.ui.widget.TitleView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:titleValue="意见建议反馈" />
+            app:leftLayoutIsShow="true"
+            app:titleValue="意见建议及投诉" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

@@ -60,7 +60,7 @@ class PoliticsViewModel : BaseViewModel() {
 
     fun pushPolitics(partId: Int, titleValue: String, contentValue: String, imgList: List<File>) {
         val params = ImageParams()
-        params.put("pi", partId)
+        params.put("rd", partId)
         params.put("tl", titleValue)
         //是否匿名
         params.put("tp", if (isOpen) 0 else 1)

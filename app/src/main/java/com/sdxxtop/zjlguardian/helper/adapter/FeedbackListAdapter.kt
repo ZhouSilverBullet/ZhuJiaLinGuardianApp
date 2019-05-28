@@ -9,7 +9,9 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.data.Politic
 import com.sdxxtop.zjlguardian.data.PoliticsListBean
+import com.sdxxtop.zjlguardian.databinding.ItemFeedbackListRecyclerBinding
 import com.sdxxtop.zjlguardian.databinding.ItemPoliticsListRecyclerBinding
+import com.sdxxtop.zjlguardian.ui.feedback.data.Proposal
 import com.sdxxtop.zjlguardian.ui.learn.news.NewsDetailsActivity
 import org.jetbrains.anko.startActivity
 
@@ -19,19 +21,22 @@ import org.jetbrains.anko.startActivity
  * Version: 1.0
  * Description:
  */
-class PoliticsListAdapter(layoutResId: Int = R.layout.item_politics_list_recycler
-,val isSearch:Boolean) : BaseQuickAdapter<Politic, BaseViewHolder>(layoutResId) {
-    override fun convert(helper: BaseViewHolder?, item: Politic?) {
-        val bind = DataBindingUtil.bind<ItemPoliticsListRecyclerBinding>(helper?.itemView!!)
-        bind?.politic = item
+class FeedbackListAdapter(layoutResId: Int = R.layout.item_feedback_list_recycler
+                          , val isSearch: Boolean) : BaseQuickAdapter<Proposal, BaseViewHolder>(layoutResId) {
+    override fun convert(helper: BaseViewHolder?, item: Proposal?) {
+        val bind = DataBindingUtil.bind<ItemFeedbackListRecyclerBinding>(helper?.itemView!!)
+        bind?.proposal = item
         bind?.executePendingBindings()
 
-        when (item?.type) {
+        when (item?.status) { //0=意见,1=建议,2=投诉,
             "0" -> {
-
+                bind?.tvType?.setText("反应类别：意见")
             }
             "1" -> {
-
+                bind?.tvType?.setText("反应类别：建议")
+            }
+            "2" -> {
+                bind?.tvType?.setText("反应类别：投诉")
             }
         }
 
@@ -50,6 +55,7 @@ class PoliticsListAdapter(layoutResId: Int = R.layout.item_politics_list_recycle
                 bind?.tvName?.setText(item?.user_name);
             }
         }
+
 
         //0=待受理,1=已受理,2=已办复
         when (item?.state) {
