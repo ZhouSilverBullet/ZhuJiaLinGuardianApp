@@ -59,6 +59,16 @@
             android:theme="@style/RedAppTheme" />
         <activity android:name=".ui.learn.news.NewsDetailsActivity" />
         <activity android:name=".ui.examine.ExamineActivity" />
+        <activity android:name=".ui.guardianapp.TaskAgentsActivity" />
+        <activity android:name=".ui.guardianapp.EventReportDetailSecondActivity" />
+        <activity android:name=".ui.guardianapp.EventReportDetailActivity" />
+        <activity android:name=".ui.guardianapp.MyFaceLivenessActivity" />
+        <activity android:name=".ui.guardianapp.PatrolRecordActivity" />
+        <activity android:name=".ui.guardianapp.GridMapActivity" />
+        <activity android:name=".ui.guardianapp.ContactActivity" />
+        <activity android:name=".ui.guardianapp.EventReportListActivity" />
+        <activity android:name=".ui.guardianapp.EventReportActivity" />
+        <activity android:name=".ui.guardianapp.AmapPoiActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

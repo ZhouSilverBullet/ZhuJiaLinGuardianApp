@@ -43,7 +43,7 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
     @BindView(R.id.ahn_home_navigation)
     AHBottomNavigation mAHBottomNavigation;
     private int prePosition;
-    private SupportFragment[] mFragments = new SupportFragment[3];
+    private SupportFragment[] mFragments = new SupportFragment[4];
     private boolean isAdmin;
     private RxPermissions mRxPermissions;
 
@@ -133,14 +133,15 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
     private void switchFragment(int position) {
         ServerPeopleFragment fragment = findFragment(ServerPeopleFragment.class);
         if (fragment == null) {
-            mFragments[0] = new ServerPeopleFragment();
-            mFragments[1] = new LearningFragment();
-            mFragments[2] = MineFragment.newInstance(isAdmin);
+            mFragments[0] = new HomeFragment();
+            mFragments[1] = new ServerPeopleFragment();
+            mFragments[2] = new LearningFragment();
+            mFragments[3] = MineFragment.newInstance(isAdmin);
 
             loadMultipleRootFragment(R.id.fl_home_container, position,
                     mFragments[0],
                     mFragments[1],
-                    mFragments[2]);
+                    mFragments[2], mFragments[3]);
         } else {
             showHideFragment(mFragments[position], mFragments[prePosition]);
         }

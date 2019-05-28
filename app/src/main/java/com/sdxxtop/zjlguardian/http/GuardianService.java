@@ -4,17 +4,25 @@ import com.sdxxtop.model.bean.InitBean;
 import com.sdxxtop.model.bean.RequestBean;
 import com.sdxxtop.zjlguardian.BuildConfig;
 import com.sdxxtop.zjlguardian.data.AutoLoginBean;
+import com.sdxxtop.zjlguardian.data.ContactIndexBean;
+import com.sdxxtop.zjlguardian.data.EventSearchTitleBean;
 import com.sdxxtop.zjlguardian.data.ExamineFinishBean;
 import com.sdxxtop.zjlguardian.data.LearnNewsBean;
 import com.sdxxtop.zjlguardian.data.LoginBean;
+import com.sdxxtop.zjlguardian.data.MainMapBean;
 import com.sdxxtop.zjlguardian.data.PartBean;
 import com.sdxxtop.zjlguardian.data.PoliticsListBean;
 import com.sdxxtop.zjlguardian.data.PushDataBean;
 import com.sdxxtop.zjlguardian.data.RegisterBean;
 import com.sdxxtop.zjlguardian.data.ServerPeopleBean;
+import com.sdxxtop.zjlguardian.data.ShowPartBean;
+import com.sdxxtop.zjlguardian.data.SignLogBean;
 import com.sdxxtop.zjlguardian.data.StudyCourseBean;
 import com.sdxxtop.zjlguardian.data.StudyQuestionBean;
 import com.sdxxtop.zjlguardian.data.UcenterIndexBean;
+import com.sdxxtop.zjlguardian.presenter.bean.EventIndexBean;
+import com.sdxxtop.zjlguardian.presenter.bean.EventReadBean;
+import com.sdxxtop.zjlguardian.presenter.bean.MainIndexBean;
 import com.sdxxtop.zjlguardian.ui.feedback.data.ProposalBean;
 import com.sdxxtop.zjlguardian.ui.policy.data.PolicyBean;
 import com.sdxxtop.zjlguardian.ui.policy.data.PolicyQueryBean;
@@ -65,9 +73,9 @@ public interface GuardianService {
     Observable<RequestBean<AutoLoginBean>> postLoginAutoLogin(@Field("data") String data);
 //
 //    ////////////// 首页 ////////////
-//    @FormUrlEncoded
-//    @POST("main/index")
-//    Observable<RequestBean<MainIndexBean>> postMainIndex(@Field("data") String data);
+    @FormUrlEncoded
+    @POST("main/index")
+    Observable<RequestBean<MainIndexBean>> postMainIndex(@Field("data") String data);
 
     @FormUrlEncoded
     @POST("main/sign")
@@ -77,45 +85,50 @@ public interface GuardianService {
     @POST("login/register")
     Observable<RequestBean<RegisterBean>> postLoginRegister(@Field("data") String data);
 
-//    @FormUrlEncoded
-//    @POST("main/signlog")
-//    Observable<RequestBean<SignLogBean>> postMainSignLog(@Field("data") String data);
+    @FormUrlEncoded
+    @POST("main/signlog")
+    Observable<RequestBean<SignLogBean>> postMainSignLog(@Field("data") String data);
 //
-//    @FormUrlEncoded
-//    @POST("main/map")
-//    Observable<RequestBean<MainMapBean>> postMainMap(@Field("data") String data);
+    @FormUrlEncoded
+    @POST("main/map")
+    Observable<RequestBean<MainMapBean>> postMainMap(@Field("data") String data);
 
     //////////////首页 ////////////
 
 
-//    @FormUrlEncoded
-//    @POST("event/index")
-//    Observable<RequestBean<EventIndexBean>> postEventIndex(@Field("data") String data);
+    @FormUrlEncoded
+    @POST("event/index")
+    Observable<RequestBean<EventIndexBean>> postEventIndex(@Field("data") String data);
 
     @Multipart
     @POST("event/add")
     Observable<RequestBean> postEventAdd(@PartMap Map<String, RequestBody> data);
 
-//    @FormUrlEncoded
-//    @POST("event/read")
-//    Observable<RequestBean<EventReadBean>> postEventRead(@Field("data") String data);
+    @FormUrlEncoded
+    @POST("event/read")
+    Observable<RequestBean<EventReadBean>> postEventRead(@Field("data") String data);
 
     @Multipart
     @POST("event/modify")
     Observable<RequestBean> postEventModify(@PartMap HashMap<String, RequestBody> data);
 
     //
-//    @FormUrlEncoded
-//    @POST("event/showPart")
-//    Observable<RequestBean<ShowPartBean>> postEventShowPart(@Field("data") String data);
+    @FormUrlEncoded
+    @POST("event/showPart")
+    Observable<RequestBean<ShowPartBean>> postEventShowPart2(@Field("data") String data);
+
+    @FormUrlEncoded
+    @POST("event/search")
+    Observable<RequestBean<EventSearchTitleBean>> postEventSearch(@Field("data") String data);
+
+    //
+    @FormUrlEncoded
+    @POST("contact/index")
+    Observable<RequestBean<ContactIndexBean>> postContactIndex(@Field("data") String data);
 //
-//    @FormUrlEncoded
-//    @POST("contact/index")
-//    Observable<RequestBean<ContactIndexBean>> postContactIndex(@Field("data") String data);
-//
-//    @FormUrlEncoded
-//    @POST("contact/search")
-//    Observable<RequestBean<ContactIndexBean>> postContactSearch(@Field("data") String data);
+    @FormUrlEncoded
+    @POST("contact/search")
+    Observable<RequestBean<ContactIndexBean>> postContactSearch(@Field("data") String data);
 //
 //
     @FormUrlEncoded

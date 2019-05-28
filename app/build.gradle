@@ -94,4 +94,5 @@ dependencies {
     }
 
     implementation 'com.contrarywind:Android-PickerView:4.1.8'
+    implementation project(path: ':faceplatform')
 }

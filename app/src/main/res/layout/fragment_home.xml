@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
+
+    <com.sdxxtop.ui.widget.TitleView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bgColor="@color/transparent"
+        app:titleColor="@color/white"
+        app:titleValue="罗庄区" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--<ImageView-->
+        <!--android:id="@+id/iv_top"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/top_1" />-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@color/white" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="133dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:text="李海龙"
+                        android:textColor="@color/color_303030" />
+
+                    <TextView
+                        android:id="@+id/tv_place"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="网格员 草原区"
+                        android:textColor="@color/color_303030" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        style="@style/text"
+                        android:drawableTop="@drawable/record_home"
+                        android:text="工作轨迹" />
+
+                    <TextView
+                        style="@style/text"
+                        android:drawableTop="@drawable/icon_list_home"
+                        android:text="通讯录" />
+
+                    <TextView
+                        style="@style/text"
+                        android:drawableTop="@drawable/icon_map_home"
+                        android:text="网格地图" />
+
+                    <TextView
+                        style="@style/text"
+                        android:drawableTop="@drawable/punch_home"
+                        android:text="打卡" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="19dp"
+            android:elevation="5dp"
+            android:src="@color/white" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_header"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:elevation="5dp"
+            android:src="@drawable/tou_xiang" />
+
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+</LinearLayout>

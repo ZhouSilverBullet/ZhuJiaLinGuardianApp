@@ -9,13 +9,13 @@
         android:icon="@drawable/tab_video_selector"
         android:title="学海无涯" />
     <!--<item-->
-        <!--android:id="@+id/item_add"-->
-        <!--android:icon="@drawable/add_channel"-->
-        <!--android:title="发头条" />-->
-    <!--<item-->
-        <!--android:id="@+id/item_small_video"-->
-        <!--android:icon="@drawable/tab_micro_selector"-->
-        <!--android:title="小视频" />-->
+    <!--android:id="@+id/item_add"-->
+    <!--android:icon="@drawable/add_channel"-->
+    <!--android:title="发头条" />-->
+    <item
+        android:id="@+id/item_small_video"
+        android:icon="@drawable/tab_micro_selector"
+        android:title="小视频" />
     <item
         android:id="@+id/item_mine"
         android:icon="@drawable/tab_me_selector"

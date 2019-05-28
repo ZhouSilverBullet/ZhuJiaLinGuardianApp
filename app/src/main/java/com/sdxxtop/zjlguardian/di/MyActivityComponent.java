@@ -7,6 +7,14 @@ import com.sdxxtop.di.component.AppComponent;
 import com.sdxxtop.di.module.ActivityModule;
 import com.sdxxtop.di.qualifier.ActivityScope;
 import com.sdxxtop.zjlguardian.ui.examine.ExamineActivity;
+import com.sdxxtop.zjlguardian.ui.guardianapp.ContactActivity;
+import com.sdxxtop.zjlguardian.ui.guardianapp.EventReportActivity;
+import com.sdxxtop.zjlguardian.ui.guardianapp.EventReportDetailActivity;
+import com.sdxxtop.zjlguardian.ui.guardianapp.EventReportDetailSecondActivity;
+import com.sdxxtop.zjlguardian.ui.guardianapp.EventReportListActivity;
+import com.sdxxtop.zjlguardian.ui.guardianapp.GridMapActivity;
+import com.sdxxtop.zjlguardian.ui.guardianapp.PatrolRecordActivity;
+import com.sdxxtop.zjlguardian.ui.guardianapp.TaskAgentsActivity;
 import com.sdxxtop.zjlguardian.ui.home.HomeTabActivity;
 import com.sdxxtop.zjlguardian.ui.learn.news.NewsDetailsActivity;
 import com.sdxxtop.zjlguardian.ui.login.LoginActivity;
@@ -33,4 +41,14 @@ public interface MyActivityComponent {
     void inject(NewsDetailsActivity activity);
     void inject(ExamineActivity activity);
     void inject(SplashActivity activity);
+    void inject(TaskAgentsActivity activity);
+
+    void inject(EventReportDetailSecondActivity activity);
+    void inject(EventReportDetailActivity activity);
+    void inject(PatrolRecordActivity activity);
+    void inject(GridMapActivity activity);
+    void inject(ContactActivity activity);
+    void inject(EventReportListActivity activity);
+    void inject(EventReportActivity activity);
+
 }
