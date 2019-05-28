@@ -201,7 +201,7 @@ public interface GuardianService {
     Observable<RequestBean<PolicyBean>> postPolicySearch(@Field("data") String data);
 
     @Multipart
-    @POST("my_proposal/politics_confirm")
+    @POST("my_proposal/proposalConfirm")
     Observable<RequestBean<ProposalBean>> postProposalPolics(@PartMap Map<String, RequestBody> data);
 
 }
