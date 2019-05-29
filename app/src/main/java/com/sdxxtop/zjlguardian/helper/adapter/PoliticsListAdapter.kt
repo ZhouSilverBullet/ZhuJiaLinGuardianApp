@@ -67,7 +67,7 @@ class PoliticsListAdapter(layoutResId: Int = R.layout.item_politics_list_recycle
         bind?.tvTime?.setText(item?.time?.split(" ")?.get(0) ?: item?.time)
 
         bind?.root?.setOnClickListener {
-            mContext.startActivity<NewsDetailsActivity>("article_path" to "http://villageapi.sdzhujialin.com/village/policy_info/index")
+            mContext.startActivity<NewsDetailsActivity>("article_path" to "http://villageapi.sdzhujialin.com/village/policy_info/index?policy_id=${item?.id}")
         }
     }
 

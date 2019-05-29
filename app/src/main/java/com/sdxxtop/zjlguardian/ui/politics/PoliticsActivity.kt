@@ -41,7 +41,9 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
         if (!empty!!) {
             startActivity<PoliticsSearchActivity>("content" to mBinding.vm?.searchContent
                     , "title" to "网络问政查询结果"
-                    , "isSearch" to true)
+                    , "isSearch" to true
+                    , "isToEditSkip" to true
+            )
         }
     }
 

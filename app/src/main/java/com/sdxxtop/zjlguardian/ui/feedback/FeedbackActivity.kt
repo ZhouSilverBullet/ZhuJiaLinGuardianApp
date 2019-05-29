@@ -53,6 +53,7 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
             startActivity<FeedbackSearchActivity>("content" to mBinding.vm?.searchContent
                     , "title" to "意见建议及投诉查询结果"
                     , "isSearch" to true
+                    , "isToEditSkip" to true
             )
         }
     }

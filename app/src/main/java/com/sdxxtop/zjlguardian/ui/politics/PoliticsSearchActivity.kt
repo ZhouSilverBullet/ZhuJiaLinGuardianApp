@@ -1,12 +1,10 @@
 package com.sdxxtop.zjlguardian.ui.politics
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.text.Editable
-import android.text.TextUtils
-import android.text.TextWatcher
+import android.graphics.Color
+import android.text.*
+import android.text.style.ForegroundColorSpan
+import android.text.style.UnderlineSpan
 import android.view.View
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.scwang.smartrefresh.layout.api.RefreshLayout
@@ -15,10 +13,16 @@ import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityPoliticsSearchBinding
 import com.sdxxtop.zjlguardian.helper.adapter.PoliticsListAdapter
+import com.sdxxtop.zjlguardian.ui.feedback.FeedbackSearchActivity
 import kotlinx.android.synthetic.main.activity_politics_list.*
+import org.jetbrains.anko.startActivity
 
 class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), TextWatcher {
     var isSearch = false
+    var isToEditSkip = false
+
+    var isFirst = true
+
     override fun initView() {
         val content = intent.getStringExtra("content")
 
@@ -26,6 +30,8 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
         tv_title.setTitleValue(title)
 
         isSearch = intent.getBooleanExtra("isSearch", false)
+
+        isToEditSkip = intent.getBooleanExtra("isToEditSkip", false)
 
         mBinding.vm = bindViewModel(PoliticsSearchViewModel::class.java)
 
@@ -43,6 +49,19 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
             mBinding.rlSearchBackground.visibility = View.GONE
             mBinding.srlLayout.autoRefresh()
         }
+
+        setTvEmpty()
+    }
+
+    private fun setTvEmpty() {
+        val spannableString = SpannableString("快去主动发起问政吧")
+//        val strikethroughSpan = StrikethroughSpan()
+//        spannableString.setSpan(strikethroughSpan, 4, spannableString.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        val colorSpan = ForegroundColorSpan(Color.parseColor("#14C8B3"))
+        spannableString.setSpan(colorSpan, 4, 8, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        val underlineSpan = UnderlineSpan()
+        spannableString.setSpan(underlineSpan, 4, 8, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        mBinding.tvEmpty.setText(spannableString)
     }
 
     private fun initRecycler() {
@@ -56,6 +75,12 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
             } else {
                 politicsListAdapter.replaceData(it)
             }
+
+//            if (!isFirst) {
+                handleEmpty(mBinding.rv.adapter?.itemCount == 0)
+//            }
+
+//            isFirst = false
 
             mBinding.srlLayout.finishLoadMore()
             mBinding.srlLayout.finishRefresh()
@@ -109,6 +134,23 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
 
     override fun afterTextChanged(s: Editable) {
 
+    }
+
+    fun handleEmpty(isEmpty: Boolean) {
+        mBinding.llEmpty.visibility = if (isEmpty) View.VISIBLE else View.GONE
+    }
+
+    override fun onClick(v: View?) {
+        when (v) {
+            mBinding.tvEmpty -> {
+                if (isToEditSkip) {
+                    finish()
+                } else {
+                    startActivity<PoliticsActivity>()
+                    finish()
+                }
+            }
+        }
     }
 
 }

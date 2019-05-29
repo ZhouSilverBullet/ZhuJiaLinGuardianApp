@@ -1,28 +1,33 @@
 package com.sdxxtop.zjlguardian.ui.feedback
 
-import android.text.Editable
-import android.text.TextUtils
-import android.text.TextWatcher
+import android.graphics.Color
+import android.text.*
+import android.text.style.ForegroundColorSpan
+import android.text.style.UnderlineSpan
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
-import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityPoliticsSearchBinding
 import com.sdxxtop.zjlguardian.helper.adapter.FeedbackListAdapter
 import com.sdxxtop.zjlguardian.ui.politics.PoliticsSearchViewModel
 import kotlinx.android.synthetic.main.activity_politics_list.*
+import org.jetbrains.anko.startActivity
+
 
 class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), TextWatcher {
     var isSearch = false
+    var isToEditSkip = false
+
     override fun initView() {
         val content = intent.getStringExtra("content")
 
         var title = intent.getStringExtra("title")
 
         isSearch = intent.getBooleanExtra("isSearch", false)
+        isToEditSkip = intent.getBooleanExtra("isToEditSkip", false)
 
         tv_title.setTitleValue(title)
 
@@ -42,6 +47,19 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
             mBinding.rlSearchBackground.visibility = View.GONE
             mBinding.srlLayout.autoRefresh()
         }
+
+        setTvEmpty()
+    }
+
+    private fun setTvEmpty() {
+        val spannableString = SpannableString("快去主动发送信件吧")
+//        val strikethroughSpan = StrikethroughSpan()
+//        spannableString.setSpan(strikethroughSpan, 4, spannableString.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        val colorSpan = ForegroundColorSpan(Color.parseColor("#14C8B3"))
+        spannableString.setSpan(colorSpan, 4, 8, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        val underlineSpan = UnderlineSpan()
+        spannableString.setSpan(underlineSpan, 4, 8, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        mBinding.tvEmpty.setText(spannableString)
     }
 
     private fun initRecycler() {
@@ -55,6 +73,8 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
             } else {
                 feedbackListAdapter.replaceData(it)
             }
+
+            handleEmpty(mBinding.rv.adapter?.itemCount == 0)
 
             mBinding.srlLayout.finishLoadMore()
             mBinding.srlLayout.finishRefresh()
@@ -78,7 +98,7 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
         });
     }
 
-    override fun getLayoutId() = R.layout.activity_politics_search
+    override fun getLayoutId() = com.sdxxtop.zjlguardian.R.layout.activity_politics_search
 
     override fun loadData(isRefresh: Boolean) {
 
@@ -107,6 +127,23 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
 
     override fun afterTextChanged(s: Editable) {
 
+    }
+
+    fun handleEmpty(isEmpty: Boolean) {
+        mBinding.llEmpty.visibility = if (isEmpty) View.VISIBLE else View.GONE
+    }
+
+    override fun onClick(v: View?) {
+        when (v) {
+            mBinding.tvEmpty -> {
+                if (isToEditSkip) { //搜索页面过来的，直接结束就好了
+                    finish()
+                } else {
+                    startActivity<FeedbackSearchActivity>()
+                    finish()
+                }
+            }
+        }
     }
 
 }

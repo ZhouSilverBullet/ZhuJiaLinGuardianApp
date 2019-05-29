@@ -7,6 +7,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import com.sdxxtop.ui.widget.TitleView;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
 
@@ -23,6 +24,9 @@ public class NewsDetailsActivity extends GBaseMvpActivity<NewsDetailPresenter> i
     WebView webView;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+
+    @BindView(R.id.tv_title)
+    TitleView mTitleView;
 
     private String article_path; // 文章id
 
@@ -49,6 +53,12 @@ public class NewsDetailsActivity extends GBaseMvpActivity<NewsDetailPresenter> i
                 if (newProgress == 100 && progressBar != null) {
                     progressBar.setVisibility(View.GONE);
                 }
+            }
+
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                super.onReceivedTitle(view, title);
+                mTitleView.setTitleValue(title);
             }
         });
 

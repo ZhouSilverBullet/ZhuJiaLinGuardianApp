@@ -70,7 +70,9 @@
         <activity android:name=".ui.guardianapp.EventReportListActivity" />
         <activity android:name=".ui.guardianapp.EventReportActivity" />
         <activity android:name=".ui.guardianapp.AmapPoiActivity" />
-        <activity android:name=".ui.feedback.FeedbackSearchActivity" />
+        <activity
+            android:name=".ui.feedback.FeedbackSearchActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.guardianapp.GuideActivity"
             android:theme="@style/NormalSplash" />
