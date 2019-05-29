@@ -24,11 +24,7 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application>
-        <meta-data
-            android:name="com.amap.api.v2.apikey"
-            android:value="1985905fa798941ad45e429a5bbd97e0" />
 
-        <service android:name="com.amap.api.location.APSService" />
         <meta-data
             android:name="max_aspect"
             android:value="2.2" />

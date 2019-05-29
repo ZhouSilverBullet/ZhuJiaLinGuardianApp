@@ -20,7 +20,7 @@
             app:titleColor="@color/white"
             app:titleValue="工作轨迹" />
 
-        <com.sdxxtop.zjlguardian.widget.TextAndEditView
+        <com.sdxxtop.ui.widget.TextAndTextView
             android:id="@+id/tatv_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

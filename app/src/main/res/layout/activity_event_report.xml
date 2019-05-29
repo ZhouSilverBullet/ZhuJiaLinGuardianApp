@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="135dp"/>
 
-            <com.sdxxtop.ui.widget.TextAndTextView
+            <com.sdxxtop.zjlguardian.widget.TextAndEditView
                 android:id="@+id/taev_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
