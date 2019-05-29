@@ -27,6 +27,7 @@ import android.view.LayoutInflater
 import androidx.core.content.ContextCompat.startActivity
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.ui.feedback.FeedbackActivity
+import com.sdxxtop.zjlguardian.ui.notice.NoticeActivity
 import com.sdxxtop.zjlguardian.ui.policy.PolicyQueryActivity
 
 /**
@@ -128,6 +129,10 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
 
             ll_policy_query -> {
                 startActivity<PolicyQueryActivity>()
+            }
+
+            tv_notice_more -> {
+                startActivity<NoticeActivity>()
             }
         }
     }

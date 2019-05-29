@@ -94,7 +94,10 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
         } else {
 //            mPresenter.loadData()
             //            mAdapter.replaceData(new ArrayList<>());
-            (mBinding.rv.adapter as PoliticsListAdapter).addData(ArrayList())
+            if (mBinding.rv.adapter is PoliticsListAdapter) {
+                (mBinding.rv.adapter as PoliticsListAdapter).addData(ArrayList())
+            }
+
             mBinding.tvCancel.setVisibility(View.GONE)
         }
     }

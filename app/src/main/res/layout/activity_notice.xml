@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.sdxxtop.zjlguardian.base.Presenter" />
+
+        <variable
+            name="vm"
+            type="com.sdxxtop.zjlguardian.ui.notice.NoticeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.notice.NoticeActivity">
+
+        <com.sdxxtop.ui.widget.TitleView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftLayoutIsShow="true"
+            app:titleValue="全部公告" />
+
+        <RelativeLayout
+            android:id="@+id/rl_search_background"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:animateLayoutChanges="true"
+            android:focusableInTouchMode="true"
+            android:paddingLeft="8dp"
+            android:paddingTop="10dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/tv_cancel"
+                android:background="@drawable/contact_search_bg">
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/color_E4E4E4"
+                    android:drawableLeft="@drawable/search"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:hint="@string/find_notice"
+                    android:imeOptions="actionSearch"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/color_333333"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:text="取消"
+                android:textColor="@color/green_14C8B3"
+                android:textSize="15sp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </RelativeLayout>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/srl_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+</layout>

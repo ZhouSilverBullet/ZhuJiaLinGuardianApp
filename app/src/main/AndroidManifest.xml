@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.feedback.FeedbackActivity"></activity>
+        <activity android:name=".ui.notice.NoticeActivity"></activity>
+        <activity android:name=".ui.feedback.FeedbackActivity" />
         <activity android:name=".ui.policy.PolicyQueryListActivity" />
         <activity android:name=".ui.politics.PoliticsDetailActivity" />
         <activity android:name=".ui.politics.PoliticsListActivity" />

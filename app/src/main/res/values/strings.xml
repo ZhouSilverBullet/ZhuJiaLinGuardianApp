@@ -41,4 +41,7 @@
     <string name="liveness_head_up">缓慢抬头</string>
     <string name="liveness_head_down">缓慢低头</string>
     <string name="liveness_good">非常好</string>
+
+
+    <string name="find_notice">查询公告</string>
 </resources>

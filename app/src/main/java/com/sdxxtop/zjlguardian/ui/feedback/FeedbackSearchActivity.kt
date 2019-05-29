@@ -1,12 +1,9 @@
 package com.sdxxtop.zjlguardian.ui.feedback
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.View
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.scwang.smartrefresh.layout.api.RefreshLayout
@@ -15,7 +12,6 @@ import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityPoliticsSearchBinding
 import com.sdxxtop.zjlguardian.helper.adapter.FeedbackListAdapter
-import com.sdxxtop.zjlguardian.helper.adapter.PoliticsListAdapter
 import com.sdxxtop.zjlguardian.ui.politics.PoliticsSearchViewModel
 import kotlinx.android.synthetic.main.activity_politics_list.*
 
@@ -97,7 +93,9 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
         } else {
 //            mPresenter.loadData()
             //            mAdapter.replaceData(new ArrayList<>());
-            (mBinding.rv.adapter as FeedbackListAdapter).addData(ArrayList())
+            if (mBinding.rv.adapter is FeedbackListAdapter) {
+                (mBinding.rv.adapter as FeedbackListAdapter).addData(ArrayList())
+            }
             mBinding.tvCancel.setVisibility(View.GONE)
         }
     }
