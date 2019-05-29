@@ -42,7 +42,7 @@ class PolicyQueryActivity : KBaseActivity<ActivityPolicyQueryBinding>() {
 //                    , "isSearch" to true)
             startActivity<PolicyQueryListActivity>(
                     "title" to mBinding.vm?.searchContent,
-                    "mineId" to 0, "findId" to 0)
+                    "mineId" to 0, "findId" to 0, "isSearch" to true)
         }
     }
 

@@ -28,6 +28,7 @@ class PolicyQueryListViewModel : BaseViewModel() {
     var policy_num = 0;
 
     var isPullLoad = false
+    var isSearch = false
 
     fun load() {
         val params = Params()
@@ -53,19 +54,21 @@ class PolicyQueryListViewModel : BaseViewModel() {
         if (!TextUtils.isEmpty(title)) {
             params.put("tl", title)
             //1：不是，2：是
-            params.put("ih", 2)
         }
 
         if (mineId != 0) {
             params.put("is", mineId)
-            params.put("ih", 2)
         }
 
         if (findId != 0) {
             params.put("id", findId)
-            params.put("ih", 2)
         }
 
+        if (isSearch) {
+            params.put("ih", 2)
+        } else {
+            params.put("ih", 1)
+        }
         params.put("st", startPage)
         params.put("lt", 10)
 

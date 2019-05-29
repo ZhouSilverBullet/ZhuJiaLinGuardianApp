@@ -14,6 +14,7 @@ import com.sdxxtop.base.R;
 import es.dmoral.toasty.Toasty;
 
 public class UIUtils {
+    public static Toast mToast;
 
     public static void showToast(int msgId) {
         showToast(getString(msgId));
@@ -25,10 +26,17 @@ public class UIUtils {
 
     public static void showToast(String msg, int duration) {
 //        Toasty.info(getContext(), msg, duration, false).show();
-        Toasty.custom(getContext(), msg,
-                R.drawable.icon_4_home,
-                R.color.color_32B16C,
-                duration, false, true).show();
+//        Toasty.custom(getContext(), msg,
+//                R.drawable.icon_4_home,
+//                R.color.color_32B16C,
+//                duration, false, true).show();
+
+        if (mToast == null) {
+            mToast = Toast.makeText(getContext(), "", duration);
+        }
+        mToast.setText(msg);
+        mToast.show();
+
     }
 
     /**

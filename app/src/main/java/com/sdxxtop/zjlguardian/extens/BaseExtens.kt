@@ -25,6 +25,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.amap.api.mapcore.util.it
 import com.sdxxtop.utils.StatusBarUtil
+import com.sdxxtop.utils.UIUtils
 import com.sdxxtop.zjlguardian.BuildConfig
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.helper.KConstants
@@ -52,12 +53,13 @@ import java.util.concurrent.TimeUnit
 fun Activity.getCompactColor(@ColorRes colorRes: Int): Int = ContextCompat.getColor(this, colorRes)
 
 fun Activity.toast(msg: CharSequence, duration: Int = Toast.LENGTH_SHORT, @ToastType type: Int = ToastType.NORMAL) {
-    when (type) {
-        ToastType.WARNING -> Toasty.warning(this, msg, duration, true).show()
-        ToastType.ERROR -> Toasty.error(this, msg, duration, true).show()
-        ToastType.NORMAL -> Toasty.info(this, msg, duration, false).show()
-        ToastType.SUCCESS -> Toasty.success(this, msg, duration, true).show()
-    }
+//    when (type) {
+//        ToastType.WARNING -> Toasty.warning(this, msg, duration, true).show()
+//        ToastType.ERROR -> Toasty.error(this, msg, duration, true).show()
+//        ToastType.NORMAL -> Toasty.info(this, msg, duration, false).show()
+//        ToastType.SUCCESS -> Toasty.success(this, msg, duration, true).show()
+//    }
+    UIUtils.showToast(msg.toString())
 }
 
 fun Activity.dispatchFailure(error: Throwable?) {

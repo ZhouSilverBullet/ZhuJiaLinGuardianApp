@@ -19,6 +19,7 @@ class PolicyQueryListActivity : KBaseActivity<ActivityPolicyQueryListBinding>() 
     var mineId = 0;
     var findId = 0;
     var title = "";
+    var isSearch = false;
     val myAdapter = MyAdapter()
 
     override fun initView() {
@@ -50,6 +51,9 @@ class PolicyQueryListActivity : KBaseActivity<ActivityPolicyQueryListBinding>() 
         title = intent.getStringExtra("title");
         mineId = intent.getIntExtra("mineId", 0);
         findId = intent.getIntExtra("findId", 0);
+        isSearch = intent.getBooleanExtra("isSearch", false);
+
+        mBinding.vm?.isSearch = isSearch
 
         mBinding.vm?.mPolicy?.observe(this, Observer {
             mBinding.tvContentTitle.text = mBinding.vm?.titleValue

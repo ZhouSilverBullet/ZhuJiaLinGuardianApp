@@ -130,17 +130,17 @@
                                     android:text="意见" />
 
                                 <RadioButton
-                                    android:layout_marginLeft="5dp"
                                     android:id="@+id/rb_jianyi"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
                                     android:text="建议" />
 
                                 <RadioButton
-                                    android:layout_marginLeft="5dp"
                                     android:id="@+id/rb_toushu"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
                                     android:text="投诉" />
                             </RadioGroup>
                         </RelativeLayout>
@@ -297,6 +297,7 @@
                                 <RadioButton
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
                                     android:checked="@={vm.open}"
                                     android:text="匿名" />
                             </RadioGroup>
