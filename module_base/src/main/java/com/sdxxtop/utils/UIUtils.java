@@ -27,7 +27,7 @@ public class UIUtils {
 //        Toasty.info(getContext(), msg, duration, false).show();
         Toasty.custom(getContext(), msg,
                 R.drawable.icon_4_home,
-                R.color.color_red_E60012,
+                R.color.color_32B16C,
                 duration, false, true).show();
     }
 
