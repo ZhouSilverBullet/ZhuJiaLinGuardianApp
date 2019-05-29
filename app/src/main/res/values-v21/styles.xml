@@ -15,6 +15,8 @@
         <item name="android:windowAllowReturnTransitionOverlap">false</item>
         <item name="android:windowEnterTransition">@android:transition/slide_bottom</item>
         <item name="android:windowExitTransition">@android:transition/no_transition</item>
+
+        <item name="android:radioButtonStyle">@style/MyRadiobtn</item>
     </style>
 
     <style name="RedAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -31,6 +33,8 @@
         <item name="android:windowAllowReturnTransitionOverlap">false</item>
         <item name="android:windowEnterTransition">@android:transition/slide_bottom</item>
         <item name="android:windowExitTransition">@android:transition/no_transition</item>
+
+        <item name="android:radioButtonStyle">@style/MyRadiobtn</item>
     </style>
 
     <style name="NormalSplash" parent="AppTheme">

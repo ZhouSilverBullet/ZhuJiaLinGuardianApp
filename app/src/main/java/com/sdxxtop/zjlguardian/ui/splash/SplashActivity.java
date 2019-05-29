@@ -68,10 +68,10 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
     protected void initData() {
         super.initData();
 
-//        mPresenter.autoLogin();
-        Intent intent = new Intent(mContext, HomeTabActivity.class);
-        startActivity(intent);
-        finish();
+        mPresenter.autoLogin();
+//        Intent intent = new Intent(mContext, HomeTabActivity.class);
+//        startActivity(intent);
+//        finish();
     }
 
     @Override
@@ -102,16 +102,19 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
         String name = autoLoginBean.getName();
         int part_id = autoLoginBean.getPart_id();
         int userid = autoLoginBean.getUserid();
+        final int type = autoLoginBean.getType();
 
         SpUtil.putInt(Constants.USER_ID, userid);
         SpUtil.putInt(Constants.EXPIRE_TIME, expire_time);
         SpUtil.putInt(Constants.PART_ID, part_id);
         SpUtil.putString(Constants.AUTO_TOKEN, auto_token);
+        SpUtil.putInt(Constants.TYPE, type);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(mContext, HomeTabActivity.class);
+                intent.putExtra("isAdmin", type == 1);
                 startActivity(intent);
                 finish();
             }

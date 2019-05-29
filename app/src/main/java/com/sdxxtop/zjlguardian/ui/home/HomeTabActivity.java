@@ -43,7 +43,7 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
     @BindView(R.id.ahn_home_navigation)
     AHBottomNavigation mAHBottomNavigation;
     private int prePosition;
-    private SupportFragment[] mFragments = new SupportFragment[4];
+    private SupportFragment[] mFragments;
     private boolean isAdmin;
     private RxPermissions mRxPermissions;
 
@@ -103,7 +103,7 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
 
     private void initAHNavigation() {
         int[] tabColors = getApplicationContext().getResources().getIntArray(R.array.tab_colors);
-        AHBottomNavigationAdapter navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.bottom_navigation_menu);
+        AHBottomNavigationAdapter navigationAdapter = new AHBottomNavigationAdapter(this, isAdmin ? R.menu.bottom_navigation_menu : R.menu.bottom_navigation_menu_person);
         navigationAdapter.setupWithBottomNavigation(mAHBottomNavigation, tabColors);
 
         // Set background color
@@ -133,15 +133,36 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
     private void switchFragment(int position) {
         ServerPeopleFragment fragment = findFragment(ServerPeopleFragment.class);
         if (fragment == null) {
-            mFragments[0] = new HomeFragment();
-            mFragments[1] = ServerPeopleFragment.Companion.newInstance(1);
-            mFragments[2] = new LearningFragment();
-            mFragments[3] = MineFragment.newInstance(isAdmin);
+            if (isAdmin) { //有权限的，就显示网格员
+                if (mFragments == null) {
+                    mFragments = new SupportFragment[4];
+                }
 
-            loadMultipleRootFragment(R.id.fl_home_container, position,
-                    mFragments[0],
-                    mFragments[1],
-                    mFragments[2], mFragments[3]);
+                mFragments[0] = new HomeFragment();
+                mFragments[1] = ServerPeopleFragment.Companion.newInstance(1);
+                mFragments[2] = new LearningFragment();
+                mFragments[3] = MineFragment.newInstance(isAdmin);
+
+                loadMultipleRootFragment(R.id.fl_home_container, position,
+                        mFragments[0],
+                        mFragments[1],
+                        mFragments[2], mFragments[3]);
+            } else { //无权限的，不显示网格员
+
+                if (mFragments == null) {
+                    mFragments = new SupportFragment[3];
+                }
+                mFragments[0] = ServerPeopleFragment.Companion.newInstance(2);
+                mFragments[1] = new LearningFragment();
+                mFragments[2] = MineFragment.newInstance(isAdmin);
+
+                loadMultipleRootFragment(R.id.fl_home_container, position,
+                        mFragments[0],
+                        mFragments[1],
+                        mFragments[2]);
+            }
+
+
         } else {
             showHideFragment(mFragments[position], mFragments[prePosition]);
         }

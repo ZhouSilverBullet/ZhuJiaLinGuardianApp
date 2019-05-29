@@ -24,6 +24,7 @@ public class LoginBean {
     private String img;
 
     private int is_new;
+    private int type;
 
     public String getAuto_token() {
         return auto_token;
@@ -103,5 +104,13 @@ public class LoginBean {
 
     public void setIs_new(int is_new) {
         this.is_new = is_new;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

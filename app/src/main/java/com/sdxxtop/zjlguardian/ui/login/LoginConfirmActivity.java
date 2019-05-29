@@ -61,6 +61,7 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
     private String autoToken;
     private int userid;
     private int partId;
+    private int mType;
 
     @Override
     protected int getLayout() {
@@ -82,6 +83,7 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
             partId = getIntent().getIntExtra("partId", 0);
             userid = getIntent().getIntExtra("userid", 0);
             autoToken = getIntent().getStringExtra("autoToken");
+            mType = getIntent().getIntExtra("type", 2);
         }
     }
 
@@ -146,8 +148,8 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserData.getInstance().saveInfo(autoToken, expireTime, partId, userid, phone);
-                startActivity();
+                UserData.getInstance().saveInfo(autoToken, expireTime, partId, userid, phone, mType);
+                startActivity(mType);
             }
         });
 
@@ -160,10 +162,10 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
         });
     }
 
-    private void startActivity() {
+    private void startActivity(int type) {
         notifyLoginFinish();
         Intent intent = new Intent(this, HomeTabActivity.class);
-        intent.putExtra("isAdmin", isAdmin);
+        intent.putExtra("isAdmin", type == 1);
         startActivity(intent);
         finish();
     }

@@ -14,6 +14,7 @@ public class AutoLoginBean {
     private String name;
     private String auto_token;
     private int expire_time;
+    private int type;
 
     public int getUserid() {
         return userid;
@@ -53,5 +54,13 @@ public class AutoLoginBean {
 
     public void setExpire_time(int expire_time) {
         this.expire_time = expire_time;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

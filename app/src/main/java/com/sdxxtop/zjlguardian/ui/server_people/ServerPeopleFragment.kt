@@ -153,6 +153,10 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
     companion object {
 
         // TODO: Customize parameters
+        /**
+         * 这个type 1 是title加padding用的，因为，不在第一页的
+         * fragment沉淀式，需要加一个padding
+         */
         fun newInstance(type: Int): ServerPeopleFragment =
                 ServerPeopleFragment().apply {
                     arguments = Bundle().apply {

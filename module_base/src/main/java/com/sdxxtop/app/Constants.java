@@ -14,6 +14,7 @@ public interface Constants {
     String PART_ID = "part_id";
     String USER_ID = "user_id";
     String MOBILE = "mobile";
+    String TYPE = "login_type";
 
     /**
      *

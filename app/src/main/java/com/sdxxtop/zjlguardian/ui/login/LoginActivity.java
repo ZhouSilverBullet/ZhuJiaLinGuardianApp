@@ -213,6 +213,7 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
         int position = loginBean.getPosition();
         int userid = loginBean.getUserid();
         String img = loginBean.getImg();
+        int type = loginBean.getType();
 
         SpUtil.putString(Constants.AUTO_TOKEN, autoToken);
         SpUtil.putInt(Constants.EXPIRE_TIME, expireTime);
@@ -231,8 +232,9 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
         intent.putExtra("partName", partName);
         intent.putExtra("position", position);
         intent.putExtra("img", img);
+        intent.putExtra("type", type);
         startActivity(intent);
-        finish();
+//        finish();
 
         hideLoadingDialog();
     }
