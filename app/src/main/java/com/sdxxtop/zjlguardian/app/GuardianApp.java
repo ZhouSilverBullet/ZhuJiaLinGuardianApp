@@ -1,5 +1,6 @@
 package com.sdxxtop.zjlguardian.app;
 
+import com.baidu.idl.face.platform.FaceSDKManager;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.LogcatLogStrategy;
@@ -43,5 +44,11 @@ public class GuardianApp extends App {
                 return BuildConfig.DEBUG;
             }
         });
+    }
+
+    @Override
+    protected void initBaiduFace() {
+        FaceSDKManager.getInstance().initialize(this, "zjlguardian-face-android", "idl-license.face-android");
+
     }
 }

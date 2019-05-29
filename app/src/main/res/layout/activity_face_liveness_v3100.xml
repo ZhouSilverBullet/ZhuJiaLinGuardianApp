@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.sdxxtop.guardianapp.ui.widget.TitleView
+        <com.sdxxtop.ui.widget.TitleView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
                 android:layout_marginRight="15dp"
                 android:src="@mipmap/ic_enable_sound_ext" />
 
-        </com.sdxxtop.guardianapp.ui.widget.TitleView>
+        </com.sdxxtop.ui.widget.TitleView>
 
 
     </FrameLayout>

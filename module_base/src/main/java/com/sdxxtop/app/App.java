@@ -38,8 +38,7 @@ public class App extends BaseApp {
         CrashHandler.getInstance().init(this);
     }
 
-    private void initBaiduFace() {
-//        FaceSDKManager.getInstance().initialize(this, "luozhuang-face-android", "idl-license.face-android");
+    protected void initBaiduFace() {
     }
 
     public static App getInstance() {
