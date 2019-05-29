@@ -37,6 +37,11 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
         mBinding.etSearch.setText(content)
 
         initRecycler()
+
+        if (!isSearch) {
+            mBinding.rlSearchBackground.visibility = View.GONE
+            mBinding.srlLayout.autoRefresh()
+        }
     }
 
     private fun initRecycler() {
@@ -66,7 +71,7 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
             override fun onRefresh(refreshLayout: RefreshLayout?) {
                 if (refreshLayout != null) {
                     mBinding.vm?.isPullLoad = false
-                    mBinding.vm?.loadFeedback(isSearch, feedbackListAdapter.itemCount, mBinding.vm?.etValue)
+                    mBinding.vm?.loadFeedback(isSearch, 0, mBinding.vm?.etValue)
                 }
             }
 

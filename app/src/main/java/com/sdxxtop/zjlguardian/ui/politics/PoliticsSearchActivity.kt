@@ -38,6 +38,11 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
         mBinding.etSearch.setText(content)
 
         initRecycler()
+
+        if (!isSearch) {
+            mBinding.rlSearchBackground.visibility = View.GONE
+            mBinding.srlLayout.autoRefresh()
+        }
     }
 
     private fun initRecycler() {
@@ -67,7 +72,7 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
             override fun onRefresh(refreshLayout: RefreshLayout?) {
                 if (refreshLayout != null) {
                     mBinding.vm?.isPullLoad = false
-                    mBinding.vm?.load(isSearch, politicsListAdapter.itemCount, mBinding.vm?.etValue)
+                    mBinding.vm?.load(isSearch, 0, mBinding.vm?.etValue)
                 }
             }
 

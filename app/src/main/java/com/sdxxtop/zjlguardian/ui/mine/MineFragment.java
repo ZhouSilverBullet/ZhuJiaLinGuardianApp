@@ -21,7 +21,10 @@ import com.sdxxtop.utils.UIUtils;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseMvpFragment;
 import com.sdxxtop.zjlguardian.data.UcenterIndexBean;
+import com.sdxxtop.zjlguardian.ui.feedback.FeedbackActivity;
+import com.sdxxtop.zjlguardian.ui.feedback.FeedbackSearchActivity;
 import com.sdxxtop.zjlguardian.ui.login.LoginActivity;
+import com.sdxxtop.zjlguardian.ui.politics.PoliticsSearchActivity;
 
 import java.util.List;
 
@@ -156,7 +159,9 @@ public class MineFragment extends GBaseMvpFragment<MinePresenter> implements Min
         }
     }
 
-    @OnClick({R.id.civ_header, R.id.tatv_message, R.id.tatv_report, R.id.event_report, R.id.grid_member_report, R.id.company_report})
+    @OnClick({R.id.civ_header, R.id.tatv_message, R.id.tatv_report,
+            R.id.event_report, R.id.grid_member_report, R.id.company_report
+    ,R.id.ll_politics, R.id.ll_jianyi, R.id.ll_find})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.civ_header:
@@ -171,8 +176,25 @@ public class MineFragment extends GBaseMvpFragment<MinePresenter> implements Min
                         .compress(true).selectionMode(PictureConfig.SINGLE).maxSelectNum(1).forResult(IMAGE_STORE);
 
                 break;
-            case R.id.tatv_message:
+            case R.id.ll_politics: // 我的问政
+                Intent politicsSearchIntent = new Intent(getActivity(), PoliticsSearchActivity.class);
+                politicsSearchIntent.putExtra("content", "");
+                politicsSearchIntent.putExtra("title", "我的网络问政");
+                startActivity(politicsSearchIntent);
 //                new QuitGroupPopView(getActivity(), mRootView, mPartName, partUnit);
+                break;
+            case R.id.ll_jianyi: // 我的意见反馈
+
+                Intent feedbackIntent = new Intent(getActivity(), FeedbackSearchActivity.class);
+                feedbackIntent.putExtra("content", "");
+                feedbackIntent.putExtra("title", "意见建议及投诉");
+                feedbackIntent.putExtra("isSearch", false);
+                startActivity(feedbackIntent);
+
+                break;
+            case R.id.ll_find: // 政策查询
+
+
                 break;
             default:
                 break;

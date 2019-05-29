@@ -42,7 +42,7 @@
                         android:layout_width="46dp"
                         android:layout_height="46dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginTop="19dp"
+                        android:layout_marginTop="9dp"
                         android:elevation="5dp"
                         android:src="@color/white" />
 
@@ -52,14 +52,15 @@
                         android:layout_height="44dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:elevation="5dp"
                         android:src="@drawable/tou_xiang" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="12dp"
                         android:layout_toRightOf="@id/civ_header"
                         android:orientation="vertical">
 
@@ -68,7 +69,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginTop="25dp"
                             android:text="李海龙"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
@@ -92,8 +92,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/civ_header_layout"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="11dp"
                     android:paddingLeft="11dp"
                     android:paddingTop="8dp"
@@ -107,6 +107,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:visibility="gone"
                     android:layout_below="@id/tv_mine_dec"
                     android:background="@color/green_14C8B3" />
 
@@ -144,12 +145,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="7dp"
-                                android:text="网络问政"
+                                android:text="我的问政"
                                 android:textColor="@color/color_313131"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/ll_jianyi"
                             android:layout_width="0dp"
                             android:layout_height="103dp"
                             android:layout_weight="1"
@@ -175,6 +177,7 @@
 
 
                         <LinearLayout
+                            android:id="@+id/ll_find"
                             android:layout_width="0dp"
                             android:layout_height="103dp"
                             android:layout_weight="1"
@@ -208,18 +211,21 @@
                 android:id="@+id/tatv_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:tatv_text_view="我的问政" />
 
             <com.sdxxtop.ui.widget.TextAndTextView
                 android:id="@+id/tatv_report"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:tatv_text_view="我的意见建议投诉" />
 
             <com.sdxxtop.ui.widget.TextAndTextView
                 android:id="@+id/event_report"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:tatv_text_view="我的服务进度" />
 
             <com.sdxxtop.ui.widget.TextAndTextView
