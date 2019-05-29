@@ -16,6 +16,7 @@ import com.sdxxtop.zjlguardian.BuildConfig;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
 import com.sdxxtop.zjlguardian.data.AutoLoginBean;
+import com.sdxxtop.zjlguardian.ui.guardianapp.GuideActivity;
 import com.sdxxtop.zjlguardian.ui.home.HomeActivity;
 import com.sdxxtop.zjlguardian.ui.home.HomeTabActivity;
 import com.sdxxtop.zjlguardian.ui.login.LoginActivity;
@@ -68,7 +69,14 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
     protected void initData() {
         super.initData();
 
-        mPresenter.autoLogin();
+        boolean guideIsShow = SpUtil.getBoolean(Constants.GUIDE_IS_SHOW, false);
+        if (guideIsShow) {
+            mPresenter.autoLogin();
+        } else {
+            Intent intent = new Intent(mContext, GuideActivity.class);
+            startActivity(intent);
+            finish();
+        }
 //        Intent intent = new Intent(mContext, HomeTabActivity.class);
 //        startActivity(intent);
 //        finish();
@@ -118,7 +126,7 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
                 startActivity(intent);
                 finish();
             }
-        }, BuildConfig.DEBUG ? 0 : 6000);
+        }, BuildConfig.DEBUG ? 0 : 2000);
 
     }
 
@@ -130,7 +138,7 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
                 startActivity(intent);
                 finish();
             }
-        }, BuildConfig.DEBUG ? 0 : 6000);
+        }, BuildConfig.DEBUG ? 0 : 2000);
 
     }
 

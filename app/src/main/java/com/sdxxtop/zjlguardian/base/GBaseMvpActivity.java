@@ -1,5 +1,7 @@
 package com.sdxxtop.zjlguardian.base;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -32,5 +34,16 @@ public abstract class GBaseMvpActivity<T extends RxPresenter> extends BaseMvpAct
                 .appComponent(App.getAppComponent())
                 .activityModule(new ActivityModule(this))
                 .build();
+    }
+
+    public int getVersionCode() {
+        try {
+            PackageManager manager = this.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(getPackageName(), 0);
+            int version = info.versionCode;
+            return version;
+        } catch (Exception e) {
+            return 10000;
+        }
     }
 }

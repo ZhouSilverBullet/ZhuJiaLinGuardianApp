@@ -15,6 +15,8 @@ public interface Constants {
     String USER_ID = "user_id";
     String MOBILE = "mobile";
     String TYPE = "login_type";
+    String GUIDE_IS_SHOW = "guide_is_show";
+    String GUIDE_SHOW_VERSION = "guide_show_version";
 
     /**
      *
