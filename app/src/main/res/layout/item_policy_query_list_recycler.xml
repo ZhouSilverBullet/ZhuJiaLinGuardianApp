@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
+            android:padding="16dp"
             android:textColor="#ff313131"
             android:textSize="15sp"
             tools:text="岸提镇工商行政管理局关于贯彻落实岸提市推进证照分离改革试点工作方案的通知" />

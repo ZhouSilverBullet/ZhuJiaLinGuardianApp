@@ -27,6 +27,8 @@ class PolicyQueryListViewModel : BaseViewModel() {
     var titleValue = ""
     var policy_num = 0;
 
+    var isPullLoad = false
+
     fun load() {
         val params = Params()
         val politicsSearch = RetrofitHelper.getGuardianService().postPolicyIndex(params.data)
@@ -43,7 +45,7 @@ class PolicyQueryListViewModel : BaseViewModel() {
         addDisposable(disposable)
     }
 
-    fun push(title: String?, mineId: Int, findId: Int) {
+    fun push(title: String?, mineId: Int, findId: Int, startPage: Int) {
         val params = Params()
 
         params.put("ih", 1)
@@ -64,8 +66,8 @@ class PolicyQueryListViewModel : BaseViewModel() {
             params.put("ih", 2)
         }
 
-        params.put("st", 0)
-        params.put("lt", 0)
+        params.put("st", startPage)
+        params.put("lt", 10)
 
         val eventShowPart = RetrofitHelper.getGuardianService().postPolicySearch(params.data)
         val disposable = RxUtils.handleDataHttp(eventShowPart, object : IRequestCallback<PolicyBean> {

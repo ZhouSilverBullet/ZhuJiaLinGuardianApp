@@ -5,6 +5,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.scwang.smartrefresh.layout.api.RefreshLayout
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
+import com.sdxxtop.utils.ItemDivider
+import com.sdxxtop.utils.UIUtils
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityPolicyQueryListBinding
@@ -19,8 +24,26 @@ class PolicyQueryListActivity : KBaseActivity<ActivityPolicyQueryListBinding>() 
     override fun initView() {
         mBinding.vm = bindViewModel(PolicyQueryListViewModel::class.java)
         mBinding.rv.layoutManager = LinearLayoutManager(this)
+        mBinding.rv.addItemDecoration(ItemDivider()
+                .setDividerWidth(UIUtils.dip2px(1))
+                .setLastLineNotDraw(true))
         mBinding.rv.adapter = myAdapter
 
+
+        mBinding.srfLayout.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
+
+            override fun onLoadMore(refreshLayout: RefreshLayout?) {
+                mBinding.vm?.isPullLoad = true
+                mBinding.vm?.push(title, mineId, findId, mBinding.rv.adapter?.itemCount!!)
+            }
+
+            override fun onRefresh(refreshLayout: RefreshLayout?) {
+                mBinding.vm?.isPullLoad = false
+                mBinding.vm?.push(title, mineId, findId, 0)
+
+            }
+
+        })
     }
 
     override fun initObserver() {
@@ -29,12 +52,21 @@ class PolicyQueryListActivity : KBaseActivity<ActivityPolicyQueryListBinding>() 
         findId = intent.getIntExtra("findId", 0);
 
         mBinding.vm?.mPolicy?.observe(this, Observer {
-            myAdapter.replaceData(it)
+            mBinding.tvContentTitle.text = mBinding.vm?.titleValue
+
+            if (mBinding.vm?.isPullLoad ?: false) {
+                myAdapter.addData(it)
+            } else {
+                myAdapter.replaceData(it)
+            }
+
+            mBinding.srfLayout.finishLoadMore()
+            mBinding.srfLayout.finishRefresh()
         })
     }
 
     override fun loadData(isRefresh: Boolean) {
-        mBinding.vm?.push(title, mineId, findId)
+        mBinding.vm?.push(title, mineId, findId, mBinding.rv.adapter?.itemCount!!)
     }
 
     override fun getLayoutId() = R.layout.activity_policy_query_list

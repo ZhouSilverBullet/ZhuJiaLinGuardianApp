@@ -42,8 +42,8 @@ abstract class KBaseActivity<VB : ViewDataBinding> : SupportActivity(), Presente
         this.statusBar(true)
 
         initView()
-        loadData(autoRefresh)
         initObserver()
+        loadData(autoRefresh)
     }
 
     open fun initObserver() {

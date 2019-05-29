@@ -27,6 +27,7 @@
             app:titleValue="查询结果" />
 
         <TextView
+            android:id="@+id/tv_content_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/green_E7F9F7"
@@ -37,10 +38,17 @@
             android:text="@{vm.titleValue}"
             android:textColor="@color/green_14C8B3" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/srf_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
 
     </LinearLayout>
 </layout>
