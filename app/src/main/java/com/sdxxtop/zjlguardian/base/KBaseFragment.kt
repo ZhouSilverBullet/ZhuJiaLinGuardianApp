@@ -1,6 +1,7 @@
 package com.sdxxtop.zjlguardian.base
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.sdxxtop.app.App
+import com.sdxxtop.utils.SystemUtil
 import com.sdxxtop.zjlguardian.BR
 import com.sdxxtop.zjlguardian.extens.dispatchFailure
 import com.sdxxtop.zjlguardian.extens.toast
@@ -131,6 +134,20 @@ abstract class KBaseFragment<VB : ViewDataBinding> : SupportFragment(), Presente
             }
         } else default
 
+    }
+
+    fun topViewPadding(view: View) {
+        if (isVersionMoreKitkat()) {
+            view.setPadding(0, SystemUtil.getStatusHeight(App.getContext()), 0, 0)
+        }
+    }
+
+    fun isVersionMoreKitkat(): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            true
+        } else {
+            false
+        }
     }
 
 }

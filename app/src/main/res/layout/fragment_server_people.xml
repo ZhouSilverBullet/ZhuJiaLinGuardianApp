@@ -21,6 +21,7 @@
         tools:context=".ui.server_people.ServerPeopleFragment">
 
         <com.sdxxtop.ui.widget.TitleView
+            android:id="@id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:bgColor="@color/green_14C8B3"

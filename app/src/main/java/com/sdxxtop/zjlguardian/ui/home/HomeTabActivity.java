@@ -134,7 +134,7 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
         ServerPeopleFragment fragment = findFragment(ServerPeopleFragment.class);
         if (fragment == null) {
             mFragments[0] = new HomeFragment();
-            mFragments[1] = new ServerPeopleFragment();
+            mFragments[1] = ServerPeopleFragment.Companion.newInstance(1);
             mFragments[2] = new LearningFragment();
             mFragments[3] = MineFragment.newInstance(isAdmin);
 

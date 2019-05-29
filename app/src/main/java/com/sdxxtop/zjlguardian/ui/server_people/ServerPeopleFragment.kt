@@ -2,6 +2,7 @@ package com.sdxxtop.zjlguardian.ui.server_people
 
 import android.content.Context
 import android.graphics.Color
+import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -26,9 +27,15 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat.startActivity
 import com.sdxxtop.zjlguardian.R
+import com.sdxxtop.zjlguardian.data.PartBean
 import com.sdxxtop.zjlguardian.ui.feedback.FeedbackActivity
 import com.sdxxtop.zjlguardian.ui.notice.NoticeActivity
 import com.sdxxtop.zjlguardian.ui.policy.PolicyQueryActivity
+import com.sdxxtop.zjlguardian.ui.politics.ARG_ITEM_COUNT
+import com.sdxxtop.zjlguardian.ui.politics.PartSelectDialogFragment
+
+
+const val TYPE = "type"
 
 /**
  * A simple [Fragment] subclass.
@@ -40,6 +47,12 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
 
 
     override fun initView() {
+
+        var int = arguments?.getInt(TYPE)
+        if (int == 1) {
+            topViewPadding(mBinding.tvTitle)
+        }
+
         mBinding.vm = ViewModelProviders.of(this)[ServerPeopleViewModel::class.java]
         banner.setImageLoader(GlideImageLoader())
 
@@ -135,5 +148,17 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
                 startActivity<NoticeActivity>()
             }
         }
+    }
+
+    companion object {
+
+        // TODO: Customize parameters
+        fun newInstance(type: Int): ServerPeopleFragment =
+                ServerPeopleFragment().apply {
+                    arguments = Bundle().apply {
+                        putSerializable(TYPE, type)
+                    }
+                }
+
     }
 }
