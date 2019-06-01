@@ -25,6 +25,7 @@ public class LoginBean {
 
     private int is_new;
     private int type;
+    private String rule_name;
 
     public String getAuto_token() {
         return auto_token;
@@ -112,5 +113,13 @@ public class LoginBean {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public String getRule_name() {
+        return rule_name;
+    }
+
+    public void setRule_name(String rule_name) {
+        this.rule_name = rule_name;
     }
 }

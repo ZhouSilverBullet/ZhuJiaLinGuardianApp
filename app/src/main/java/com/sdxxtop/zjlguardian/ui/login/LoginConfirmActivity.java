@@ -56,6 +56,7 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
     private String name;
     private String partName;
     private int position;
+    private String ruleName;
     private String img;
     private int expireTime;
     private String autoToken;
@@ -77,6 +78,7 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
             name = getIntent().getStringExtra("name");
             partName = getIntent().getStringExtra("partName");
             position = getIntent().getIntExtra("position", 1);
+            ruleName = getIntent().getStringExtra("ruleName");
             img = getIntent().getStringExtra("img");
 
             expireTime = getIntent().getIntExtra("expireTime", 0);
@@ -113,7 +115,8 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
         }
         tvCompany.setText(partName);
 
-        handleJob(position);
+        tvJobs.setText(ruleName);
+//        handleJob(position);
 
         if (!TextUtils.isEmpty(img)) {
             Glide.with(mContext).load(img).into(civImg);

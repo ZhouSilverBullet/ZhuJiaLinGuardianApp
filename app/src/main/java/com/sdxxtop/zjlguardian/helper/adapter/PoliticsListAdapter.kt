@@ -20,7 +20,7 @@ import org.jetbrains.anko.startActivity
  * Description:
  */
 class PoliticsListAdapter(layoutResId: Int = R.layout.item_politics_list_recycler
-,val isSearch:Boolean) : BaseQuickAdapter<Politic, BaseViewHolder>(layoutResId) {
+                          , val isSearch: Boolean) : BaseQuickAdapter<Politic, BaseViewHolder>(layoutResId) {
     override fun convert(helper: BaseViewHolder?, item: Politic?) {
         val bind = DataBindingUtil.bind<ItemPoliticsListRecyclerBinding>(helper?.itemView!!)
         bind?.politic = item
@@ -67,7 +67,7 @@ class PoliticsListAdapter(layoutResId: Int = R.layout.item_politics_list_recycle
         bind?.tvTime?.setText(item?.time?.split(" ")?.get(0) ?: item?.time)
 
         bind?.root?.setOnClickListener {
-            mContext.startActivity<NewsDetailsActivity>("article_path" to "http://villageapi.sdzhujialin.com/village/policy_info/index?policy_id=${item?.id}")
+            mContext.startActivity<NewsDetailsActivity>("article_path" to item?.url)
         }
     }
 

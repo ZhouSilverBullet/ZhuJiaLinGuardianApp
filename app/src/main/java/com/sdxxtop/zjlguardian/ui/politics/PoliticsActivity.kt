@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityPoliticsBinding
+import com.sdxxtop.zjlguardian.ui.learn.news.NewsDetailsActivity
 import kotlinx.android.synthetic.main.activity_politics.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
@@ -31,8 +32,12 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
             }
         })
 
+        mBinding.netvTitle.setMaxLength(30)
+        mBinding.netvContent.setMaxLength(500)
+
         mBinding.vm?.pushSuccess?.observe(this, Observer {
-            startActivity<PoliticsListActivity>("politicsId" to it)
+            startActivity<NewsDetailsActivity>("article_path" to "http://villageapi.sdzhujialin.com/village/advice_info/index?proposal_id=$it")
+            finish()
         })
     }
 

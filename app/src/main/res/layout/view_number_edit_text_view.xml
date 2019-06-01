@@ -13,7 +13,7 @@
         android:layout_height="120dp"
         android:background="@null"
         android:gravity="left|top"
-        android:hint="非必填"
+        android:hint="必填"
         android:padding="5dp"
         android:textSize="15sp" />
 

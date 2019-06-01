@@ -214,6 +214,7 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
         int userid = loginBean.getUserid();
         String img = loginBean.getImg();
         int type = loginBean.getType();
+        String ruleName = loginBean.getRule_name();
 
         SpUtil.putString(Constants.AUTO_TOKEN, autoToken);
         SpUtil.putInt(Constants.EXPIRE_TIME, expireTime);
@@ -231,6 +232,7 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
         intent.putExtra("name", name);
         intent.putExtra("partName", partName);
         intent.putExtra("position", position);
+        intent.putExtra("ruleName", ruleName);
         intent.putExtra("img", img);
         intent.putExtra("type", type);
         startActivity(intent);

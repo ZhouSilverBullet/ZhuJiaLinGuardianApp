@@ -14,6 +14,7 @@ import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityFeedbackBinding
 import com.sdxxtop.zjlguardian.extens.toast
+import com.sdxxtop.zjlguardian.ui.learn.news.NewsDetailsActivity
 import com.sdxxtop.zjlguardian.ui.politics.PartSelectDialogFragment
 import com.sdxxtop.zjlguardian.ui.politics.PoliticsListActivity
 import com.sdxxtop.zjlguardian.ui.politics.PoliticsSearchActivity
@@ -43,7 +44,8 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
         })
 
         mBinding.vm?.mProposalIdData?.observe(this, Observer {
-            startActivity<PoliticsListActivity>("politicsId" to it)
+            startActivity<NewsDetailsActivity>("article_path" to "http://villageapi.sdzhujialin.com/village/policy_info/index?policy_id=$it")
+            finish()
         })
     }
 

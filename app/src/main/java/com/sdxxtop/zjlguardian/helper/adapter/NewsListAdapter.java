@@ -82,6 +82,6 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<LearnNewsBean, Ba
 //            helper.setText(R.id.tv_come_from, item.getComment_num() == 0 ? "" : item.getComment_num() + "评");
 //        }
         helper.setText(R.id.tv_time, item.getAdd_time());
-        Glide.with(mContext).load(item.getTitle_img()).into((ImageView) helper.getView(R.id.iv_img));
+        Glide.with(mContext).load(item.getImg()).into((ImageView) helper.getView(R.id.iv_img));
     }
 }

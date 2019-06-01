@@ -27,6 +27,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat.startActivity
 import com.sdxxtop.zjlguardian.R
+import com.sdxxtop.zjlguardian.data.Img
 import com.sdxxtop.zjlguardian.data.PartBean
 import com.sdxxtop.zjlguardian.ui.feedback.FeedbackActivity
 import com.sdxxtop.zjlguardian.ui.notice.NoticeActivity
@@ -120,7 +121,9 @@ class ServerPeopleFragment : KBaseFragment<FragmentServerPeopleBinding>() {
     class GlideImageLoader : ImageLoader() {
 
         override fun displayImage(context: Context?, path: Any?, imageView: ImageView?) {
-            Glide.with(context!!).load(path).into(imageView!!);
+            if (path is Img) {
+                Glide.with(context!!).load(path.image).into(imageView!!);
+            }
         }
     }
 

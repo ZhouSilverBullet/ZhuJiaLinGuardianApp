@@ -14,12 +14,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.notice.NoticeActivity"></activity>
-        <activity android:name=".ui.feedback.FeedbackActivity" />
+        <activity android:name=".ui.feedback.FeedbackActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity android:name=".ui.policy.PolicyQueryListActivity" />
         <activity android:name=".ui.politics.PoliticsDetailActivity" />
         <activity android:name=".ui.politics.PoliticsListActivity" />
         <activity android:name=".ui.politics.PoliticsSearchActivity" />
-        <activity android:name=".ui.politics.PoliticsActivity" />
+        <activity android:name=".ui.politics.PoliticsActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity android:name=".ui.login.RegisterActivity" />
         <activity
             android:name=".ui.splash.SplashActivity"

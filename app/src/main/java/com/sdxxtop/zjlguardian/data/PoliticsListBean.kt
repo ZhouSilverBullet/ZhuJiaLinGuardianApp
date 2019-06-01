@@ -21,5 +21,6 @@ data class Politic(
     val type: String,
     val user_name: String,
     val userid: Int,
-    val status: Int
+    val status: Int,
+    val url: String
 )

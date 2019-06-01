@@ -19,6 +19,7 @@ public class LearnNewsBean implements MultiItemEntity {
     private String article_path;
     private int type = 1;
     private String video_path;
+    private String img;
 
     public String getVideo_path() {
         return video_path;
@@ -94,6 +95,14 @@ public class LearnNewsBean implements MultiItemEntity {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     @Override

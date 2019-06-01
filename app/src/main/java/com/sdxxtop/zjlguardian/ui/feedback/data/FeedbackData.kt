@@ -27,5 +27,6 @@ data class Proposal(
     val title: String,
     val type: String,
     val user_name: String,
-    val userid: Int
+    val userid: Int,
+    val url: String
 )

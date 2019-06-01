@@ -3,6 +3,8 @@ package com.sdxxtop.zjlguardian.ui.login
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.sdxxtop.app.Constants
+import com.sdxxtop.utils.SpUtil
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityRegisterBinding
@@ -18,6 +20,8 @@ class RegisterActivity : KBaseActivity<ActivityRegisterBinding>() {
 
         mBinding.vm?.registerLiveData?.observe(this, Observer {
             hideLoadingDialog()
+            //保存phone
+            SpUtil.putString(Constants.MOBILE, phone)
             startActivity<HomeTabActivity>()
         })
 
