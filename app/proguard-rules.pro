@@ -60,6 +60,10 @@
 -keep public class * extends android.content.ContentProvider
 
 -keep class com.sdxxtop.zjlguardian.data.**{*;}
+-keep class com.sdxxtop.zjlguardian.ui.feedback.data.*{*;}
+-keep class com.sdxxtop.zjlguardian.ui.notice.data.*{*;}
+-keep class com.sdxxtop.zjlguardian.ui.policy.data.*{*;}
+-keep class com.sdxxtop.model.bean.*{*;}
 -keep class com.sdxxtop.zjlguardian.presenter.bean.*{*;}
 -keep class com.sdxxtop.zjlguardian.BuildConfig  {*;}
 
