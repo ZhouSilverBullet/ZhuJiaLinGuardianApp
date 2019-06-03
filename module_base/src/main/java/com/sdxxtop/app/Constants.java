@@ -24,5 +24,5 @@ public interface Constants {
      */
     String USER_IMG = "user_img";
 
-    String WX_APP_ID = "wx31348898ceb7c1cc";
+    String WX_APP_ID = "wx305d24f7bf756b80";
 }

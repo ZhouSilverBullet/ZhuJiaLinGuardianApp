@@ -29,7 +29,7 @@ class FeedbackViewModel : BaseViewModel() {
     var open = false
     var searchContent = ""
 
-    var mProposalIdData = MutableLiveData<Int>()
+    var mProposalIdData = MutableLiveData<String>()
 
     var partBean: ArrayList<PartBean>? = null
 
@@ -71,7 +71,7 @@ class FeedbackViewModel : BaseViewModel() {
 
             override fun onSuccess(t: ProposalBean?) {
 //                mPolicyQueryData.set(t)
-                mProposalIdData.set(t?.proposal_id)
+                mProposalIdData.set(t?.url)
             }
         })
 

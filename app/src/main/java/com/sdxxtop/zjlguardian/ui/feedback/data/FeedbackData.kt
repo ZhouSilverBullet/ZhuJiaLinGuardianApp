@@ -8,7 +8,8 @@ package com.sdxxtop.zjlguardian.ui.feedback.data
  */
 
 data class ProposalBean(
-        val proposal_id: Int
+        val proposal_id: Int,
+        val url:String
 )
 
 

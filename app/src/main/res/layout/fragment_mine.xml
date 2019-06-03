@@ -196,7 +196,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="7dp"
-                                android:text="政策查询"
+                                android:text="服务进度"
                                 android:textColor="@color/color_313131"
                                 android:textSize="13sp" />
                         </LinearLayout>

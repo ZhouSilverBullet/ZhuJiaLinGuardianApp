@@ -37,7 +37,7 @@ public class LearningFragment extends BaseFragment {
 
         ArrayList<String> titleList = new ArrayList<>();
         titleList.add("新闻学习");
-        titleList.add("罗庄发布");
+        titleList.add("岸堤发布");
         titleList.add("课程");
 //        titleList.add("评分");
         titleList.add("考核");

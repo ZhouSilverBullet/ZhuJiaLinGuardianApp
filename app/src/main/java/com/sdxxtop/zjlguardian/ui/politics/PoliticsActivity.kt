@@ -38,7 +38,7 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
         mBinding.netvContent.setMaxLength(500)
 
         mBinding.vm?.pushSuccess?.observe(this, Observer {
-            startActivity<NewsDetailsActivity>("article_path" to "http://villageapi.sdzhujialin.com/village/advice_info/index?proposal_id=$it")
+            startActivity<NewsDetailsActivity>("article_path" to it)
             finish()
         })
     }

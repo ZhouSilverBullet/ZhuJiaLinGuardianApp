@@ -39,7 +39,7 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
         })
 
         mBinding.vm?.mProposalIdData?.observe(this, Observer {
-            startActivity<NewsDetailsActivity>("article_path" to "http://villageapi.sdzhujialin.com/village/policy_info/index?policy_id=$it")
+            startActivity<NewsDetailsActivity>("article_path" to it)
             finish()
         })
     }

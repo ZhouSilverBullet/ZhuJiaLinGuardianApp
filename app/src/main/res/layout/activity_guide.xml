@@ -18,7 +18,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:text="立即加入"
+        android:text="立即体验"
         android:textColor="@color/white"
         android:visibility="gone"
         app:bl_corners_radius="5dp"
@@ -28,7 +28,8 @@
         app:bl_stroke_color="@color/green_14C8B3"
         app:bl_stroke_width="1dp"
         app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
-        app:bl_unPressed_drawable="@color/green_14C8B3" />
+        app:bl_unPressed_drawable="@color/green_14C8B3"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/guide_skip"

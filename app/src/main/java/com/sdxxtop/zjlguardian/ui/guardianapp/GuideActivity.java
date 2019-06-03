@@ -110,7 +110,7 @@ public class GuideActivity extends SplashActivity implements ViewPager.OnPageCha
     private void skipToActivity() {
         totalTime = System.currentTimeMillis();
         int timeTemp = SpUtil.getInt(Constants.EXPIRE_TIME, 0);
-        if (timeTemp != -1 && timeTemp < System.currentTimeMillis()) {
+        if (timeTemp != 0 && timeTemp < System.currentTimeMillis()) {
             //测试用暂关此功能
 //            postAutoLogin();
             mPresenter.autoLogin();

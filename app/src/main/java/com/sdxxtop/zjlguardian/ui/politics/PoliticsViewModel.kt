@@ -29,7 +29,7 @@ class PoliticsViewModel : BaseViewModel() {
     var isOpen = false
 
     var partBean: ArrayList<PartBean>? = null
-    val pushSuccess = MutableLiveData<Int>()
+    val pushSuccess = MutableLiveData<String>()
 
 
     fun load() {
@@ -71,7 +71,7 @@ class PoliticsViewModel : BaseViewModel() {
         val eventShowPart = RetrofitHelper.getGuardianService().postPoliticsConfirm(params.imgData)
         val disposable = RxUtils.handleDataHttp(eventShowPart, object : IRequestCallback<PushDataBean> {
             override fun onSuccess(t: PushDataBean?) {
-                pushSuccess.value = t?.politics_id
+                pushSuccess.value = t?.url
             }
 
             override fun onFailure(code: Int, error: String?) {

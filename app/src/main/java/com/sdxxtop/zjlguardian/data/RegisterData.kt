@@ -19,5 +19,6 @@ data class PartBean(
 )
 
 data class PushDataBean(
-    val politics_id: Int
+    val politics_id: Int,
+    val url:String
 )
