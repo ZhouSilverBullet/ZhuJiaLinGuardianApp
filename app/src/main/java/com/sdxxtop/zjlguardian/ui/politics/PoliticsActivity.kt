@@ -8,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.sdxxtop.ui.dialog.IosAlertDialog
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityPoliticsBinding
@@ -16,7 +17,8 @@ import kotlinx.android.synthetic.main.activity_politics.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
-class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDialogFragment.Listener {
+class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDialogFragment.Listener, PartComfirmDialogFragment.Listener {
+
 
     override fun getLayoutId() = R.layout.activity_politics
 
@@ -91,8 +93,8 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
                     return
                 }
 
-                val imgList = mBinding.phsvView.imagePushPath
-                mBinding.vm?.pushPolitics(isCheckId, titleValue, contentValue, imgList)
+                PartComfirmDialogFragment.newInstance("岸提镇意见建议投诉须知")
+                        .show(supportFragmentManager, "1")
             }
 
             ll_select_part -> {
@@ -102,6 +104,51 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
                 }
             }
         }
+    }
+
+    private fun confirm() {
+
+        var isCheckId = -1;
+        if (mBinding.vm?.partBean != null) {
+            mBinding.vm?.partBean?.forEach {
+                if (it.isCheck) {
+                    isCheckId = it.part_id
+                }
+            }
+        }
+
+        if (isCheckId == -1) {
+            toast("请选择问政对象")
+            return
+        }
+
+        val titleValue = mBinding.netvTitle.editValue
+        if (titleValue.isEmpty()) {
+            toast("请填写问政标题")
+            return
+        }
+
+        val contentValue = mBinding.netvContent.editValue
+        if (contentValue.isEmpty()) {
+            toast("请填写问政内容")
+            return
+        }
+
+        val imgList = mBinding.phsvView.imagePushPath
+        mBinding.vm?.pushPolitics(isCheckId, titleValue, contentValue, imgList)
+    }
+
+    override fun onConfirmClicked() {
+        IosAlertDialog(this)
+                .builder()
+                .setMsg("您将以公开身份对计生局发送问政是否确认发送")
+                .setPositiveButton("发送") {
+                    confirm()
+                }
+                .setNegativeButton("再想想") {
+
+                }
+                .show()
     }
 
     override fun onItemClicked(checkBox: CheckBox, position: Int) {

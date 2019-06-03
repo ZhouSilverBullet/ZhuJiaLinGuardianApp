@@ -39,6 +39,7 @@ public class EventIndexBean {
          * important_type : 1
          */
 
+        private int id;
         private int event_id;
         private String title;
         private String end_date;
@@ -46,6 +47,14 @@ public class EventIndexBean {
         private String place;
         private String add_time;
         private int important_type;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
 
         public int getEvent_id() {
             return event_id;

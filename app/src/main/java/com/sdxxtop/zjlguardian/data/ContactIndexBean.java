@@ -27,6 +27,7 @@ public class ContactIndexBean {
         private int part_id;
         private String mobile;
         private String img;
+        private String image;
         private String part_name;
 
         public String sortLetters;
@@ -77,6 +78,14 @@ public class ContactIndexBean {
 
         public void setPart_name(String part_name) {
             this.part_name = part_name;
+        }
+
+        public String getImage() {
+            return image;
+        }
+
+        public void setImage(String image) {
+            this.image = image;
         }
     }
 

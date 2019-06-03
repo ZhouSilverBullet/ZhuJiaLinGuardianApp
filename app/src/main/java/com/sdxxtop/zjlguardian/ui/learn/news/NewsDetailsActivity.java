@@ -8,8 +8,10 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.sdxxtop.ui.widget.TitleView;
+import com.sdxxtop.utils.UIUtils;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
+import com.sdxxtop.zjlguardian.wxapi.WxShareHelper;
 
 import butterknife.BindView;
 
@@ -29,6 +31,7 @@ public class NewsDetailsActivity extends GBaseMvpActivity<NewsDetailPresenter> i
     TitleView mTitleView;
 
     private String article_path; // 文章id
+    private boolean isHasShare;
 
     @Override
     protected int getLayout() {
@@ -63,6 +66,7 @@ public class NewsDetailsActivity extends GBaseMvpActivity<NewsDetailPresenter> i
         });
 
         article_path = getIntent().getStringExtra("article_path");
+        isHasShare = getIntent().getBooleanExtra("isHasShare", false);
 
         webView.setHorizontalScrollBarEnabled(false);//水平不显示
         webView.setVerticalScrollBarEnabled(false); //垂直不显示
@@ -99,6 +103,19 @@ public class NewsDetailsActivity extends GBaseMvpActivity<NewsDetailPresenter> i
         webSettings.setDefaultFontSize(12);
 
         webView.loadUrl(article_path);
+
+        if (isHasShare) {
+            mTitleView.getTvRight().setVisibility(View.VISIBLE);
+            mTitleView.getTvRight().setText("");
+            mTitleView.getTvRight().setBackgroundResource(R.drawable.study_1);
+            mTitleView.getTvRight().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    WxShareHelper.getInstance().shareWebpage(mTitleView.getTvTitle().getText().toString().trim(),
+                            mTitleView.getTvTitle().getText().toString().trim(), article_path);
+                }
+            });
+        }
     }
 
     @Override

@@ -9,10 +9,12 @@ import com.sdxxtop.model.http.util.RxUtils;
 import com.sdxxtop.utils.UIUtils;
 import com.sdxxtop.zjlguardian.base.GRxPresenter;
 import com.sdxxtop.zjlguardian.data.EventSearchTitleBean;
+import com.sdxxtop.zjlguardian.data.PartBean;
 import com.sdxxtop.zjlguardian.data.ShowPartBean;
 import com.sdxxtop.zjlguardian.presenter.constract.EventReportContract;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -30,10 +32,10 @@ public class EventReportPresenter extends GRxPresenter<EventReportContract.IView
                            String place, String longitude, String content, List<File> imagePushPath) {
         ImageParams imageParams = new ImageParams();
         imageParams.put("tl", title);
-        imageParams.put("pt", pathType);
+        imageParams.put("rd", pathType);
         imageParams.put("plt", patrolType);
-        imageParams.put("pl", place);
-        imageParams.put("lt", longitude);
+        imageParams.put("as", place);
+        imageParams.put("lg", longitude);
         imageParams.put("ct", content);
 
         imageParams.addImagePathList("img[]", imagePushPath);
@@ -61,15 +63,21 @@ public class EventReportPresenter extends GRxPresenter<EventReportContract.IView
 
     public void loadAera() {
         Params params = new Params();
-        Observable<RequestBean<ShowPartBean>> observable = getService().postEventShowPart2(params.getData());
-        Disposable disposable = RxUtils.handleDataHttp(observable, new IRequestCallback<ShowPartBean>() {
+        Observable<RequestBean<ArrayList<PartBean>>> observable = getService().postEventShowPart2(params.getData());
+        Disposable disposable = RxUtils.handleDataHttp(observable, new IRequestCallback<ArrayList<PartBean>>() {
             @Override
-            public void onSuccess(ShowPartBean showPartBean) {
+            public void onSuccess(ArrayList<PartBean> showPartBean) {
 //                mView.modifyRefresh();
-                List<ShowPartBean.PartBean> part = showPartBean.getPart();
-                if (part != null) {
-                    mView.showPart(part);
+                List<ShowPartBean.PartBean> part = new ArrayList<>();
+                for (PartBean partBean : showPartBean) {
+                    ShowPartBean.PartBean partBeanX = new ShowPartBean.PartBean();
+                    int part_id = partBean.getPart_id();
+                    String part_name = partBean.getPart_name();
+                    partBeanX.setPart_id(part_id);
+                    partBeanX.setPart_name(part_name);
+                    part.add(partBeanX);
                 }
+                mView.showPart(part);
             }
 
             @Override
@@ -82,7 +90,7 @@ public class EventReportPresenter extends GRxPresenter<EventReportContract.IView
 
     public void searchTitle(String title) {
         Params params = new Params();
-        params.put("kwd",title);
+        params.put("kwd", title);
         Observable<RequestBean<EventSearchTitleBean>> observable = getService().postEventSearch(params.getData());
         Disposable disposable = RxUtils.handleDataHttp(observable, new IRequestCallback<EventSearchTitleBean>() {
             @Override

@@ -1,5 +1,6 @@
 package com.sdxxtop.zjlguardian.ui.policy
 
+import android.text.TextUtils
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -104,9 +105,15 @@ class PolicyQueryActivity : KBaseActivity<ActivityPolicyQueryBinding>() {
                     }
                 }
 
+                if ((mineId != 0 && findId == 0) || (mineId == 0 && findId != 0)) {
+                    toast("我是和我找必须同时选择")
+                    return
+                }
+
                 startActivity<PolicyQueryListActivity>(
                         "title" to mBinding.vm?.searchContent,
-                        "mineId" to mineId, "findId" to findId)
+                        "mineId" to mineId, "findId" to findId
+                        , "isSearch" to !TextUtils.isEmpty(mBinding.vm?.searchContent))
 //                mBinding.vm?.push(mBinding.vm?.searchContent, mineId, findId)
             }
         }

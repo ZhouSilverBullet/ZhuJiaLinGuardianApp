@@ -21,6 +21,7 @@ import com.sdxxtop.utils.ReflectUtils;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseActivity;
 import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
+import com.sdxxtop.zjlguardian.service.PatrolRecordService;
 import com.sdxxtop.zjlguardian.ui.learn.LearningFragment;
 import com.sdxxtop.zjlguardian.ui.mine.MineFragment;
 import com.sdxxtop.zjlguardian.ui.server_people.ServerPeopleFragment;
@@ -97,8 +98,8 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
 
     private void startPatrolService() {
         Logger.e("开启了服务");
-//        Intent intent = new Intent(this, PatrolRecordService.class);
-//        startService(intent);
+        Intent intent = new Intent(this, PatrolRecordService.class);
+        startService(intent);
     }
 
     private void initAHNavigation() {

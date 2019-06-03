@@ -92,6 +92,10 @@ public class TitleView extends RelativeLayout {
         tvTitle.setText(titleValue);
     }
 
+    public TextView getTvTitle() {
+        return tvTitle;
+    }
+
     /**
      * 需要的时候，重新把返回键的监听改一下
      *

@@ -19,7 +19,7 @@ ext {
             BaseRecyclerViewAdapterHelper: "2.9.46",
 
             junit                        : "4.12",
-            test_runner                  : "1.1.0-alpha4",
+            test_runner                  : "1.1.1",
             test_espresso                : "3.1.1",
 
             gson                         : "2.8.2",

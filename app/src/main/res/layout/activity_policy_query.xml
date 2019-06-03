@@ -84,26 +84,32 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <Button
-            android:id="@+id/btn_push"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:onClick="@{(v) -> presenter.onClick(v)}"
-            android:text="找政策"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:bl_corners_radius="20dp"
-            app:bl_pressed_drawable="@color/green_press_6EDAD3"
-            app:bl_ripple_color="@color/green_14C8B3"
-            app:bl_ripple_enable="true"
-            app:bl_stroke_color="@color/green_14C8B3"
-            app:bl_stroke_width="1dp"
-            app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
-            app:bl_unPressed_drawable="@color/green_14C8B3" />
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_push"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:onClick="@{(v) -> presenter.onClick(v)}"
+                android:text="找政策"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:bl_corners_radius="20dp"
+                app:bl_pressed_drawable="@color/green_press_6EDAD3"
+                app:bl_ripple_color="@color/green_14C8B3"
+                app:bl_ripple_enable="true"
+                app:bl_stroke_color="@color/green_14C8B3"
+                app:bl_stroke_width="1dp"
+                app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
+                app:bl_unPressed_drawable="@color/green_14C8B3" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

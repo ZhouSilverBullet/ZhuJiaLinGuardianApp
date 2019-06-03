@@ -33,7 +33,7 @@ public class ContactAdapter extends BaseQuickAdapter<ContactIndexBean.ContactBea
         TextView tvContent = helper.getView(R.id.tv_content);
 
         String name = item.getName();
-        String img = item.getImg();
+        String img = item.getImage();
 
         if (!TextUtils.isEmpty(img)) {
             Glide.with(mContext).load(img).into(ivIcon);

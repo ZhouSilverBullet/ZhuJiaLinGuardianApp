@@ -112,4 +112,5 @@ dependencies {
 
     implementation 'com.contrarywind:Android-PickerView:4.1.8'
     implementation project(path: ':faceplatform')
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.3.1'
 }

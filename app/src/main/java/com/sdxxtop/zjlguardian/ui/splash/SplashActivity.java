@@ -70,13 +70,13 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
         super.initData();
 
         boolean guideIsShow = SpUtil.getBoolean(Constants.GUIDE_IS_SHOW, false);
-//        if (guideIsShow) {
-//            mPresenter.autoLogin();
-//        } else {
+        if (guideIsShow) {
+            mPresenter.autoLogin();
+        } else {
             Intent intent = new Intent(mContext, GuideActivity.class);
             startActivity(intent);
             finish();
-//        }
+        }
 //        Intent intent = new Intent(mContext, HomeTabActivity.class);
 //        startActivity(intent);
 //        finish();

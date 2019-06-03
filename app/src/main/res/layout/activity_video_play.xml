@@ -16,7 +16,7 @@
         app:titleValue=" "/>
 
 
-    <com.sdxxtop.guardianapp.ui.widget.DanmukuVideoView
+    <com.sdxxtop.zjlguardian.widget.dumuku.DanmukuVideoView
         android:background="@color/translate"
         android:id="@+id/player"
         android:layout_width="match_parent"

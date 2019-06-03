@@ -48,6 +48,7 @@
             android:value="21614bbf5c1136840409666a3d3de41c" />
 
         <service android:name="com.amap.api.location.APSService" />
+        <service android:name=".service.PatrolRecordService" />
 
         <meta-data
             android:name="max_aspect"
@@ -90,6 +91,15 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:taskAffinity="net.sourceforge.simcpux"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
     </application>
 
 </manifest>

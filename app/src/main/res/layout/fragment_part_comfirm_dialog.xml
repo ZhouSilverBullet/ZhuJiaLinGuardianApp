@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/list_item_spacing_half"
+    android:paddingBottom="@dimen/list_item_spacing_half"
+    tools:context=".ui.politics.PartComfirmDialogFragment"
+    tools:listitem="@layout/fragment_part_comfirm_dialog_item">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="岸提镇意见建议投诉须知"
+        android:textColor="@color/color_313131"
+        android:textSize="17sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="25dp"
+        android:background="@color/color_EEEEEE" />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:text="我同意"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:bl_corners_radius="20dp"
+        app:bl_pressed_drawable="@color/green_press_6EDAD3"
+        app:bl_ripple_color="@color/green_14C8B3"
+        app:bl_ripple_enable="true"
+        app:bl_stroke_color="@color/green_14C8B3"
+        app:bl_stroke_width="1dp"
+        app:bl_unEnabled_drawable="@color/green_unable_6EDAD3"
+        app:bl_unPressed_drawable="@color/green_14C8B3" />
+
+    <TextView
+        android:id="@+id/tv_think"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="11dp"
+        android:text="再想想" />
+
+</LinearLayout>

@@ -53,9 +53,11 @@ public interface GuardianService {
     /**
      * debug的时候用http，正式打包的时候用https
      */
-    String BASE_URL = BuildConfig.DEBUG ?
-            "http://villageapi.sdzhujialin.com/village/"
-            : "https://villageapi.sdzhujialin.com/village/";
+//    String BASE_URL = BuildConfig.DEBUG ?
+//            "http://villageapi.sdzhujialin.com/village/"
+//            : "https://villageapi.sdzhujialin.com/village/";
+
+    String BASE_URL = "http://villageapi.sdzhujialin.com/village/";
 
     @FormUrlEncoded
     @POST("app/init")
@@ -117,7 +119,7 @@ public interface GuardianService {
     //
     @FormUrlEncoded
     @POST("event/showPart")
-    Observable<RequestBean<ShowPartBean>> postEventShowPart2(@Field("data") String data);
+    Observable<RequestBean<ArrayList<PartBean>>> postEventShowPart2(@Field("data") String data);
 
     @FormUrlEncoded
     @POST("event/search")

@@ -8,8 +8,10 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.sdxxtop.utils.ItemDivider
 import com.sdxxtop.utils.UIUtils
 import com.sdxxtop.zjlguardian.R
+import com.sdxxtop.zjlguardian.ui.learn.news.NewsDetailsActivity
 import com.sdxxtop.zjlguardian.ui.notice.data.Notic
 import com.sdxxtop.zjlguardian.ui.notice.data.NoticDateBean
+import org.jetbrains.anko.startActivity
 
 /**
  * Email: zhousaito@163.com
@@ -41,6 +43,9 @@ class TextAdapter(layoutResId: Int = R.layout.item_text_recycler) : BaseQuickAda
     override fun convert(helper: BaseViewHolder?, item: Notic?) {
         val textView = helper?.itemView as TextView
         textView.text = item?.title
+        textView.setOnClickListener {
+            mContext.startActivity<NewsDetailsActivity>("article_path" to item?.url)
+        }
     }
 
 }

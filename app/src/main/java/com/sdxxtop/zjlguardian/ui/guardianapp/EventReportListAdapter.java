@@ -53,7 +53,7 @@ public class EventReportListAdapter extends BaseQuickAdapter<EventIndexBean.Even
         helper.getConvertView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventReportDetailActivity.startDetailActivity(v.getContext(), String.valueOf(item.getEvent_id()));
+                EventReportDetailActivity.startDetailActivity(v.getContext(), String.valueOf(item.getId()));
             }
         });
     }

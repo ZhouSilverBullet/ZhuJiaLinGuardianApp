@@ -5,25 +5,20 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.CheckBox
-import android.widget.RadioButton
 import android.widget.TextView
-import androidx.core.view.get
 import androidx.lifecycle.Observer
-import com.amap.api.mapcore.util.it
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityFeedbackBinding
 import com.sdxxtop.zjlguardian.extens.toast
 import com.sdxxtop.zjlguardian.ui.learn.news.NewsDetailsActivity
+import com.sdxxtop.zjlguardian.ui.politics.PartComfirmDialogFragment
 import com.sdxxtop.zjlguardian.ui.politics.PartSelectDialogFragment
-import com.sdxxtop.zjlguardian.ui.politics.PoliticsListActivity
-import com.sdxxtop.zjlguardian.ui.politics.PoliticsSearchActivity
 import kotlinx.android.synthetic.main.activity_feedback.*
-import org.jetbrains.anko.forEachChild
 import org.jetbrains.anko.startActivity
 
 
-class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDialogFragment.Listener {
+class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDialogFragment.Listener, PartComfirmDialogFragment.Listener {
 
     override fun getLayoutId() = R.layout.activity_feedback
 
@@ -73,7 +68,6 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
     override fun onClick(v: View?) {
         when (v) {
             btn_login -> {
-
                 var feedCheck = -1;
 
                 when (rg_feed_group.checkedRadioButtonId) {
@@ -118,8 +112,8 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
                     return
                 }
 
-                val imgList = mBinding.phsvView.imagePushPath
-                mBinding.vm?.pushFeedback(feedCheck, isCheckId, titleValue, contentValue, imgList)
+                PartComfirmDialogFragment.newInstance("岸提镇网络问政须知")
+                        .show(supportFragmentManager, "1")
             }
 
             ll_select_part -> {
@@ -129,6 +123,61 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
                 }
             }
         }
+    }
+
+    override fun onConfirmClicked() {
+
+       confirm()
+
+    }
+
+    private fun confirm() {
+        var feedCheck = -1;
+
+        when (rg_feed_group.checkedRadioButtonId) {
+            R.id.rb_feed -> {
+                feedCheck = 0;
+            }
+            R.id.rb_jianyi -> {
+                feedCheck = 1;
+            }
+            R.id.rb_toushu -> {
+                feedCheck = 2;
+            }
+        }
+
+        if (feedCheck == -1) {
+            toast("请选择反应类型")
+            return
+        }
+
+        var isCheckId = -1;
+        if (mBinding.vm?.partBean != null) {
+            mBinding.vm?.partBean?.forEach {
+                if (it.isCheck) {
+                    isCheckId = it.part_id
+                }
+            }
+        }
+        if (isCheckId == -1) {
+            toast("请选择问政对象")
+            return
+        }
+
+        val titleValue = mBinding.netvTitle.editValue
+        if (titleValue.isEmpty()) {
+            toast("请填写问政标题")
+            return
+        }
+
+        val contentValue = mBinding.netvContent.editValue
+        if (contentValue.isEmpty()) {
+            toast("请填写问政内容")
+            return
+        }
+
+        val imgList = mBinding.phsvView.imagePushPath
+        mBinding.vm?.pushFeedback(feedCheck, isCheckId, titleValue, contentValue, imgList)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

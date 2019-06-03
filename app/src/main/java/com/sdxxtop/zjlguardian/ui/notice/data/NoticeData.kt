@@ -19,6 +19,7 @@ data class Notic(
         val id: Int,
         val time: String,
         val title: String,
+        val url: String,
         var spanString: SpannableString
 )
 
