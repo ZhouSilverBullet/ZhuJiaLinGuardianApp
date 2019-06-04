@@ -3,16 +3,16 @@ package com.sdxxtop.zjlguardian.ui.politics
 import android.content.Context
 import android.os.Bundle
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import com.sdxxtop.zjlguardian.R;
 import kotlinx.android.synthetic.main.fragment_part_comfirm_dialog.*
-import kotlinx.android.synthetic.main.fragment_part_comfirm_dialog_item.view.*
+import android.webkit.WebSettings
+import android.R
+
 
 const val CONFIRM_TITLE = "confirm_title"
 
@@ -33,17 +33,17 @@ class PartComfirmDialogFragment : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_part_comfirm_dialog, container, false)
+        return inflater.inflate(com.sdxxtop.zjlguardian.R.layout.fragment_part_comfirm_dialog, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        list.layoutManager = LinearLayoutManager(context)
 //        list.adapter = ItemAdapter(arguments?.getInt(ARG_ITEM_COUNT)!!)
 
-        val tvTitle = view.findViewById<TextView>(R.id.tv_title)
+        val tvTitle = view.findViewById<TextView>(com.sdxxtop.zjlguardian.R.id.tv_title)
         tvTitle.text = arguments?.getString(CONFIRM_TITLE)
 
-        val btnConfirm = view.findViewById<Button>(R.id.btn_confirm)
+        val btnConfirm = view.findViewById<Button>(com.sdxxtop.zjlguardian.R.id.btn_confirm)
 
         btnConfirm.setOnClickListener {
             mListener?.let {
@@ -51,9 +51,34 @@ class PartComfirmDialogFragment : BottomSheetDialogFragment() {
                 dismiss()
             }
         }
-        val tvThink = view.findViewById<TextView>(R.id.tv_think)
+        val tvThink = view.findViewById<TextView>(com.sdxxtop.zjlguardian.R.id.tv_think)
         tvThink.setOnClickListener {
             dismiss()
+        }
+
+        webview.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if (!webview.canScrollVertically(-1)) {      //canScrollVertically(-1)的值表示是否能向下滚动，false表示已经滚动到顶部
+                    webview.requestDisallowInterceptTouchEvent(false);
+                } else {
+                    webview.requestDisallowInterceptTouchEvent(true);
+                }
+                return false
+            }
+
+        })
+
+        val settings = webview.getSettings()
+//      自适应屏幕
+        settings.setUseWideViewPort(true)
+        settings.setLoadWithOverviewMode(true)
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN)
+
+        //扩大比例的缩放
+        settings.setJavaScriptEnabled(true)
+        if (webview.url == null) {
+
+            webview.loadUrl("file:///android_asset/deal.html")
         }
     }
 
@@ -69,6 +94,8 @@ class PartComfirmDialogFragment : BottomSheetDialogFragment() {
 
     override fun onDetach() {
         mListener = null
+        webview?.clearView()
+        webview?.destroy()
         super.onDetach()
     }
 

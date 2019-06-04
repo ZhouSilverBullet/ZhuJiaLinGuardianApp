@@ -19,6 +19,11 @@ public interface Constants {
     String GUIDE_SHOW_VERSION = "guide_show_version";
 
     /**
+     * 是否有协议
+     */
+    String IS_SHOW_REAL = "is_show_real";
+
+    /**
      *
      * 我认为图片地址不应该存本地
      */

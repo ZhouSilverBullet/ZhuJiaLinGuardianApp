@@ -28,6 +28,7 @@ import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
 import com.sdxxtop.zjlguardian.data.LoginBean;
 import com.sdxxtop.zjlguardian.helper.control.DelTextWatcher;
+import com.sdxxtop.zjlguardian.ui.home.HomeTabActivity;
 
 import java.lang.ref.WeakReference;
 
@@ -215,27 +216,37 @@ public class LoginActivity extends GBaseMvpActivity<LoginPresenter> implements L
         String img = loginBean.getImg();
         int type = loginBean.getType();
         String ruleName = loginBean.getRule_name();
+        int confirm = loginBean.getConfirm();
 
         SpUtil.putString(Constants.AUTO_TOKEN, autoToken);
         SpUtil.putInt(Constants.EXPIRE_TIME, expireTime);
         SpUtil.putInt(Constants.PART_ID, partId);
         SpUtil.putInt(Constants.USER_ID, userid);
         SpUtil.putString(Constants.MOBILE, mobile);
+        SpUtil.putInt(Constants.TYPE, type);
 
-        Intent intent = new Intent(this, LoginConfirmActivity.class);
-        intent.putExtra("isAdmin", true);
-        intent.putExtra("autoToken", autoToken);
-        intent.putExtra("expireTime", expireTime);
-        intent.putExtra("partId", partId);
-        intent.putExtra("userid", userid);
-        intent.putExtra("phone", mobile);
-        intent.putExtra("name", name);
-        intent.putExtra("partName", partName);
-        intent.putExtra("position", position);
-        intent.putExtra("ruleName", ruleName);
-        intent.putExtra("img", img);
-        intent.putExtra("type", type);
-        startActivity(intent);
+        if (confirm == 0) {
+            Intent intent = new Intent(this, LoginConfirmActivity.class);
+            intent.putExtra("isAdmin", true);
+            intent.putExtra("autoToken", autoToken);
+            intent.putExtra("expireTime", expireTime);
+            intent.putExtra("partId", partId);
+            intent.putExtra("userid", userid);
+            intent.putExtra("phone", mobile);
+            intent.putExtra("name", name);
+            intent.putExtra("partName", partName);
+            intent.putExtra("position", position);
+            intent.putExtra("ruleName", ruleName);
+            intent.putExtra("img", img);
+            intent.putExtra("type", type);
+            startActivity(intent);
+        } else { //如果confirm = 1 就是已经确认过了
+            Intent intent = new Intent(this, HomeTabActivity.class);
+            intent.putExtra("isAdmin", type == 1);
+            startActivity(intent);
+            finish();
+        }
+
 //        finish();
 
         hideLoadingDialog();

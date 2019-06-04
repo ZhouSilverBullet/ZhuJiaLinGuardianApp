@@ -1,12 +1,16 @@
 package com.sdxxtop.zjlguardian.ui.feedback
 
 import android.content.Intent
+import android.os.SystemClock
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.lifecycle.Observer
+import com.sdxxtop.app.Constants
+import com.sdxxtop.ui.dialog.IosAlertDialog
+import com.sdxxtop.utils.SpUtil
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityFeedbackBinding
@@ -68,52 +72,12 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
     override fun onClick(v: View?) {
         when (v) {
             btn_login -> {
-                var feedCheck = -1;
-
-                when (rg_feed_group.checkedRadioButtonId) {
-                    R.id.rb_feed -> {
-                        feedCheck = 0;
-                    }
-                    R.id.rb_jianyi -> {
-                        feedCheck = 1;
-                    }
-                    R.id.rb_toushu -> {
-                        feedCheck = 2;
-                    }
+                val isShowReal = SpUtil.getBoolean(Constants.IS_SHOW_REAL, false)
+                if (isShowReal) {
+                    nextConfirmDialog()
+                } else{
+                    showConfirmFragmentDialog()
                 }
-
-                if (feedCheck == -1) {
-                    toast("请选择反应类型")
-                    return
-                }
-
-                var isCheckId = -1;
-                if (mBinding.vm?.partBean != null) {
-                    mBinding.vm?.partBean?.forEach {
-                        if (it.isCheck) {
-                            isCheckId = it.part_id
-                        }
-                    }
-                }
-                if (isCheckId == -1) {
-                    toast("请选择问政对象")
-                    return
-                }
-
-                val titleValue = mBinding.netvTitle.editValue
-                if (titleValue.isEmpty()) {
-                    toast("请填写问政标题")
-                    return
-                }
-
-                val contentValue = mBinding.netvContent.editValue
-                if (contentValue.isEmpty()) {
-                    toast("请填写问政内容")
-                    return
-                }
-
-                PartComfirmDialogFragment.newInstance("岸提镇网络问政须知")
-                        .show(supportFragmentManager, "1")
             }
 
             ll_select_part -> {
@@ -125,10 +89,77 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
         }
     }
 
+    private fun showConfirmFragmentDialog() {
+        var feedCheck = -1;
+
+        when (rg_feed_group.checkedRadioButtonId) {
+            R.id.rb_feed -> {
+                feedCheck = 0;
+            }
+            R.id.rb_jianyi -> {
+                feedCheck = 1;
+            }
+            R.id.rb_toushu -> {
+                feedCheck = 2;
+            }
+        }
+
+        if (feedCheck == -1) {
+            toast("请选择反应类型")
+            return
+        }
+
+        var isCheckId = -1;
+        if (mBinding.vm?.partBean != null) {
+            mBinding.vm?.partBean?.forEach {
+                if (it.isCheck) {
+                    isCheckId = it.part_id
+                }
+            }
+        }
+        if (isCheckId == -1) {
+            toast("请选择问政对象")
+            return
+        }
+
+        val titleValue = mBinding.netvTitle.editValue
+        if (titleValue.isEmpty()) {
+            toast("请填写问政标题")
+            return
+        }
+
+        val contentValue = mBinding.netvContent.editValue
+        if (contentValue.isEmpty()) {
+            toast("请填写问政内容")
+            return
+        }
+
+        PartComfirmDialogFragment.newInstance("岸提镇网络问政须知")
+                .show(supportFragmentManager, "1")
+    }
+
     override fun onConfirmClicked() {
+        //点击确定，就保存为true
+        SpUtil.putBoolean(Constants.IS_SHOW_REAL, true)
+        confirm()
 
-       confirm()
+    }
 
+    /**
+     * 真正发布的时候确定的对话框
+     */
+    private fun nextConfirmDialog() {
+        IosAlertDialog(this)
+                .builder()
+                .setMsg("您将以公开身份对计生局发送信件\n是否确认发送")
+                .setPositiveButton("发送") {
+                    confirm()
+
+                }
+                .setNegativeButton("再想想") {
+
+                }
+                .show()
     }
 
     private fun confirm() {

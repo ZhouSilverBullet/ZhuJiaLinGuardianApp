@@ -8,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.sdxxtop.app.Constants
 import com.sdxxtop.ui.dialog.IosAlertDialog
 import com.sdxxtop.utils.SpUtil
 import com.sdxxtop.zjlguardian.R
@@ -68,34 +69,13 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
         when (v) {
             btn_login -> {
 
-                var isCheckId = -1;
-                if (mBinding.vm?.partBean != null) {
-                    mBinding.vm?.partBean?.forEach {
-                        if (it.isCheck) {
-                            isCheckId = it.part_id
-                        }
-                    }
+                val isShowReal = SpUtil.getBoolean(Constants.IS_SHOW_REAL, false)
+                if (isShowReal) {
+                    nextConfirmDialog()
+                } else{
+                    showConfirmFragmentDialog()
                 }
 
-                if (isCheckId == -1) {
-                    toast("请选择问政对象")
-                    return
-                }
-
-                val titleValue = mBinding.netvTitle.editValue
-                if (titleValue.isEmpty()) {
-                    toast("请填写问政标题")
-                    return
-                }
-
-                val contentValue = mBinding.netvContent.editValue
-                if (contentValue.isEmpty()) {
-                    toast("请填写问政内容")
-                    return
-                }
-
-                PartComfirmDialogFragment.newInstance("岸提镇意见建议投诉须知")
-                        .show(supportFragmentManager, "1")
             }
 
             ll_select_part -> {
@@ -105,6 +85,38 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
                 }
             }
         }
+    }
+
+    private fun showConfirmFragmentDialog() {
+        var isCheckId = -1;
+        if (mBinding.vm?.partBean != null) {
+            mBinding.vm?.partBean?.forEach {
+                if (it.isCheck) {
+                    isCheckId = it.part_id
+                }
+            }
+        }
+
+        if (isCheckId == -1) {
+            toast("请选择问政对象")
+            return
+        }
+
+        val titleValue = mBinding.netvTitle.editValue
+        if (titleValue.isEmpty()) {
+            toast("请填写问政标题")
+            return
+        }
+
+        val contentValue = mBinding.netvContent.editValue
+        if (contentValue.isEmpty()) {
+            toast("请填写问政内容")
+            return
+        }
+
+        PartComfirmDialogFragment.newInstance("岸提镇意见建议投诉须知")
+                .show(supportFragmentManager, "1")
+
     }
 
     private fun confirm() {
@@ -139,7 +151,20 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
         mBinding.vm?.pushPolitics(isCheckId, titleValue, contentValue, imgList)
     }
 
+    /**
+     * dialog fragment 上面的
+     */
     override fun onConfirmClicked() {
+        //点击确定，就保存为true
+        SpUtil.putBoolean(Constants.IS_SHOW_REAL, true)
+
+        nextConfirmDialog()
+    }
+
+    /**
+     * 真正发布的时候确定的对话框
+     */
+    private fun nextConfirmDialog() {
         IosAlertDialog(this)
                 .builder()
                 .setMsg("您将以公开身份对计生局发送问政\n是否确认发送")

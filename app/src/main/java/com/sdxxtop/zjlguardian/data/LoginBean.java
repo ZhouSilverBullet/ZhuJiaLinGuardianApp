@@ -26,6 +26,7 @@ public class LoginBean {
     private int is_new;
     private int type;
     private String rule_name;
+    private int confirm;
 
     public String getAuto_token() {
         return auto_token;
@@ -121,5 +122,13 @@ public class LoginBean {
 
     public void setRule_name(String rule_name) {
         this.rule_name = rule_name;
+    }
+
+    public int getConfirm() {
+        return confirm;
+    }
+
+    public void setConfirm(int confirm) {
+        this.confirm = confirm;
     }
 }
