@@ -78,7 +78,7 @@ class PartComfirmDialogFragment : BottomSheetDialogFragment() {
         settings.setJavaScriptEnabled(true)
         if (webview.url == null) {
 
-            webview.loadUrl("file:///android_asset/deal.html")
+            webview.loadUrl("file:///android_asset/agreement.html")
         }
     }
 

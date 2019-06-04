@@ -31,6 +31,11 @@ class RegisterActivity : KBaseActivity<ActivityRegisterBinding>() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        mBinding.etPhone.setSelection(mBinding.etPhone.text.length);
+    }
+
     override fun getLayoutId() = R.layout.activity_register
 
     override fun loadData(isRefresh: Boolean) {

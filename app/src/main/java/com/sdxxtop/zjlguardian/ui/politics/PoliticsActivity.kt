@@ -72,7 +72,7 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
                 val isShowReal = SpUtil.getBoolean(Constants.IS_SHOW_REAL, false)
                 if (isShowReal) {
                     nextConfirmDialog()
-                } else{
+                } else {
                     showConfirmFragmentDialog()
                 }
 
@@ -165,17 +165,48 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
      * 真正发布的时候确定的对话框
      */
     private fun nextConfirmDialog() {
-        IosAlertDialog(this)
-                .builder()
-                .setMsg("您将以公开身份对计生局发送问政\n是否确认发送")
-                .setPositiveButton("发送") {
-                    confirm()
 
+        var isCheckId = -1;
+        if (mBinding.vm?.partBean != null) {
+            mBinding.vm?.partBean?.forEach {
+                if (it.isCheck) {
+                    isCheckId = it.part_id
                 }
-                .setNegativeButton("再想想") {
+            }
+        }
 
-                }
-                .show()
+        if (isCheckId == -1) {
+            toast("请选择问政对象")
+            return
+        }
+
+        val titleValue = mBinding.netvTitle.editValue
+        if (titleValue.isEmpty()) {
+            toast("请填写问政标题")
+            return
+        }
+
+        val contentValue = mBinding.netvContent.editValue
+        if (contentValue.isEmpty()) {
+            toast("请填写问政内容")
+            return
+        }
+
+        if (mBinding.vm?.isOpen ?: true) {
+            IosAlertDialog(this)
+                    .builder()
+                    .setMsg("您将以公开身份对计生局发送问政\n是否确认发送")
+                    .setPositiveButton("发送") {
+                        confirm()
+
+                    }
+                    .setNegativeButton("再想想") {
+
+                    }
+                    .show()
+        } else {
+            confirm()
+        }
     }
 
     override fun onItemClicked(checkBox: CheckBox, position: Int) {

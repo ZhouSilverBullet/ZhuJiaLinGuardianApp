@@ -75,7 +75,7 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
                 val isShowReal = SpUtil.getBoolean(Constants.IS_SHOW_REAL, false)
                 if (isShowReal) {
                     nextConfirmDialog()
-                } else{
+                } else {
                     showConfirmFragmentDialog()
                 }
             }
@@ -141,7 +141,8 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
     override fun onConfirmClicked() {
         //点击确定，就保存为true
         SpUtil.putBoolean(Constants.IS_SHOW_REAL, true)
-        confirm()
+
+        nextConfirmDialog()
 
     }
 
@@ -149,17 +150,67 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
      * 真正发布的时候确定的对话框
      */
     private fun nextConfirmDialog() {
-        IosAlertDialog(this)
-                .builder()
-                .setMsg("您将以公开身份对计生局发送信件\n是否确认发送")
-                .setPositiveButton("发送") {
-                    confirm()
 
-                }
-                .setNegativeButton("再想想") {
+        var feedCheck = -1;
 
+        when (rg_feed_group.checkedRadioButtonId) {
+            R.id.rb_feed -> {
+                feedCheck = 0;
+            }
+            R.id.rb_jianyi -> {
+                feedCheck = 1;
+            }
+            R.id.rb_toushu -> {
+                feedCheck = 2;
+            }
+        }
+
+        if (feedCheck == -1) {
+            toast("请选择反应类型")
+            return
+        }
+
+        var isCheckId = -1;
+        if (mBinding.vm?.partBean != null) {
+            mBinding.vm?.partBean?.forEach {
+                if (it.isCheck) {
+                    isCheckId = it.part_id
                 }
-                .show()
+            }
+        }
+        if (isCheckId == -1) {
+            toast("请选择问政对象")
+            return
+        }
+
+        val titleValue = mBinding.netvTitle.editValue
+        if (titleValue.isEmpty()) {
+            toast("请填写问政标题")
+            return
+        }
+
+        val contentValue = mBinding.netvContent.editValue
+        if (contentValue.isEmpty()) {
+            toast("请填写问政内容")
+            return
+        }
+
+
+        if (mBinding.vm?.open ?: true) {
+            IosAlertDialog(this)
+                    .builder()
+                    .setMsg("您将以公开身份对计生局发送信件\n是否确认发送")
+                    .setPositiveButton("发送") {
+                        confirm()
+
+                    }
+                    .setNegativeButton("再想想") {
+
+                    }
+                    .show()
+        } else {
+            confirm()
+        }
     }
 
     private fun confirm() {
