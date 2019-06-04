@@ -15,13 +15,16 @@ import com.orhanobut.logger.Logger;
 import com.sdxxtop.model.db.UserData;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseActivity;
+import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
+import com.sdxxtop.zjlguardian.presenter.LoginConfirmPresenter;
+import com.sdxxtop.zjlguardian.presenter.constract.LoginConfirmContract;
 import com.sdxxtop.zjlguardian.ui.home.HomeActivity;
 import com.sdxxtop.zjlguardian.ui.home.HomeTabActivity;
 
 import butterknife.BindView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObserver.OnGlobalLayoutListener {
+public class LoginConfirmActivity extends GBaseMvpActivity<LoginConfirmPresenter> implements ViewTreeObserver.OnGlobalLayoutListener, LoginConfirmContract.IView {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
@@ -151,8 +154,9 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserData.getInstance().saveInfo(autoToken, expireTime, partId, userid, phone, mType);
-                startActivity(mType);
+
+                mPresenter.loadData(userid);
+
             }
         });
 
@@ -192,5 +196,21 @@ public class LoginConfirmActivity extends GBaseActivity implements ViewTreeObser
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) lvLine.getLayoutParams();
         layoutParams.width = measuredWidth;
         lvLine.setLayoutParams(layoutParams);
+    }
+
+    @Override
+    protected void initInject() {
+        getMyActivityComponent().inject(this);
+    }
+
+    @Override
+    public void showError(String error) {
+
+    }
+
+    @Override
+    public void confirmSuccess() {
+        UserData.getInstance().saveInfo(autoToken, expireTime, partId, userid, phone, mType);
+        startActivity(mType);
     }
 }

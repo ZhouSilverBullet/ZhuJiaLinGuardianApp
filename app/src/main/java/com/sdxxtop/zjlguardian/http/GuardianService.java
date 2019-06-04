@@ -75,6 +75,10 @@ public interface GuardianService {
     @FormUrlEncoded
     @POST("login/autoLogin")
     Observable<RequestBean<AutoLoginBean>> postLoginAutoLogin(@Field("data") String data);
+
+    @FormUrlEncoded
+    @POST("login/confirm")
+    Observable<RequestBean> postLoginConfirm(@Field("data") String data);
 //
 //    ////////////// 首页 ////////////
     @FormUrlEncoded
@@ -193,7 +197,7 @@ public interface GuardianService {
 
 
     @FormUrlEncoded
-    @POST("index/test")
+    @POST("index/index")
     Observable<RequestBean<ServerPeopleBean>> postIndexTest(@Field("data") String data);
 
     @FormUrlEncoded

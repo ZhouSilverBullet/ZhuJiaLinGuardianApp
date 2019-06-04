@@ -90,6 +90,7 @@
                         android:id="@+id/tv_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:text="111111111111111"
                         android:textColor="@color/color_303030"
                         android:textSize="18sp" />
@@ -140,6 +141,7 @@
                         android:id="@+id/tv_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:text="111111111111111"
                         android:textColor="@color/color_303030"
                         android:textSize="18sp" />
@@ -170,6 +172,7 @@
                         android:id="@+id/tv_company"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:text="111111111111111"
                         android:textColor="@color/color_303030"
                         android:textSize="18sp" />
@@ -211,6 +214,7 @@
                         android:id="@+id/tv_jobs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:text="111111111111111"
                         android:textColor="@color/color_303030"
                         android:textSize="18sp" />

@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.sdxxtop.ui.dialog.IosAlertDialog
+import com.sdxxtop.utils.SpUtil
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityPoliticsBinding
@@ -141,9 +142,10 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
     override fun onConfirmClicked() {
         IosAlertDialog(this)
                 .builder()
-                .setMsg("您将以公开身份对计生局发送问政是否确认发送")
+                .setMsg("您将以公开身份对计生局发送问政\n是否确认发送")
                 .setPositiveButton("发送") {
                     confirm()
+
                 }
                 .setNegativeButton("再想想") {
 

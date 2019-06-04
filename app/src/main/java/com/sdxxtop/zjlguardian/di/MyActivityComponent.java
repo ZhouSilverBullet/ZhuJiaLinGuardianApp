@@ -18,6 +18,7 @@ import com.sdxxtop.zjlguardian.ui.guardianapp.TaskAgentsActivity;
 import com.sdxxtop.zjlguardian.ui.home.HomeTabActivity;
 import com.sdxxtop.zjlguardian.ui.learn.news.NewsDetailsActivity;
 import com.sdxxtop.zjlguardian.ui.login.LoginActivity;
+import com.sdxxtop.zjlguardian.ui.login.LoginConfirmActivity;
 import com.sdxxtop.zjlguardian.ui.splash.SplashActivity;
 
 import dagger.Component;
@@ -50,5 +51,6 @@ public interface MyActivityComponent {
     void inject(ContactActivity activity);
     void inject(EventReportListActivity activity);
     void inject(EventReportActivity activity);
+    void inject(LoginConfirmActivity activity);
 
 }

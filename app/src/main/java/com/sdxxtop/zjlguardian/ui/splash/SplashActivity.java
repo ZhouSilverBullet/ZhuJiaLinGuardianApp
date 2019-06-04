@@ -71,7 +71,8 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
 
         boolean guideIsShow = SpUtil.getBoolean(Constants.GUIDE_IS_SHOW, false);
         if (guideIsShow) {
-            mPresenter.autoLogin();
+//            mPresenter.autoLogin();
+            skipToActivity();
         } else {
             Intent intent = new Intent(mContext, GuideActivity.class);
             startActivity(intent);
@@ -80,6 +81,19 @@ public class SplashActivity extends GBaseMvpActivity<SplashPresenter> implements
 //        Intent intent = new Intent(mContext, HomeTabActivity.class);
 //        startActivity(intent);
 //        finish();
+    }
+
+    private void skipToActivity() {
+        int timeTemp = SpUtil.getInt(Constants.EXPIRE_TIME, 0);
+        if (timeTemp != 0 && timeTemp < System.currentTimeMillis()) {
+            //测试用暂关此功能
+//            postAutoLogin();
+            mPresenter.autoLogin();
+        } else { //没有自动登陆去登陆界面
+            Intent intent = new Intent(mContext, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
