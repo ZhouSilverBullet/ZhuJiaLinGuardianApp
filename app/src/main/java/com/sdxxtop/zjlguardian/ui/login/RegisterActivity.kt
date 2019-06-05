@@ -1,5 +1,6 @@
 package com.sdxxtop.zjlguardian.ui.login
 
+import android.content.Intent
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -23,6 +24,9 @@ class RegisterActivity : KBaseActivity<ActivityRegisterBinding>() {
             //保存phone
             SpUtil.putString(Constants.MOBILE, phone)
             startActivity<HomeTabActivity>()
+
+            notifyLoginFinish()
+            finish()
         })
 
         mBinding.vm?.registerErrorLiveData?.observe(this, Observer {
@@ -54,6 +58,11 @@ class RegisterActivity : KBaseActivity<ActivityRegisterBinding>() {
     override fun onDestroy() {
         super.onDestroy()
         mBinding.vm?.remove()
+    }
+
+    private fun notifyLoginFinish() {
+        val intent = Intent(LoginActivity.ACTION_LOGIN_CONFIRM_SUCCESS)
+        sendBroadcast(intent)
     }
 
 }
