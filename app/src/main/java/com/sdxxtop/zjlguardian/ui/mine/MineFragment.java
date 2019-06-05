@@ -192,8 +192,9 @@ public class MineFragment extends GBaseMvpFragment<MinePresenter> implements Min
                 startActivity(feedbackIntent);
 
                 break;
-            case R.id.ll_find: // 政策查询
+            case R.id.ll_find: // 服务进度
 
+                showFindDialog();
 
                 break;
             default:
@@ -215,6 +216,20 @@ public class MineFragment extends GBaseMvpFragment<MinePresenter> implements Min
 //                startActivity(CompanyIntent);
 //                break;
         }
+    }
+
+    private void showFindDialog() {
+        new IosAlertDialog(getActivity())
+                .builder()
+                .setTitle("提示")
+                .setMsg("暂时没有进行中的服务")
+                .setPositiveButton("", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                })
+                .show();
     }
 
     @Override

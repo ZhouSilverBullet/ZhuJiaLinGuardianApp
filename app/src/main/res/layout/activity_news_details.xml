@@ -15,7 +15,7 @@
         app:bgColor="@color/color_32B16C"
         app:leftLayoutIsShow="true"
         app:titleColor="@color/white"
-        app:titleValue="文章学习" />
+        app:titleValue="" />
 
     <RelativeLayout
         android:layout_width="match_parent"
