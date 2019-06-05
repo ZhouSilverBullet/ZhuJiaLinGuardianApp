@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             app:bgColor="@color/green_14C8B3"
             app:titleColor="@color/white"
-            app:titleValue="岸提镇政府" />
+            app:titleValue="岸堤镇政府" />
 
         <com.youth.banner.Banner
             android:id="@+id/banner"

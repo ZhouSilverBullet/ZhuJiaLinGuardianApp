@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="岸提镇意见建议投诉须知"
+        android:text="岸堤镇意见建议投诉须知"
         android:textColor="@color/color_313131"
         android:textSize="17sp" />
 

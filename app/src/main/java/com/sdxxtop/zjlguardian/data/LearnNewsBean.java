@@ -18,15 +18,15 @@ public class LearnNewsBean implements MultiItemEntity {
     private String add_time;
     private String article_path;
     private int type = 1;
-    private String video_path;
+    private String video;
     private String img;
 
-    public String getVideo_path() {
-        return video_path;
+    public String getVideo() {
+        return video;
     }
 
-    public void setVideo_path(String video_path) {
-        this.video_path = video_path;
+    public void setVideo(String video) {
+        this.video = video;
     }
 
     public String getArticle_path() {

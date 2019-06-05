@@ -114,7 +114,7 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
             return
         }
 
-        PartComfirmDialogFragment.newInstance("岸提镇网络问政须知")
+        PartComfirmDialogFragment.newInstance("岸堤镇网络问政须知")
                 .show(supportFragmentManager, "1")
 
     }

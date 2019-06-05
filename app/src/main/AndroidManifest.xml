@@ -99,6 +99,7 @@
             android:taskAffinity="net.sourceforge.simcpux"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
+        <activity android:name=".ui.video.VideoPlayActivity" />
     </application>
 
 </manifest>

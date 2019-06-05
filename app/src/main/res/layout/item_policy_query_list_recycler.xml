@@ -23,6 +23,6 @@
             android:padding="16dp"
             android:textColor="#ff313131"
             android:textSize="15sp"
-            tools:text="岸提镇工商行政管理局关于贯彻落实岸提市推进证照分离改革试点工作方案的通知" />
+            tools:text="岸堤镇工商行政管理局关于贯彻落实岸堤市推进证照分离改革试点工作方案的通知" />
     </LinearLayout>
 </layout>

@@ -61,7 +61,7 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<LearnNewsBean, Ba
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(mContext, VideoPlayActivity.class);
-                        intent.putExtra("video_path", item.getVideo_path());
+                        intent.putExtra("video_path", item.getVideo());
                         intent.putExtra("title", item.getTitle());
                         mContext.startActivity(intent);
                     }
