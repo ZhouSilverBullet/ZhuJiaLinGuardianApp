@@ -120,15 +120,14 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
         if (!TextUtils.isEmpty(s)) {
 //            mPresenter.searchData(s.toString())
             mBinding.tvCancel.setVisibility(View.VISIBLE)
-            mBinding.vm?.load(isSearch, mBinding.rv.adapter?.itemCount ?: 0, s.toString())
+            mBinding.vm?.load(isSearch,  0, s.toString())
         } else {
-//            mPresenter.loadData()
-            //            mAdapter.replaceData(new ArrayList<>());
-            if (mBinding.rv.adapter is PoliticsListAdapter) {
-                (mBinding.rv.adapter as PoliticsListAdapter).addData(ArrayList())
-            }
-
-            mBinding.tvCancel.setVisibility(View.GONE)
+            mBinding.vm?.load(isSearch,  0, s.toString())
+//            if (mBinding.rv.adapter is PoliticsListAdapter) {
+//                (mBinding.rv.adapter as PoliticsListAdapter).addData(ArrayList())
+//            }
+//
+//            mBinding.tvCancel.setVisibility(View.GONE)
         }
     }
 

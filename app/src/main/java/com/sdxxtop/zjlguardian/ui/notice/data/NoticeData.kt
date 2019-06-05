@@ -26,5 +26,5 @@ data class Notic(
 //日期进行分类，然后一个item展示出来
 data class NoticDateBean(
         val time: String,
-        val notic_list: List<Notic>
+        val notic_list: ArrayList<Notic>
 )

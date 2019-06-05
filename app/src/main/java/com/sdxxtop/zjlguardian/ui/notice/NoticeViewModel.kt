@@ -6,6 +6,7 @@ import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
 import androidx.lifecycle.MutableLiveData
+import com.amap.api.mapcore.util.it
 import com.sdxxtop.model.http.callback.IRequestCallback
 import com.sdxxtop.model.http.net.Params
 import com.sdxxtop.model.http.util.RxUtils
@@ -42,6 +43,7 @@ class NoticeViewModel : BaseViewModel() {
         val eventShowPart = RetrofitHelper.getGuardianService().postNoticeIndex(params.data)
         val disposable = RxUtils.handleDataHttp(eventShowPart, object : IRequestCallback<NoticeData> {
             override fun onSuccess(t: NoticeData?) {
+
                 val list = ArrayList<NoticDateBean>()
                 val map = HashMap<String, ArrayList<Notic>>();
                 t?.notic_list?.forEach {
@@ -55,6 +57,20 @@ class NoticeViewModel : BaseViewModel() {
 
                 map.forEach {
                     list.add(NoticDateBean(it.key, it.value))
+                }
+
+                if (isPullLoad) {
+                    mNoticeData.value?.forEach {
+                        list.forEach { contentIt ->
+                            if (contentIt.time.equals(it.time)) {
+                                contentIt.notic_list.addAll(it.notic_list)
+                            }
+                        }
+                    }
+                    //如果上拉刷新为0的情况下，就不在设置adapter
+                    if (list.size == 0) {
+                        list.addAll(mNoticeData.value!!)
+                    }
                 }
 
                 mNoticeData.set(list)

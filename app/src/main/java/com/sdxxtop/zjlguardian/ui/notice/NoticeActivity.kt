@@ -45,7 +45,7 @@ class NoticeActivity : KBaseActivity<ActivityNoticeBinding>(), TextWatcher {
 
         mBinding.vm?.mNoticeData?.observe(this, Observer {
             if (mBinding.vm?.isPullLoad ?: false) {
-                noticeAdapter.addData(it)
+                noticeAdapter.replaceData(it)
             } else {
                 noticeAdapter.replaceData(it)
             }
@@ -71,9 +71,14 @@ class NoticeActivity : KBaseActivity<ActivityNoticeBinding>(), TextWatcher {
                     mBinding.vm?.isPullLoad = true
                     //是否是搜索
                     if (mBinding.vm?.isSearch ?: false) {
-                        mBinding.vm?.load(0, "")
+                        mBinding.vm?.loadSearch(searchAdapter.itemCount, mBinding.etSearch.text.toString().trim())
                     } else {
-                        mBinding.vm?.loadSearch(0, "")
+                        //由于这个是做处理的数据，所有也要进行一次处理
+                        var count = 0;
+                        noticeAdapter.data.forEach {
+                            count += it.notic_list.size
+                        }
+                        mBinding.vm?.load(count, "")
                     }
                 }
             }
@@ -84,9 +89,9 @@ class NoticeActivity : KBaseActivity<ActivityNoticeBinding>(), TextWatcher {
 
                     //是否是搜索
                     if (mBinding.vm?.isSearch ?: false) {
-                        mBinding.vm?.load(0, "")
+                        mBinding.vm?.loadSearch(0, mBinding.etSearch.text.toString().trim())
                     } else {
-                        mBinding.vm?.loadSearch(0, "")
+                        mBinding.vm?.load(0, "")
                     }
                 }
             }

@@ -114,14 +114,13 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
         if (!TextUtils.isEmpty(s)) {
 //            mPresenter.searchData(s.toString())
             mBinding.tvCancel.setVisibility(View.VISIBLE)
-            mBinding.vm?.loadFeedback(isSearch, mBinding.rv.adapter?.itemCount ?: 0, s.toString())
+            mBinding.vm?.loadFeedback(isSearch, 0, s.toString())
         } else {
-//            mPresenter.loadData()
-            //            mAdapter.replaceData(new ArrayList<>());
-            if (mBinding.rv.adapter is FeedbackListAdapter) {
-                (mBinding.rv.adapter as FeedbackListAdapter).addData(ArrayList())
-            }
-            mBinding.tvCancel.setVisibility(View.GONE)
+            mBinding.vm?.loadFeedback(isSearch, 0, mBinding.vm?.etValue)
+//            if (mBinding.rv.adapter is FeedbackListAdapter) {
+//                (mBinding.rv.adapter as FeedbackListAdapter).addData(ArrayList())
+//            }
+//            mBinding.tvCancel.setVisibility(View.GONE)
         }
     }
 

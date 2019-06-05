@@ -13,7 +13,9 @@ import com.sdxxtop.utils.UIUtils
 import com.sdxxtop.zjlguardian.R
 import com.sdxxtop.zjlguardian.base.KBaseActivity
 import com.sdxxtop.zjlguardian.databinding.ActivityPolicyQueryListBinding
+import com.sdxxtop.zjlguardian.ui.learn.news.NewsDetailsActivity
 import com.sdxxtop.zjlguardian.ui.policy.data.Policy
+import org.jetbrains.anko.startActivity
 
 class PolicyQueryListActivity : KBaseActivity<ActivityPolicyQueryListBinding>() {
     var mineId = 0;
@@ -81,6 +83,10 @@ class PolicyQueryListActivity : KBaseActivity<ActivityPolicyQueryListBinding>() 
         override fun convert(helper: BaseViewHolder?, item: Policy?) {
             val textView = helper?.getView<TextView>(R.id.tv_text)
             textView?.text = item?.title
+            helper?.itemView?.setOnClickListener {
+                mContext.startActivity<NewsDetailsActivity>(
+                        "article_path" to item?.url)
+            }
         }
 
     }

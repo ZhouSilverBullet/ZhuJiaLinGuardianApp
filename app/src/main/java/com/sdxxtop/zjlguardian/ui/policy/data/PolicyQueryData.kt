@@ -38,7 +38,8 @@ data class PolicyBean(
 data class Policy(
     val add_time: String,
     val id: Int,
-    val title: String
+    val title: String,
+    val url:String
 )
 
 
