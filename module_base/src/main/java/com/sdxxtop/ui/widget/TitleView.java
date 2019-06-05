@@ -69,7 +69,7 @@ public class TitleView extends RelativeLayout {
             if (layoutIconIsGray) {
                 ImageView view = findViewById(R.id.iv_back);
                 view.setPadding(UIUtils.dip2px(10), UIUtils.dip2px(4), UIUtils.dip2px(4), UIUtils.dip2px(0));
-                view.setImageResource(R.drawable.return_back);
+                view.setImageResource(R.drawable.white_return);
             }
             linearBack = findViewById(R.id.ll_back);
             linearBack.setVisibility(VISIBLE);

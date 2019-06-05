@@ -15,6 +15,7 @@
         app:bgColor="@color/green"
         app:leftLayoutIsShow="true"
         app:rightTextValue="我的上报"
+        app:leftLayoutIconIsGray="true"
         app:titleColor="@color/white"
         app:titleValue="事件上报"/>
 

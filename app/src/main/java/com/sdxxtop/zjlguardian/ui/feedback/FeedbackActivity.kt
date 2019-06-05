@@ -134,7 +134,7 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
             return
         }
 
-        PartComfirmDialogFragment.newInstance("岸提镇网络问政须知")
+        PartComfirmDialogFragment.newInstance("岸提镇意见建议投诉须知")
                 .show(supportFragmentManager, "1")
     }
 

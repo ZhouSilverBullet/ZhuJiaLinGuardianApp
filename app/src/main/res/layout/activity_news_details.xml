@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         app:bgColor="@color/color_32B16C"
         app:leftLayoutIsShow="true"
+        app:leftLayoutIconIsGray="true"
         app:titleColor="@color/white"
         app:titleValue="" />
 

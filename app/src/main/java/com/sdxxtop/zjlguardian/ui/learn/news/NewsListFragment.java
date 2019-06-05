@@ -10,6 +10,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.sdxxtop.ui.widget.TitleView;
 import com.sdxxtop.zjlguardian.R;
 import com.sdxxtop.zjlguardian.base.GBaseMvpFragment;
 import com.sdxxtop.zjlguardian.data.LearnNewsBean;
@@ -22,6 +23,9 @@ import butterknife.BindView;
 
 public class NewsListFragment extends GBaseMvpFragment<NewsListFragmentPresenter> implements NewsListFragmentContract.IView {
     private static final String TAG = "NewsListFragment";
+
+    @BindView(R.id.tv_title)
+    TitleView mTitleView;
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -62,6 +66,9 @@ public class NewsListFragment extends GBaseMvpFragment<NewsListFragmentPresenter
             type = getArguments().getInt("type");
 //            mPresenter.loadData(0,type);
         }
+
+        statusBar(true);
+        topViewPadding(mTitleView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new NewsListAdapter(new ArrayList<>(), getContext(), type);

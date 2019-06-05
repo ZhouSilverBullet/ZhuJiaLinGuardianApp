@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+   <!--临时添加-->
+   <com.sdxxtop.ui.widget.TitleView
+       android:id="@+id/tv_title"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:bgColor="@color/green_14C8B3"
+       app:titleColor="@color/white"
+       app:titleValue="学海无涯" />
 
    <com.scwang.smartrefresh.layout.SmartRefreshLayout
        android:id="@+id/smart_refresh"

@@ -23,6 +23,7 @@ import com.sdxxtop.zjlguardian.base.GBaseActivity;
 import com.sdxxtop.zjlguardian.base.GBaseMvpActivity;
 import com.sdxxtop.zjlguardian.service.PatrolRecordService;
 import com.sdxxtop.zjlguardian.ui.learn.LearningFragment;
+import com.sdxxtop.zjlguardian.ui.learn.news.NewsListFragment;
 import com.sdxxtop.zjlguardian.ui.mine.MineFragment;
 import com.sdxxtop.zjlguardian.ui.server_people.ServerPeopleFragment;
 
@@ -141,7 +142,8 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
 
                 mFragments[0] = new HomeFragment();
                 mFragments[1] = ServerPeopleFragment.Companion.newInstance(1);
-                mFragments[2] = new LearningFragment();
+//                mFragments[2] = new LearningFragment();
+                mFragments[2] = NewsListFragment.newInstance(2);
                 mFragments[3] = MineFragment.newInstance(isAdmin);
 
                 loadMultipleRootFragment(R.id.fl_home_container, position,
@@ -154,7 +156,8 @@ public class HomeTabActivity extends GBaseMvpActivity<HomePresenter> implements 
                     mFragments = new SupportFragment[3];
                 }
                 mFragments[0] = ServerPeopleFragment.Companion.newInstance(2);
-                mFragments[1] = new LearningFragment();
+//                mFragments[1] = new LearningFragment();
+                mFragments[1] = NewsListFragment.newInstance(2);
                 mFragments[2] = MineFragment.newInstance(isAdmin);
 
                 loadMultipleRootFragment(R.id.fl_home_container, position,
