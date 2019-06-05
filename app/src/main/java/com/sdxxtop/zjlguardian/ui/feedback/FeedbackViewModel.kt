@@ -26,7 +26,7 @@ class FeedbackViewModel : BaseViewModel() {
     //1.意见 2.建议 3.投诉
     var type = 0
     var typeCheck = false
-    var open = false
+    var open = false // 0是匿名，1是公开
     var searchContent = ""
 
     var mProposalIdData = MutableLiveData<String>()

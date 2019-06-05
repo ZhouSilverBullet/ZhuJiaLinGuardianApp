@@ -192,7 +192,9 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
             return
         }
 
-        if (mBinding.vm?.isOpen ?: true) {
+        if (mBinding.vm?.isOpen ?: false) {
+            confirm()
+        } else {
             IosAlertDialog(this)
                     .builder()
                     .setMsg("您将以公开身份对计生局发送问政\n是否确认发送")
@@ -204,8 +206,6 @@ class PoliticsActivity : KBaseActivity<ActivityPoliticsBinding>(), PartSelectDia
 
                     }
                     .show()
-        } else {
-            confirm()
         }
     }
 

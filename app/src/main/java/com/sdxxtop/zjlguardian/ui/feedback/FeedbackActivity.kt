@@ -196,7 +196,10 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
         }
 
 
-        if (mBinding.vm?.open ?: true) {
+        if (mBinding.vm?.open ?: false) {
+            confirm()
+        } else {
+
             IosAlertDialog(this)
                     .builder()
                     .setMsg("您将以公开身份对计生局发送信件\n是否确认发送")
@@ -208,8 +211,7 @@ class FeedbackActivity : KBaseActivity<ActivityFeedbackBinding>(), PartSelectDia
 
                     }
                     .show()
-        } else {
-            confirm()
+
         }
     }
 
