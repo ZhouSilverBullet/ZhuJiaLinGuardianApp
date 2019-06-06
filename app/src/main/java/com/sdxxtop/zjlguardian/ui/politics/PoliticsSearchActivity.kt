@@ -47,7 +47,7 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
 
         if (!isSearch) {
             mBinding.rlSearchBackground.visibility = View.GONE
-            mBinding.srlLayout.autoRefresh()
+//            mBinding.srlLayout.autoRefresh()
         }
 
         setTvEmpty()

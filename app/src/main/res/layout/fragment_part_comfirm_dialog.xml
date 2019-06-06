@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:paddingTop="20dp"
         android:text="岸堤镇意见建议投诉须知"
         android:textColor="@color/color_313131"
         android:textSize="17sp" />
@@ -42,9 +43,9 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="20dp">
 
         <WebView
             android:id="@+id/webview"

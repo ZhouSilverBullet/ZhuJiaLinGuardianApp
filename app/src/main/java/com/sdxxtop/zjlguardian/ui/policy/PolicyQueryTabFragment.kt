@@ -15,6 +15,7 @@ import com.sdxxtop.zjlguardian.base.KBaseFragment
 import com.sdxxtop.zjlguardian.data.PartBean
 import com.sdxxtop.zjlguardian.databinding.FragmentPolicyQueryTabBinding
 import com.sdxxtop.zjlguardian.ui.policy.data.PolicyQueryBean
+import com.sdxxtop.zjlguardian.ui.policy.data.ThreeCate
 import com.sdxxtop.zjlguardian.ui.policy.data.TwoCate
 import com.sdxxtop.zjlguardian.ui.politics.ARG_ITEM_COUNT
 import com.sdxxtop.zjlguardian.ui.politics.PartSelectDialogFragment
@@ -54,6 +55,7 @@ class PolicyQueryTabFragment : KBaseFragment<FragmentPolicyQueryTabBinding>() {
     override fun onClick(v: View?) {
         when (v) {
             mBinding.rlMine -> {
+                //清除我找的这个id
                 val twoCate = type?.two_cate
                 val list: MutableList<String> = ArrayList()
                 for (two in twoCate!!) {
@@ -63,10 +65,23 @@ class PolicyQueryTabFragment : KBaseFragment<FragmentPolicyQueryTabBinding>() {
             }
 
             mBinding.rlFind -> {
-                val threeCate = type?.two_cate?.get(0)?.three_cate
+
+                if (twoPoint == -1) {
+                    toast("请选择我是，再选择我找")
+                    return
+                }
+
+                var threeCate: List<ThreeCate>? = null
+
+                type?.two_cate?.forEach {
+                    if (it.id == twoPoint) {
+                        threeCate = it.three_cate
+                    }
+                }
+
                 val list: MutableList<String> = ArrayList()
                 for (two in threeCate!!) {
-                    list.add(two.name)
+                    list.add(two.name.trim())
                 }
                 showThreeCate(list)
             }
@@ -103,6 +118,9 @@ class PolicyQueryTabFragment : KBaseFragment<FragmentPolicyQueryTabBinding>() {
                             twoPoint = it.id
                         }
                     }
+
+                    threePoint = -1
+                    mBinding.tvFind.setText("全部")
                 }
             })
         }

@@ -77,7 +77,7 @@ public class WxShareHelper {
         msg.title = title;
         msg.description = content;
         //  TODO
-        Bitmap bmp = BitmapFactory.decodeResource(GuardianApp.getContext().getResources(), R.drawable.ic_camera);
+        Bitmap bmp = BitmapFactory.decodeResource(GuardianApp.getContext().getResources(), R.mipmap.ic_launcher);
         Bitmap thumbBmp = Bitmap.createScaledBitmap(bmp, 150, 150, true);
         bmp.recycle();
         msg.thumbData = bmpToByteArray(thumbBmp, true);

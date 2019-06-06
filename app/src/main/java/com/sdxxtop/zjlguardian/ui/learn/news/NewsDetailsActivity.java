@@ -107,7 +107,7 @@ public class NewsDetailsActivity extends GBaseMvpActivity<NewsDetailPresenter> i
         if (isHasShare) {
             mTitleView.getTvRight().setVisibility(View.VISIBLE);
             mTitleView.getTvRight().setText("");
-            mTitleView.getTvRight().setBackgroundResource(R.drawable.study_1);
+            mTitleView.getTvRight().setBackgroundResource(R.drawable.share);
             mTitleView.getTvRight().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
