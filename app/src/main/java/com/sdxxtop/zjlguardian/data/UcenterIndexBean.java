@@ -9,7 +9,7 @@ public class UcenterIndexBean {
      * "part_id" : 1
      * "position" : 1,/职位(1:网格员 2: 企业员工 3:街道管理员 4:区级管理员)
      * "img" : http://xuxingtest.oss-cn-hangzhou.aliyuncs.com/face/20190412100430281648.png
-     * "part_name" : 罗庄区,//
+     * "part_name" : 岸堤镇,//
      * "type":1,  //单位级别(1:区级 2: 乡镇 3:企业)
      */
     private String name;

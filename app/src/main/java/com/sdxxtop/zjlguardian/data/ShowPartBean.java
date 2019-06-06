@@ -23,7 +23,7 @@ public class ShowPartBean {
     public static class PartBean {
         /**
          * part_id : 1
-         * part_name : 罗庄区
+         * part_name : 岸堤镇
          */
 
         private int part_id;

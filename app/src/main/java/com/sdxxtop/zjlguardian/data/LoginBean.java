@@ -9,7 +9,7 @@ public class LoginBean {
      * userid : 2
      * mobile : 18618474505
      * position : 1
-     * part_name : 罗庄区
+     * part_name : 岸堤镇
      * part_id : 1
      */
 

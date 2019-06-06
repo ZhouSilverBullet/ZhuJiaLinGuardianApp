@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         app:bgColor="@color/transparent"
         app:titleColor="@color/white"
-        app:titleValue="罗庄区" />
+        app:titleValue="岸堤镇" />
 
     <FrameLayout
         android:layout_width="match_parent"

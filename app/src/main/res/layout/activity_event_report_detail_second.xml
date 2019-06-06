@@ -12,7 +12,10 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        app:bgColor="@color/green_14C8B3"
+        app:leftLayoutIconIsGray="true"
+        app:leftLayoutIsShow="true"
+        app:titleColor="@color/white"
         app:titleValue="上报详情" />
 
     <LinearLayout

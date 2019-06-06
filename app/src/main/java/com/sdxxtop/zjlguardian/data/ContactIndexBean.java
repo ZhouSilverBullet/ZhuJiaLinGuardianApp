@@ -19,7 +19,7 @@ public class ContactIndexBean {
      *                   "part_id" : 1
      *                   "mobile" : 18618474505
      *                   "img" : http://xuxingtest.oss-cn-hangzhou.aliyuncs.com/app/head%402x.png
-     *                   "part_name" : 罗庄区, //单位名称
+     *                   "part_name" : 岸堤镇, //单位名称
      */
     public static class ContactBean {
         private int userid;

@@ -8,7 +8,7 @@ public class MainIndexBean {
     /**
      * name : 周周
      * position : 1
-     * part_name : 罗庄区
+     * part_name : 岸堤镇
      * is_face : 2
      * pending_event : [{"title":"指派11","end_date":"2019-04-11","status":2}]
      * add_event : [{"title":"指派22","end_date":"2019-04-11","status":5},{"title":"指派11","end_date":"2019-04-11","status":2},{"title":"test1","end_date":"","status":1},{"title":"test","end_date":"0000-00-00","status":1}]
