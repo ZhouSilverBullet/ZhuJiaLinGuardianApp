@@ -16,8 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:bgColor="@color/green"
-            app:leftLayoutIsShow="true"
             app:leftLayoutIconIsGray="true"
+            app:leftLayoutIsShow="true"
             app:titleColor="@color/white"
             app:titleValue="打卡">
 

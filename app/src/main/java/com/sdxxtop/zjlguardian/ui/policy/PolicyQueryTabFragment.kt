@@ -43,6 +43,8 @@ class PolicyQueryTabFragment : KBaseFragment<FragmentPolicyQueryTabBinding>() {
     var threePoint = -1;
     var index: Int = 0;
 
+    var threeCate: List<ThreeCate>? = null
+
     override fun initView() {
         type = arguments?.getSerializable(POLICY_QUERY_TYPE) as PolicyQueryBean
         index = arguments?.getInt("index", 0)!!
@@ -71,7 +73,8 @@ class PolicyQueryTabFragment : KBaseFragment<FragmentPolicyQueryTabBinding>() {
                     return
                 }
 
-                var threeCate: List<ThreeCate>? = null
+                //先置为null
+                threeCate = null
 
                 type?.two_cate?.forEach {
                     if (it.id == twoPoint) {
@@ -114,7 +117,7 @@ class PolicyQueryTabFragment : KBaseFragment<FragmentPolicyQueryTabBinding>() {
 
                     val twoCate = type?.two_cate
                     twoCate?.forEach {
-                        if (result == it.name) {
+                        if (result == it.name.trim()) {
                             twoPoint = it.id
                         }
                     }
@@ -130,20 +133,17 @@ class PolicyQueryTabFragment : KBaseFragment<FragmentPolicyQueryTabBinding>() {
     var singleStyleView2: SingleStyleView? = null;
 
     private fun showThreeCate(twoCate: List<String>) {
-        if (singleStyleView2 == null) {
-            singleStyleView2 = SingleStyleView(activity, twoCate)
-            singleStyleView2?.setOnItemSelectLintener(object : SingleStyleView.OnItemSelectLintener {
-                override fun onItemSelect(result: String) {
-                    tv_find.setText(result)
-                    val threeCate = type?.two_cate?.get(0)?.three_cate
-                    threeCate?.forEach {
-                        if (result == it.name) {
-                            threePoint = it.id
-                        }
+        singleStyleView2 = SingleStyleView(activity, twoCate)
+        singleStyleView2?.setOnItemSelectLintener(object : SingleStyleView.OnItemSelectLintener {
+            override fun onItemSelect(result: String) {
+                tv_find.setText(result)
+                threeCate?.forEach {
+                    if (result == it.name.trim()) {
+                        threePoint = it.id
                     }
                 }
-            })
-        }
+            }
+        })
         singleStyleView2?.show()
     }
 

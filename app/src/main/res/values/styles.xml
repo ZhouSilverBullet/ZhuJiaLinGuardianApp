@@ -21,6 +21,15 @@
         <item name="android:radioButtonStyle">@style/MyRadiobtn</item>
     </style>
 
+    <style name="RedAppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/green_14C8B3</item>
+        <item name="colorPrimaryDark">@color/green_14C8B3</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:radioButtonStyle">@style/MyRadiobtn</item>
+    </style>
+
     <style name="MyRadiobtn" parent="Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:button">@drawable/radiobtn_checked_style</item>
     </style>
