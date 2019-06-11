@@ -54,6 +54,11 @@ class PoliticsSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
     }
 
     private fun setTvEmpty() {
+
+        if (!isSearch) {
+            mBinding.tvTopEmpty.setText("没有找到内容")
+        }
+
         val spannableString = SpannableString("快去主动发起问政吧")
 //        val strikethroughSpan = StrikethroughSpan()
 //        spannableString.setSpan(strikethroughSpan, 4, spannableString.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)

@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
+            android:layout_marginLeft="15dp"
             android:layout_toRightOf="@id/text_and_text_name"
             android:background="@null"
             android:ellipsize="end"

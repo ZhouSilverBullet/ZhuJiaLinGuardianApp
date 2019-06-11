@@ -36,7 +36,7 @@ import butterknife.OnClick;
 
 public class EventReportDetailActivity extends GBaseMvpActivity<EventReportDetailPresenter> implements EventReportDetailContract.IView {
 
-    @BindView(R.id.tv_title)
+    @BindView(R.id .tv_title)
     TitleView tvTitle;
     @BindView(R.id.cpb_progress)
     CustomProgressBar cpbProgress;

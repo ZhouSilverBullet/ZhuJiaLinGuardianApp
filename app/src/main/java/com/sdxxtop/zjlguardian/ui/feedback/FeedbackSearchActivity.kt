@@ -14,6 +14,8 @@ import com.sdxxtop.zjlguardian.databinding.ActivityPoliticsSearchBinding
 import com.sdxxtop.zjlguardian.helper.adapter.FeedbackListAdapter
 import com.sdxxtop.zjlguardian.ui.politics.PoliticsSearchViewModel
 import kotlinx.android.synthetic.main.activity_politics_list.*
+import kotlinx.android.synthetic.main.activity_politics_list.tv_title
+import kotlinx.android.synthetic.main.activity_politics_search.*
 import org.jetbrains.anko.startActivity
 
 
@@ -52,6 +54,11 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
     }
 
     private fun setTvEmpty() {
+
+        if (!isSearch) {
+            mBinding.tvTopEmpty.setText("没有找到内容")
+        }
+
         val spannableString = SpannableString("快去主动发送信件吧")
 //        val strikethroughSpan = StrikethroughSpan()
 //        spannableString.setSpan(strikethroughSpan, 4, spannableString.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
@@ -138,7 +145,7 @@ class FeedbackSearchActivity : KBaseActivity<ActivityPoliticsSearchBinding>(), T
                 if (isToEditSkip) { //搜索页面过来的，直接结束就好了
                     finish()
                 } else {
-                    startActivity<FeedbackSearchActivity>()
+                    startActivity<FeedbackActivity>()
                     finish()
                 }
             }
